@@ -1,5 +1,6 @@
 package br.com.bandtec.rpgdesenvolvimento.controller;
 
+
 public class Credenciais {
 	
 	private String login;

@@ -40,9 +40,6 @@ public class UsuariosController {
 	private List<Usuario> obterTodosUsuarios(){
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 		usuarios.add(new Usuario("Maria", 18));
-		usuarios.add(new Usuario("João", 28));
-		usuarios.add(new Usuario("Zeca", 23));
-		usuarios.add(new Usuario("Jubileu", 18));
 		return usuarios;
 	}
 }
