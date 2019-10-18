@@ -1,6 +1,8 @@
-package br.com.bandtec.rpgdesenvolvimento.controller;
+package com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller;
 
+import javax.persistence.Embeddable;
 
+@Embeddable
 public class Credenciais {
 	
 	private String login;
