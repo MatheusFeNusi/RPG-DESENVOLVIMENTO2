@@ -329,7 +329,7 @@ a img.aligncenter {
 -------------------------------------------------------------------*/
 
 .top-bar{
-	background: #121212;	
+	background: #cacaca;	
 	padding: 4px 0px;
 }
 
@@ -403,13 +403,13 @@ a img.aligncenter {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link:hover{
-	background: #AD1457;
+	background: rgb(235, 4, 4);
 	color: #ffffff;
 	border-radius: 2px;
 }
-
+/* Cor dos botões do navbar quando clica*/
 .navbar-expand-lg .navbar-nav .nav-link.active{
-	background: #AD1457;
+	background: rgba(14, 13, 13, 0.836);
 	color: #ffffff;
 	font-weight: 600;
 	border-radius: 2px;
@@ -444,15 +444,15 @@ a img.aligncenter {
 .megamenu .list-unstyled {
     min-width: 200px;
 }
-
+/* cor da navbar index*/
 .header_style_01 {
-    background-color: rgba(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.85);
     display: block;
     left: 0;
     padding: 10px 0px !important;
-    position: absolute;
+    
     right: 0;
-    top: 0;
+    
     width: 100%;
     z-index: 111;
 }
@@ -491,6 +491,7 @@ a img.aligncenter {
 .header_style_01 .navbar-default .navbar-nav > li:hover a,
 .header_style_01 .navbar-default .navbar-nav > li:focus a {
     color: #C62828;
+    
 }
 
 .header_style_01 .navbar-right > li {
@@ -650,7 +651,7 @@ body.app_version .header_style_01.fixed-menu{
 }
 
 .section.db {
-    background-color: #1f1f1f;
+    background-color: #ffffff;
 }
 
 .section.color1 {
