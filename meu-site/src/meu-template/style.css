@@ -446,11 +446,11 @@ a img.aligncenter {
 }
 /* cor da navbar index*/
 .header_style_01 {
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(0, 0, 0,0.85);
     display: block;
     left: 0;
     padding: 10px 0px !important;
-    
+    top: -100%;
     right: 0;
     
     width: 100%;
@@ -460,6 +460,7 @@ a img.aligncenter {
 .header_style_01 .navbar-default {
     background-color: transparent;
     border: 0;
+
 }
 
 .header_style_01 .navbar,
@@ -1758,7 +1759,7 @@ body.app_version .bootstrap-select .btn-light:hover{
     font-weight: 400;
     font-size: 20px;
     text-transform: capitalize;
-    line-height: !important;
+    line-height: 1 !important;
 }
 
 .footer {
@@ -2009,7 +2010,7 @@ body.app_version .bootstrap-select .btn-light:hover{
     color: #999 !important;
     margin: 0 !important;
     padding: 0 !important;
-    line-height: 1 !important:
+    line-height: 1 !important;
 }
 
 .stat-wrap p {
@@ -2018,7 +2019,7 @@ body.app_version .bootstrap-select .btn-light:hover{
     margin: 0;
     font-weight: 300;
     padding: 4px 0 0;
-    line-height: 1 !important:
+    line-height: 1 !important;
 }
 
 #preloader {
