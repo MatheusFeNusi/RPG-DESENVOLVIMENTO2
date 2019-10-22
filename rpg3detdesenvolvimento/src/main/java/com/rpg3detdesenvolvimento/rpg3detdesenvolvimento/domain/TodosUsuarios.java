@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller.Credenciais;
 
+import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.Usuario;
+
 @Repository
 public interface TodosUsuarios 
 	extends JpaRepository<Usuario, Long> {
@@ -20,4 +22,8 @@ public interface TodosUsuarios
 
 	@Query("select u from Usuario u where u.nome = :nome")
 	public List<Usuario> obterPorNome(@Param("nome") String nome);
+	
+	
+	@Query("select u from Usuario u where u.credenciais.Email = :login and u.credenciais.senha = :senha")
+	public Usuario existe(@Param("login") String login, @Param("senha") String senha);
 }

@@ -5,16 +5,16 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Credenciais {
 	
-	private String login;
+	private String Email;
 	private String senha;
 	
-	public Credenciais(String login, String senha) {
-		this.login = login;
+	public Credenciais(String Email, String senha) {
+		this.Email = Email;
 		this.senha = senha;
 	}
 	
-	public String getLogin() {
-		return login;
+	public String getEmail() {
+		return Email;
 	}
 
 	public String getSenha() {

@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.TodosUsuarios;
 
+import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller.Credenciais;
+
 @RestController
 public class LoginController {
 
 	private TodosUsuarios todosUsuarios;
+	
 	
 	@Autowired
 	public LoginController(TodosUsuarios todosUsuarios) {
@@ -20,20 +23,13 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login")
-	public ResponseEntity<String> validarLogin(
-			@RequestBody Credenciais credenciais) {
-		//if(credenciais.getLogin().equals(credenciais.getSenha())) {
-		if(todosUsuarios
-				.buscarUsando(credenciais) != null) {
-			return ResponseEntity
-					.status(HttpStatus.OK)
-					.body("Sucesso");
-			//return ResponseEntity.ok("Sucesso");
+	public ResponseEntity<String> validarLogin(@RequestBody Credenciais credenciais) {
+		ResponseEntity<String> resposta = ResponseEntity.ok("Sucesso");
+		
+		if(todosUsuarios.existe(credenciais.getEmail(), credenciais.getSenha()) == null) {
+			resposta = ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login/senha não conferem");
 		}
-		else {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-					.body("Erro");
-		}
+		return resposta;
 	}
 
 }
