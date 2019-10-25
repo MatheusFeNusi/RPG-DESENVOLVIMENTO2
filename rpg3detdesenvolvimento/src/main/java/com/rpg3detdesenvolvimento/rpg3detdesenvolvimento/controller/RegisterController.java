@@ -5,11 +5,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.TodosUsuarios;
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.Usuario;
 
-
+@RestController
 public class RegisterController {
 	
 	private TodosUsuarios todosUsuarios;
@@ -20,7 +21,7 @@ public class RegisterController {
 		this.todosUsuarios = todosUsuarios;
 	}
 	
-	@PostMapping("/Register")
+	@PostMapping("/register")
 	public ResponseEntity<String> salvar(@RequestBody Usuario usuario){
 		this.todosUsuarios.save(usuario);
 		return ResponseEntity.ok("cadastrado");
