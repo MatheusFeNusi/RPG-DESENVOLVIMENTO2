@@ -27,7 +27,7 @@ public class Usuario {
 	private String nome;
 	@JsonProperty
 	private Integer idade;
-
+	
 	
 	public Usuario(String nome, Integer idade) {
 		this.nome = nome;

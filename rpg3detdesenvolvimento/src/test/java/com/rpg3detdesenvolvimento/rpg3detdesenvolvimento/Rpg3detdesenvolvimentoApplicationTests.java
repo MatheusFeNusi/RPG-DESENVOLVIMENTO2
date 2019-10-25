@@ -30,31 +30,4 @@ class Rpg3detdesenvolvimentoApplicationTests {
 	void contextLoads() {
 	}
 
-	
-	@Test
-	public void loginComSucesso() {
-		Credenciais c = new Credenciais("login", "login");
-		Mockito.when(todosUsuarios.buscarUsando(c))
-			.thenReturn(new Usuario("Rodrigo", 39));
-		LoginController controller = new LoginController(todosUsuarios);
-		
-		ResponseEntity<String> resposta =  
-				controller.validarLogin(c);
-		
-		assertEquals(HttpStatus.OK, resposta.getStatusCode());
-		assertEquals("Sucesso", resposta.getBody());
-	}
-	
-	@Test
-	public void loginComFalha() {
-		Credenciais c = new Credenciais("login", "senha");
-		Mockito.when(todosUsuarios.buscarUsando(c)).thenReturn(null);
-		LoginController controller  = new LoginController(todosUsuarios);
-		
-		ResponseEntity<String> resposta = 
-				controller.validarLogin(c);
-		
-		assertEquals(HttpStatus.UNAUTHORIZED, resposta.getStatusCode());
-		assertEquals("Erro", resposta.getBody());
-	}
 }

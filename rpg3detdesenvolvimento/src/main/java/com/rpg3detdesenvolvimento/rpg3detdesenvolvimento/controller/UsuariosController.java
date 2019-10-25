@@ -30,14 +30,4 @@ public class UsuariosController {
 		return ResponseEntity.status(HttpStatus.OK).body(usuario);
 	}
 	
-	@GetMapping("/usuarios/nome/{nomeDoUsuario}")
-	public ResponseEntity<List<Usuario>> obterPorNome(
-			@PathVariable("nomeDoUsuario") String nome){
-		
-		List<Usuario> usuarios = todosUsuarios.obterPorNome(nome);
-		if(usuarios.isEmpty()) {
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-		}
-		return ResponseEntity.status(HttpStatus.OK).body(usuarios); 
-	}
 }

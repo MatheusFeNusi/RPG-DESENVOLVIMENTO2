@@ -13,14 +13,26 @@ import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.Usuario;
 @RestController
 public class RegisterController {
 	
+	//{ 
+		//  "nome":"matheus",
+		//  "idade":19,
+		//  "credenciais": {
+		//    "Email": "matheus@matheus",
+		//    "senha": "123"
+		//  }
+	//	} se testa assim no Json para cadastrar no api rest client 
+	
 	private TodosUsuarios todosUsuarios;
 	
-	
+	//autoriza essa classe usar a classe todosUsuarios
 	@Autowired
 	public RegisterController(TodosUsuarios todosUsuarios) {
 		this.todosUsuarios = todosUsuarios;
 	}
 	
+	//cria uma rota /register para ser salvo os dados da tabela usuario 
+	//save é um metodo que o propio jpa cria sozinho para gravar informações 
+	//basta apenas passar o JSON
 	@PostMapping("/register")
 	public ResponseEntity<String> salvar(@RequestBody Usuario usuario){
 		this.todosUsuarios.save(usuario);

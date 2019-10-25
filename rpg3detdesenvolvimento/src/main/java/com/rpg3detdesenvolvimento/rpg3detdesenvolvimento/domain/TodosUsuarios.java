@@ -15,15 +15,6 @@ import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.Usuario;
 public interface TodosUsuarios 
 	extends JpaRepository<Usuario, Long> {
 	
-	@Query("select u from Usuario u "
-			+ "where u.credenciais = :credenciais")
-	public Usuario buscarUsando(
-			@Param("credenciais") Credenciais credenciais);
-
-	@Query("select u from Usuario u where u.nome = :nome")
-	public List<Usuario> obterPorNome(@Param("nome") String nome);
-	
-	
 	@Query("select u from Usuario u where u.credenciais.Email = :login and u.credenciais.senha = :senha")
 	public Usuario existe(@Param("login") String login, @Param("senha") String senha);
 }

@@ -23,13 +23,18 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login")
-	public ResponseEntity<String> validarLogin(@RequestBody Credenciais credenciais) {
-		ResponseEntity<String> resposta = ResponseEntity.ok("Sucesso");
-		
-		if(todosUsuarios.existe(credenciais.getEmail(), credenciais.getSenha()) == null) {
-			resposta = ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Login/senha não conferem");
+	public ResponseEntity<String> validarLogin(
+			@RequestBody Credenciais credenciais) {
+		if(credenciais.getEmail().equals(credenciais.getSenha())) {
+			return ResponseEntity
+					.status(HttpStatus.OK)
+					.body("Sucesso");
 		}
-		return resposta;
+		else {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+					.body("Login não autorizado");
+		}
 	}
+	
 
 }
