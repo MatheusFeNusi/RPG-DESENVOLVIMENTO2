@@ -1,6 +1,6 @@
 #FileLock
-#Tue Oct 29 10:44:58 BRT 2019
-server=10.11.10.31\:60908
-hostName=STFSAON004325-W.stefanini.dom
+#Tue Oct 29 17:08:43 BRT 2019
+hostName=HSL241
+id=16e19227f256449f7421ae807b1f48da14d72554489
 method=file
-id=16e17c32fcdd15eb17354b1b644c743e44e50cce9bc
+server=10.3.1.160\:54512

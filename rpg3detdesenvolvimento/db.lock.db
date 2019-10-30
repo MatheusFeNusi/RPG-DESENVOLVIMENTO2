@@ -1,0 +1,6 @@
+#FileLock
+#Tue Oct 29 17:16:45 BRT 2019
+hostName=HSL241
+id=16e1929e25dd3b1935c3ac102e919aa4348cd8be278
+method=file
+server=10.3.1.160\:54567
