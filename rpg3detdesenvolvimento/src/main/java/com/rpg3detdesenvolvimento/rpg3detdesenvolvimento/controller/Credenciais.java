@@ -1,5 +1,6 @@
 package com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,12 +13,13 @@ public class Credenciais {
 	
 	private String senha;
 	
-	public Credenciais() {		
-	}
-	
 	public Credenciais(String email, String senha) {
 		this.email = email;
 		this.senha = senha;
+	}
+
+	public Credenciais() {
+		
 	}
 	
 	public String getEmail() {

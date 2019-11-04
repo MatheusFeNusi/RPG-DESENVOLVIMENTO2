@@ -1,15 +1,11 @@
 package com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain;
 
-
-
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller.Credenciais;
 
@@ -18,7 +14,7 @@ import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller.Credenciais;
 public class Usuario {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY	)
 	private Long id;
 	
 	@Embedded
@@ -27,20 +23,12 @@ public class Usuario {
 	
 	@JsonProperty
 	private String nome;
+
 	@JsonProperty
-	private Integer idade;
+	private String idade;
 	
-	
-	public Usuario(String nome, Integer idade) {
-		this.nome = nome;
-		this.idade = idade;
+	public Usuario(){
+
 	}
-	
-	public String getNome() {
-		return nome;
-	}
-	
-	public Integer getIdade() {
-		return idade;
-	}
+
 }

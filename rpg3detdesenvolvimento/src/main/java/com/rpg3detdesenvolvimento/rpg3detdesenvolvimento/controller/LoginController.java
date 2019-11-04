@@ -15,26 +15,34 @@ import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller.Credenciais;
 public class LoginController {
 
 	private TodosUsuarios todosUsuarios;
-	
-	
+
 	@Autowired
 	public LoginController(TodosUsuarios todosUsuarios) {
 		this.todosUsuarios = todosUsuarios;
 	}
-	
+
 	@PostMapping("/login")
-	public ResponseEntity<String> validarLogin(
-			@RequestBody Credenciais credenciais) {
-		if(credenciais.getEmail().equals(credenciais.getSenha())) {
-			return ResponseEntity
-					.status(HttpStatus.OK)
-					.body("Sucesso");
+	public ResponseEntity<String> validarLogin(@RequestBody Credenciais credenciais) {
+
+		// if(credenciais.getEmail().equals(credenciais(.getSenha))) {
+		// return ResponseEntity
+		// .status(HttpStatus.OK)
+		// .body("Sucesso");
+		// }
+		// else {
+		// return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+		// .body("Login não autorizado");
+		// }
+
+		/*
+		O if esta comparando a credenciais do login com as existentes no banco 
+		para validar
+		*/
+		
+		if (todosUsuarios.existe(credenciais) == null) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("NÃO É VALIDO!");
 		}
-		else {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-					.body("Login não autorizado");
-		}
+		return ResponseEntity.ok("Validado com sucesso!");
 	}
-	
 
 }
