@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.TodosUsuarios;
-import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.Usuario;
+
+import Entidades.Usuario;
 
 @RestController
 public class UsuariosController {

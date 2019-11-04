@@ -11,9 +11,9 @@ import org.springframework.http.ResponseEntity;
 
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller.Credenciais;
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller.LoginController;
-import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.Usuario;
-
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.TodosUsuarios;
+
+import Entidades.Usuario;
 
 @SpringBootTest
 class Rpg3detdesenvolvimentoApplicationTests {

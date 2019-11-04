@@ -1,4 +1,4 @@
-package com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain;
+package Entidades;
 
 
 
@@ -23,6 +23,7 @@ public class Usuario {
 	
 	@Embedded
 	@JsonProperty
+	@NotEmpty
 	private Credenciais credenciais;
 	
 	@JsonProperty
@@ -36,7 +37,7 @@ public class Usuario {
 		this.idade = idade;
 	}
 	
-	public String getNome() {
+	public  String getNome() {
 		return nome;
 	}
 	

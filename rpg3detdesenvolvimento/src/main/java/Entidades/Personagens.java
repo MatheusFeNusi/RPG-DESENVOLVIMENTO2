@@ -1,4 +1,4 @@
-package com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain;
+package Entidades;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,23 +16,26 @@ public class Personagens {
 	@GeneratedValue
 	private Long id;
 	
+	@JsonProperty
+	private int vida;
+	
 
 	@JsonProperty
-	private String forca;
+	private int forca;
 	
 	@JsonProperty
-	private String habilidade;
-	
-	
-	@JsonProperty
-	private Integer resistencia;
-	
-	@JsonProperty
-	private String armadura;
+	private int habilidade;
 	
 	
 	@JsonProperty
-	private Integer poderdefogo;
+	private int resistencia;
+	
+	@JsonProperty
+	private int armadura;
+	
+	
+	@JsonProperty
+	private int poderdefogo;
 
 
 	public Long getId() {
@@ -45,56 +48,66 @@ public class Personagens {
 	}
 
 
-	public String getForca() {
+	public int getVida() {
+		return vida;
+	}
+
+
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+
+
+	public int getForca() {
 		return forca;
 	}
 
 
-	public void setForca(String forca) {
+	public void setForca(int forca) {
 		this.forca = forca;
 	}
 
 
-	public String getHabilidade() {
+	public int getHabilidade() {
 		return habilidade;
 	}
 
 
-	public void setHabilidade(String habilidade) {
+	public void setHabilidade(int habilidade) {
 		this.habilidade = habilidade;
 	}
 
 
-	public Integer getResistencia() {
+	public int getResistencia() {
 		return resistencia;
 	}
 
 
-	public void setResistencia(Integer resistencia) {
+	public void setResistencia(int resistencia) {
 		this.resistencia = resistencia;
 	}
 
 
-	public String getArmadura() {
+	public int getArmadura() {
 		return armadura;
 	}
 
 
-	public void setArmadura(String armadura) {
+	public void setArmadura(int armadura) {
 		this.armadura = armadura;
 	}
 
 
-	public Integer getPoderdefogo() {
+	public int getPoderdefogo() {
 		return poderdefogo;
 	}
 
 
-	public void setPoderdefogo(Integer poderdefogo) {
+	public void setPoderdefogo(int poderdefogo) {
 		this.poderdefogo = poderdefogo;
 	}
-	
-	
+
+
 	
 	
 	
