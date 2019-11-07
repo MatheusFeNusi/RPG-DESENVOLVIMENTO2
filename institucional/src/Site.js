@@ -9,6 +9,9 @@ import time4 from './meu-template/uploads/douglas.jpg';
 import time5 from './meu-template/uploads/luis.jpg';
 import gambiarra from './meu-template/uploads/gambiarra.svg';
 
+import {Link} from 'react-router-dom';
+
+
 export default class Site extends Component {
 
 
@@ -33,7 +36,11 @@ render() {
                                     <li><a className="nav-link" href="#screenshots"><b>Screenshots</b></a></li>
                                     <li><a className="nav-link" href="#team"><b>Time</b></a></li>
                                     <li><a className="nav-link" href="#testimonials"><b>Cliente</b></a></li>
+
+                                    <link to="/Interacao">
                                     <li><a className="nav-link" href="#"><b>Login</b></a></li>
+                                    </link>
+
                                 </ul>
                             </div>
                         </div>

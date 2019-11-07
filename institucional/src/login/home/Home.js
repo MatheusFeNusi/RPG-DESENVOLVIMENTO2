@@ -8,19 +8,18 @@ class Home extends Component {
                 <div className="container">
                     <div className="graf-bg-container">
                         <div className="graf-layout">
-
-                            
                         <h1 className="home-title">3DETERMINATION</h1>
                         <h1 className="home-title">              </h1>
                         <h1 className="home-title">              </h1>
+                            <div className="graf-circle"></div>
+                            <div className="graf-circle"></div>
+                            <div className="graf-circle"></div>
+                            <div className="graf-circle"></div>
+                            <div className="graf-circle"></div>
+                            <div className="graf-circle"></div>
+                            <div className="graf-circle"></div>
+                          
 
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            <div className="graf-circle"></div>
-                            
                            
                         </div>
                     </div>
