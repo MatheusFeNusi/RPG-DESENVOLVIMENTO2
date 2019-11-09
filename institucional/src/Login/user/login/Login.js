@@ -81,12 +81,12 @@ export default class LoginForm extends Component {
 
 
         urlPadrao.post(
-            "login", { email, senha }).then(res=>{
-                if(res.status==200){
+            "login", { email, senha }).then(res => {
+                if (res.status == 200) {
                     alert("sucesso")
                 }
-                
-            }                
+
+            }
             ).catch(err => console.error(err))
     }
 
@@ -129,7 +129,7 @@ export default class LoginForm extends Component {
                         onChange={this.handleInputChange} required />
                 </div>
                 <div className="form-item">
-                    <button onClick={this.logar} type="button"  className="btn btn-block btn-primary">Login</button>
+                    <button onClick={this.logar} type="button" className="btn btn-block btn-primary">Login</button>
                 </div>
             </form>
         );

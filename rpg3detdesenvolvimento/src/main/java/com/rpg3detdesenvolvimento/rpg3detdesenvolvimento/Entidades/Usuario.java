@@ -1,4 +1,4 @@
-package Entidades;
+package com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.Entidades;
 
 
 
@@ -11,7 +11,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller.Credenciais;
 
 @Entity
 @Table(name="usuarios")
@@ -20,11 +19,12 @@ public class Usuario {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	@Embedded
+
 	@JsonProperty
-	@NotEmpty
-	private Credenciais credenciais;
+	private String email;
+	
+	@JsonProperty
+	private String senha;	
 	
 	@JsonProperty
 	private String nome;
@@ -43,5 +43,14 @@ public class Usuario {
 	
 	public Integer getIdade() {
 		return idade;
+	}
+	
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public String getSenha() {
+		return senha;
 	}
 }

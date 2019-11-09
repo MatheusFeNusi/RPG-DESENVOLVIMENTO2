@@ -9,11 +9,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.Entidades.Usuario;
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller.Credenciais;
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller.LoginController;
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.TodosUsuarios;
-
-import Entidades.Usuario;
 
 @SpringBootTest
 class Rpg3detdesenvolvimentoApplicationTests {
