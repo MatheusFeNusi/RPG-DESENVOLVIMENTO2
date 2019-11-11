@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import Container from 'react-bootstrap/Container'
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -12,7 +12,7 @@ import Perso3 from './Imagens/personagem4.png';
 import Perso4 from './Imagens/personagem3.png';
 import TeladeFundo from './Imagens/teladeFundo.svg';
 import FichaMestre from './Imagens/fichaMestre.svg';
-import Dados from './Imagens/dadoInteracao.svg'
+import Dados from './Imagens/dadoInteracao.svg';
 
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';

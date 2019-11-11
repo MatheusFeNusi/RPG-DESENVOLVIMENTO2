@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {InputText} from 'primereact/inputtext';
-import {Button} from 'primereact/button';
 
 export default class InputClass extends Component { 
     constructor() {

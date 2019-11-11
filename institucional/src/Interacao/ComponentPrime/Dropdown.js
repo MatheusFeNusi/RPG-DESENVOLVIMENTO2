@@ -37,7 +37,7 @@ export default class DropdownClass extends Component {
                 
                 <div className="content-section implementation">
                     
-                    <Dropdown style={{backgroundColor: 'red'}} value={this.state.vantagem} options={vantagens} onChange={this.onVantagemChange} placeholder="Vantagens" optionLabel="name" filter={true} />
+                    <Dropdown value={this.state.vantagem} options={vantagens} onChange={this.onVantagemChange} placeholder="Vantagens" optionLabel="name" filter={true} />
                     <br />
                     
                     <Dropdown value={this.state.desvantagem} options={desvantagens} onChange={this.onDesvantagemChange} placeholder="Desvantagens" optionLabel="name" filter={true} style={{ backgroundColor: 'red', color: 'black'}}/>

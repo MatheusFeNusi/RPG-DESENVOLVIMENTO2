@@ -15,7 +15,7 @@ export default class ProgressBar2 extends Component {
         this.displayValueTemplate = this.displayValueTemplate.bind(this);
     }
     showInfo() {
-        this.growl.show({ severity: 'info', summary: 'Informação', detail: 'Digite um valor de 1 até 100' });
+        this.growl.show({ severity: 'info', summary: 'Informação', detail: 'Digite um valor de 1 a 100' });
     }
     toggle() {
         this.setState({ disabled: !this.state.disabled });

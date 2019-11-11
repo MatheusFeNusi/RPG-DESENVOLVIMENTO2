@@ -35,7 +35,7 @@ export default class DialogMensagem extends Component {
         return (
             <div>
                 <div className="content-section implementation">
-                    <Dialog header="Você que uma história?" visible={this.state.visible} footer={footer} style={{width: '50vw'}} onHide={this.onHide} maximizable>
+                    <Dialog header="Você quer uma história?" visible={this.state.visible} footer={footer} style={{width: '50vw'}} onHide={this.onHide} maximizable>
                     <InputTextarea style={{ width: '600px', height: '-70px' }} placeholder="Digite a hitória do seu personagem"
                 value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })} rows={5} cols={30}></InputTextarea>
                     </Dialog>

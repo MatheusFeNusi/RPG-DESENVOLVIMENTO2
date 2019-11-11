@@ -334,7 +334,7 @@ export default class Site extends Component {
                                             <li><a href="mailto:#">info@yoursite.com</a></li>
                                             <li><a href="#">www.yoursite.com</a></li>
                                             <li>91 Leeton Ridge Lane Bettendorf, IA 52722</li>
-                                            <li>+61 3 8376 6000</li>
+                                            <li>+</li>
                                         </ul>{/* end links */}
                                     </div>{/* end clearfix */}
                                 </div>{/* end col */}
