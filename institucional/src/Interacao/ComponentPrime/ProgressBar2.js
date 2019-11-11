@@ -1,62 +1,47 @@
-import React, {Component} from 'react';
-import {ProgressBar} from 'primereact/progressbar';
-import {Growl} from 'primereact/growl';
+import React, { Component } from 'react';
+import { ProgressBar } from 'primereact/progressbar';
+import { Growl } from 'primereact/growl';
+import { InputText } from 'primereact/inputtext';
 
-export class ProgressBar2 extends Component {
+export default class ProgressBar2 extends Component {
 
     constructor() {
         super();
         this.state = {
-            value1: 0, 
-            value2: 50,
-            value3: 40
+            value1: 10,
+            value2: 5
         };
-
+        this.showInfo = this.showInfo.bind(this);
         this.displayValueTemplate = this.displayValueTemplate.bind(this);
     }
-
+    showInfo() {
+        this.growl.show({ severity: 'info', summary: 'Informação', detail: 'Digite um valor de 1 até 100' });
+    }
+    toggle() {
+        this.setState({ disabled: !this.state.disabled });
+    }
     displayValueTemplate(value) {
-        return (
-            <React.Fragment>
-                {value}/<b>100</b>
-            </React.Fragment>
-        );
-    }
+        return <React.Fragment> {value}/100</React.Fragment>
 
-    componentDidMount() {
-        this.interval = setInterval(() => {
-            let val = this.state.value1;
-            val += Math.floor(Math.random() * 10) + 1;
-
-            if(val >= 100) {
-                val = 100;
-                this.growl.show({severity: 'info', summary: 'Success', detail: 'Process Completed'});
-                clearInterval(this.interval);
-            }
-
-            this.setState({
-                value1: val
-            });
-        }, 2000);
-    }
-
-    componentWillUnmount () {
-        if (this.interval) {
-            clearInterval(this.interval);
-            this.interval = null;
-        }
     }
 
     render() {
         return (
+            <div>
                 <div className="content-section implementation">
                     <Growl ref={(el) => this.growl = el}></Growl>
-
-                    <div ><h3>{this.props.name}</h3>
-                    <ProgressBar value={this.state.value1} style={{width:'300px'}}></ProgressBar></div>
-                    
-
+                    <br />
+                    <InputText type="number" style={{ width: '57px', height: '26px' }} value={this.state.value1 > 100|| this.state.value1 < 0 ? 100 + this.showInfo() : this.state.value1} tooltip="Digite o ponto de vida" placeholder="PV" maxlength="3" onChange={(e) => this.setState({ value1: e.target.value })} />
+                    <div style={{ width: '200px', marginTop: '-26px', marginLeft: '59px' }}>
+                        <ProgressBar value={this.state.value1 > 100 || this.state.value1 < 0 ? 0 : this.state.value1} displayValueTemplate={this.props.displayValueTemplate}></ProgressBar>
+                    </div>
+                    <br />
+                    <InputText type="number" style={{ width: '57px', height: '26px' }} value={this.state.value2 > 100|| this.state.value1 < 0 ? 100 + this.showInfo() : this.state.value2} tooltip="Digite o ponto de mana" placeholder="PM" maxlength="3" onChange={(e) => this.setState({ value2: e.target.value })} />
+                    <div style={{ width: '200px', marginTop: '-26px', marginLeft: '59px' }}>
+                        <ProgressBar value={this.state.value2 > 100 || this.state.value1 < 0 ? 0 : this.state.value2} displayValueTemplate={this.props.displayValueTemplate}></ProgressBar>
+                    </div>
                 </div>
+            </div>
         );
     }
 }

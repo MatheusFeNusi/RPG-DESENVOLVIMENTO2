@@ -19,7 +19,7 @@ export const ProgressBarApp = () => {
     let [percentRange, setProgress] = useState(0);
 
     return (
-        <div className="container">
+        <div className="container" style={{width: '110px', height: '110px'}}>
             <ProgressBar percentRange={percentRange}/>
             <div className="toggle-buttons">
                 <button onClick={() => setProgress(percentRange > 0 ?

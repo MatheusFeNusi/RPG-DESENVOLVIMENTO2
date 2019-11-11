@@ -1,39 +1,46 @@
 import React, {Component} from 'react';
 import {Dropdown} from 'primereact/dropdown';
-
-export class DropdownDemo extends Component {
+export default class DropdownClass extends Component {
 
     constructor() {
         super();
         this.state = {
-            city: null, 
-           
+            vantagem: null, 
+           desvantagem: null
         };
         
-        this.onCityChange = this.onCityChange.bind(this);
+        this.onVantagemChange = this.onVantagemChange.bind(this);
+        this.onDesvantagemChange = this.onDesvantagemChange.bind(this);
         
     }
 
-    onCityChange(e) {
-        this.setState({city: e.value});
+    onVantagemChange(e) {
+        this.setState({vantagem: e.value});
+    }
+    onDesvantagemChange(e) {
+        this.setState({desvantagem: e.value});
     }
 
    
     render() {
-        const cities = [
+        const vantagens = [
             {name: 'New York', code: 'NY'},
             {name: 'Rome', code: 'RM'},
             {name: 'London', code: 'LDN'},
             {name: 'Istanbul', code: 'IST'},
             {name: 'Paris', code: 'PRS'}
         ];
+        const desvantagens = [];
 
         return (
             <div>
                 
                 <div className="content-section implementation">
                     
-                    <Dropdown value={this.state.city} options={cities} onChange={this.onCityChange} placeholder={this.props.holder} optionLabel="name" filter={true}/>
+                    <Dropdown style={{backgroundColor: 'red'}} value={this.state.vantagem} options={vantagens} onChange={this.onVantagemChange} placeholder="Vantagens" optionLabel="name" filter={true} />
+                    <br />
+                    
+                    <Dropdown value={this.state.desvantagem} options={desvantagens} onChange={this.onDesvantagemChange} placeholder="Desvantagens" optionLabel="name" filter={true} style={{ backgroundColor: 'red', color: 'black'}}/>
 
                    
                 </div>
