@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Route,
-  Switch
-} from 'react-router-dom';
+import {Route,Link,Switch} from 'react-router-dom';
 import AppHeader from '../common/AppHeader';
 import Home from '../home/Home';
 import Login from '../user/login/Login';
@@ -76,7 +73,7 @@ class App extends Component {
         </div>
         <div className="app-body">
           <Switch>
-            <Route exact path="/" component={Home}></Route>           
+                    
             <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
               component={Profile}></PrivateRoute>
             <Route path="/login"
