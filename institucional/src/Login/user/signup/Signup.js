@@ -11,35 +11,35 @@ import { urlPadrao } from "../../services/api";
 
 
 export default class Signup extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
             nome: '',
             idade: '',
-            credenciais:{
-            email:'',
-            senha:''
-            }
-        };
-    }
+            email: '',
+            senha: ''
+        }
+    };
+
     cadastrar = () => {
         // let email = this.state.email
         // let senha = this.state.senha
         let nome = this.state.nome
         let idade = this.state.idade
-        let email = this.state.credenciais.email
-        let senha = this.state.credenciais.senha
+        let email = this.state.email
+        let senha = this.state.senha
 
         // let senha = this.state.credenciais.senha
 
         urlPadrao.post(
-            "register", { email,senha,nome,idade }).then(res=>{
+            "usuarios", { email, senha, nome, idade }).then(res => {
                 console.log(res.data)
-                // if(res.status==200){
-                //     Redirect("/")
-                // }
-                
-            }                
+                if (res.status == 200) {
+                    Redirect("/login")
+                }
+
+            }
             ).catch(err => console.error(err))
     }
 
@@ -53,8 +53,8 @@ export default class Signup extends Component {
 
     }
 
-    
-    
+
+
 
     // handleSubmit(event) {
     //     event.preventDefault();
@@ -72,9 +72,10 @@ export default class Signup extends Component {
     // }
 
     render() {
-        console.log(this.state)
+        console.log(this.state);
         return (
-            <form >
+
+            < form >
                 <div className="form-item">
                     <input type="email" id="email" name="email"
                         className="form-control" placeholder="email"
@@ -97,9 +98,9 @@ export default class Signup extends Component {
                 </div>
 
                 <div className="form-item">
-                    <button onClick={this.cadastrar} type="button"  className="btn btn-block btn-primary">Login</button>
+                    <button onClick={this.cadastrar} type="button" className="btn btn-block btn-primary">Login</button>
                 </div>
-            </form>
+            </form >
         );
     }
 }
