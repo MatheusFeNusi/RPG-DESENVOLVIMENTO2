@@ -27,7 +27,7 @@ class AppHeader extends Component {
                                             <NavLink to="/login">Login</NavLink>        
                                         </li>
                                         <li>
-                                            <NavLink to="/signup">Se-Inscrever</NavLink>        
+                                            <NavLink to="/cadastro">Se-Inscrever</NavLink>        
                                         </li>
                                     </ul>
                                 )}

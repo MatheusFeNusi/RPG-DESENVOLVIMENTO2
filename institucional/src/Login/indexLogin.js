@@ -11,7 +11,7 @@ export default class IndexLogin extends Component {
 
         return (
             <Router>
-                <App />
+                
             </Router> 
 
         );

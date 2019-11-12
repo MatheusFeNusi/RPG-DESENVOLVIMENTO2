@@ -8,7 +8,7 @@ import googleLogo from '../../img/google-logo.png';
 import githubLogo from '../../img/github-logo.png';
 import Alert from 'react-s-alert';
 import { urlPadrao } from "../../services/api";
-
+import AppHeader from '../../common/AppHeader'
 
 export default class Signup extends Component {
 
@@ -76,6 +76,12 @@ export default class Signup extends Component {
         return (
 
             < form >
+            <div className="app">
+        <div className="app-top-box">
+          <AppHeader  />
+        </div>
+        </div>
+        <div className="app-body"></div>
                 <div className="form-item">
                     <input type="email" id="email" name="email"
                         className="form-control" placeholder="email"
