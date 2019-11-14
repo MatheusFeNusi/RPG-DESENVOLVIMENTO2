@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './Home.css';
+import Navbar from '../common/AppHeader';
 
 class Home extends Component {
     render() {
         return (
             <form >
+                <Navbar />
 
                 <div className="form-item">
                 <h1 className="home-title">                   3D%TERMINATION  </h1>

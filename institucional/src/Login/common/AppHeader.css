@@ -2,6 +2,7 @@
     height: 60px;
     position: relative;
     z-index: 10;
+    background-color: rgba(0, 0, 0, 0.70);
 }
 
 .app-title {
@@ -35,13 +36,13 @@
     vertical-align: middle;
     padding-left: 15px;
     padding-right: 15px;
-    color: rgba(0,0,0,0.65);
+    color: #0003c7;
 }
 
 .app-nav ul li a:hover {
-    color: #0f96f6;
+    color: #fdfdfd;
 }
 
 .app-nav ul li a.active {
-    color: #0f96f6;
+    color: #0003c7;
 }

@@ -12,13 +12,13 @@ import gambiarra from './meu-template/uploads/gambiarra.svg';
 import { Link } from 'react-router-dom';
 export default class Site extends Component {
 
-
+    
     render() {
 
         return (
             < >
                 <div className="app_version" data-spy="scroll" data-target="#navbarApp" data-offset="98">
-                    <div className="teladeFundo" style={{ backgroundImage: `url(${teladeFundo})` }}>
+                    <div className="teladeFundo" style={{ backgroundImage: `url(${teladeFundo})`,backgroundSize: 'cover' }}>
 
                         <header className="header header_style_01" >
 
@@ -44,8 +44,8 @@ export default class Site extends Component {
                             {/*papaparououoparoudsijsdhidhdffjhdsdbdvuddyvdgdwjgfuwfgefegfiegeufguf8*/}
 
                         </header>
-                        <a className="navbar-brand " href="index.html"><img src={logo} style={{ marginTop: '-120px' }} /></a>
-
+                        
+                        <a className="navbar-brand " href="index.html"><Link to="/"><img src={logo} style={{ marginTop: '-120px' }} /></Link></a>
                         <div id="home" className="parallax first-section" >
                             <div className="container">
                                 <div className="row">
@@ -57,7 +57,7 @@ export default class Site extends Component {
                             </div>{/* end container */}
                         </div>{/* end section */}
                     </div>{/* Fim da imagem da home e navbar */}
-
+                    
 
                     {/*Inicio do sobre nós*/}
                     <div id="purchase" className="parallax section db" style={{ backgroundImage: `url(${sobre})` }} >

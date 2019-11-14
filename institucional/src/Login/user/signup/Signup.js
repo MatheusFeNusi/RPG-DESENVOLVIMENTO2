@@ -9,7 +9,13 @@ import githubLogo from '../../img/github-logo.png';
 import Alert from 'react-s-alert';
 import { urlPadrao } from "../../services/api";
 import AppHeader from '../../common/AppHeader'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Col';
+import Logo from '../../../meu-template/images/logos/logo.svg'
 
+
+import ImagemCadastro from '../../img/imagemCadastro.jpg'
 export default class Signup extends Component {
 
     constructor(props) {
@@ -73,14 +79,19 @@ export default class Signup extends Component {
 
     render() {
         console.log(this.state);
+        
         return (
 
-            < form >
+            < div style={{backgroundImage: `url(${ImagemCadastro})`, width:'1290px',backgroundSize: 'cover', backgroundRepeat:'no-repeat', height: '700px', top: '-100px'}}>
             <div className="app">
         <div className="app-top-box">
           <AppHeader  />
         </div>
         </div>
+        
+
+        <Col md={5} style={{ top: '05px', backgroundColor: 'rgba(0, 0, 0, 0.20)', borderColor: 'black', borderStyle: 'solid'}}>
+        <div><img  src={Logo} style={{backgroundSize: 'cover'}}/> <strong style={{color: 'rgba(250, 255, 0, 1)', fontFamily: 'Rubik', fontSize: '22px'}}>Olá jogador!! Cadastre e divirta</strong></div>
         <div className="app-body"></div>
                 <div className="form-item">
                     <input type="email" id="email" name="email"
@@ -104,9 +115,12 @@ export default class Signup extends Component {
                 </div>
 
                 <div className="form-item">
-                    <button onClick={this.cadastrar} type="button" className="btn btn-block btn-primary">Login</button>
+                    <button onClick={this.cadastrar} type="button" className="btn btn-block btn-primary">Cadastrar-se</button>
                 </div>
-            </form >
+                <br />  
+                </Col>
+                
+            </div >
         );
     }
 }
