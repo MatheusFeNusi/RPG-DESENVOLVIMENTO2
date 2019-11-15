@@ -45,7 +45,7 @@ export default class Site extends Component {
 
                         </header>
                         
-                        <a className="navbar-brand " href="index.html"><Link to="/"><img src={logo} style={{ marginTop: '-120px' }} /></Link></a>
+                        <a className="navbar-brand " href="index.html"><Link to="/"><img src={logo} style={{ marginTop: '-120px', backgroundSize: 'cover' }} /></Link></a>
                         <div id="home" className="parallax first-section" >
                             <div className="container">
                                 <div className="row">
@@ -60,7 +60,7 @@ export default class Site extends Component {
                     
 
                     {/*Inicio do sobre nós*/}
-                    <div id="purchase" className="parallax section db" style={{ backgroundImage: `url(${sobre})` }} >
+                    <div id="purchase" className="parallax section db" style={{ backgroundImage: `url(${sobre})`, backgroundSize: 'cover' }} >
                         <div className="container">
                             <div className="section-title text-center">
 
@@ -74,7 +74,7 @@ export default class Site extends Component {
 
                     {/*Fim do sobre nós*/}
 
-                    <div id="features" className="section wb" >
+                    <div id="features" className="section wb">
                         <div className="container" >
                             <div className="section-title text-center">
                                 <h3>Recursos da nossa aplicação</h3>
@@ -84,7 +84,7 @@ export default class Site extends Component {
                             <div id="default" className="row clearfix zenith_slider">
 
                                 {/*The First row*/}
-                                <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 left-row">
+                                <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 left-row" style={{marginLeft: '-1px'}}>
                                     <ul className="features-left">
                                         <li className="highlight lhgh" data-index="0">
                                             <i className="flaticon-wordpress-logo effect-1" ></i>

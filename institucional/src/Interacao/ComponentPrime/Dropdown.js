@@ -24,7 +24,7 @@ export default class DropdownClass extends Component {
    
     render() {
         const vantagens = [
-            {name: 'New York', code: 'NY'},
+            {name: 'sdsds', code: 'NY'},
             {name: 'Rome', code: 'RM'},
             {name: 'London', code: 'LDN'},
             {name: 'Istanbul', code: 'IST'},

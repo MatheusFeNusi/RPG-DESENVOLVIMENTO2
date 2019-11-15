@@ -78,7 +78,7 @@ class App extends Component {
             <br />
             <br />
             <br />
-            <Col md={4} style={{ left: '400px', marginTop: '-10px', backgroundColor: 'rgba(0, 0, 0, 0.48)' }}>
+            <Col md={4} style={{ left: '400px', marginTop: '-10px', backgroundColor: 'rgba(0, 0, 0, 0.48)', borderColor: 'black', borderStyle: 'solid' }}>
               <div className="app-body">
               <div> <img src={Logo}  /><strong style={{color: 'rgba(250, 255, 0, 1)', fontFamily: 'Rubik', fontSize: '22px'}}>3D&T Termination</strong></div>
 

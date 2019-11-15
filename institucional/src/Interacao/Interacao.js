@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 import Mestre from './Imagens/mestre.png';
-import Perso1 from './Imagens/personagem.png';
-import Perso2 from './Imagens/personagem1.png';
-import Perso3 from './Imagens/personagem4.png';
-import Perso4 from './Imagens/personagem3.png';
+import Perso1 from './Imagens/personagem.jpg';
+import Perso2 from './Imagens/personagem1.jpg';
+import Perso3 from './Imagens/personagem4.jpg';
+import Perso4 from './Imagens/personagem3.jpg';
 import TeladeFundo from './Imagens/teladeFundo.svg';
 import FichaMestre from './Imagens/fichaMestre.svg';
 import Dados from './Imagens/dadoInteracao.svg';

@@ -116,13 +116,13 @@ export default class LoginForm extends Component {
         return (
             <form >
                 <div className="form-item">
-                    <input type="email" id="email" name="email"
-                        className="form-control" placeholder="Email"
+                    <input type="email" id="email" name="email" style={{height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
+                        className="form-control" placeholder="Email" data-toggle="tooltip"  title="Digite seu email"
                         onChange={this.handleInputChange} required />
                 </div>
                 <div className="form-item">
-                    <input type="password" id="senha" name="senha"
-                        className="form-control" placeholder="Password"
+                    <input type="password" id="senha" name="senha" style={{height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
+                        className="form-control" placeholder="Senha" data-toggle="tooltip"  title="Digite sua senha"
                         onChange={this.handleInputChange} required />
                 </div>
                 <div className="form-item">
