@@ -17,7 +17,8 @@ import './meu-template/css/font-awesome.min.css';
 import './meu-template/css/font-awesome.css';
 import './meu-template/css/owl.carousel.css';
 import './meu-template/fonts/flaticon.css';
-
+import Chat from './Interacao/Chat';
+import './Interacao/Chat.css';
 
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -28,7 +29,7 @@ export default class App extends Component {
 
     render() {
 
-      return <Routes />
+      return <Chat />
 
   }
 }
