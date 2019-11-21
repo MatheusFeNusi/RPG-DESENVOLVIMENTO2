@@ -1,49 +1,61 @@
-import React, {useState} from 'react';
-import './Chat.css'
+import React, { useEffect, useState } from 'react'
 import io from 'socket.io-client'
+import uuid from 'uuid/v4'
 
+const myId = uuid()
 const socket = io('http://localhost:8080')
-socket.on('connect', () => console.log('[IO] connect => new connection' ))
+socket.on('connect', () => console.log('[IO] Connect => A new connection has been established'))
 
-const  Chat = ()  => {
-const [message,updateMessage] = useState('')
-const [messages,updateMessages] = useState([])
+const Chat = () => {
+    const [message, updateMessage] = useState('')
+    const [messages, updateMessages] = useState([])
 
-const handleFormSubmit = event => {
-    event.preventDefault()
-    if(message.trim()){
-        updateMessages([...messages,{
-            id:1,
-            message
-        }])
-        updateMessage('')
+    useEffect(() => {
+        const handleNewMessage = newMessage =>
+            updateMessages([...messages, newMessage])
+        socket.on('chat.message', handleNewMessage)
+        return () => socket.off('chat.message', handleNewMessage)
+    }, [messages])
+
+    const handleFormSubmit = event => {
+        event.preventDefault()
+        if (message.trim()) {
+            socket.emit('chat.message', {
+                id: myId,
+                message
+            })
+            updateMessage('')
+        }
     }
-}
 
-const handleInputChange = event =>
-     updateMessage(event.target.value)
- return ( 
-    <main className = "container"> 
-        <ul className="list">
+    const handleInputChange = event =>
+        updateMessage(event.target.value)
 
-            { messages.map(m => 
-                 <li className ="list__item list__item--mine">
-                 <span className="message message--mine" key={m.id}> 
-                     {m.message}
-                 </span>    
-             </li>
-                )}
-           
-            < form className= "form" onSubmit={handleFormSubmit}> 
-                <input 
-                onChange= {handleInputChange} className ="form__field" 
-                placeholder="digite uma mensagem" type="text" value={message} />
+    return (
+        <main className="container">
+            <ul className="list">
+                { messages.map((m, index) => (
+                    <li
+                        className={`list__item list__item--${m.id === myId ? 'mine' : 'other'}`}
+                        key={index}
+                    >
+                        <span className={`message message--${m.id === myId ? 'mine' : 'other'}`}>
+                            { m.message }
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <form className="form" onSubmit={handleFormSubmit}>
+                <input
+                    className="form__field"
+                    onChange={handleInputChange}
+                    placeholder="Type a new message here"
+                    type="text"
+                    value={message}
+                />
             </form>
-
-        </ul>       
-    </main>
-
-)
- }
+        </main>
+    )
+}
 
 export default Chat

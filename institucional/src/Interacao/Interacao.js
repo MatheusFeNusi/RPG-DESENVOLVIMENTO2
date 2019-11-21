@@ -64,6 +64,8 @@ export default class Interacao extends Component {
         const personagem4 = <Image src={Perso4} />;
         const dado = <Image src={Dados} style={{ width: '110px' }} />
 
+        
+
         const geraNumeroAleatorio = () => {
             let numero_aleatorio;
             do {
