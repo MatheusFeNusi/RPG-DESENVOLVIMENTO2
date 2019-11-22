@@ -8,26 +8,41 @@ import time3 from './meu-template/uploads/mayara.jpg';
 import time4 from './meu-template/uploads/douglas.jpg';
 import time5 from './meu-template/uploads/luis.jpg';
 import gambiarra from './meu-template/uploads/gambiarra.svg';
+import './meu-template/style.css';
+import './meu-template/css/bootstrap.min.css';
+import './meu-template/css/versions.css';
+import './meu-template/css/responsive.css';
+import './meu-template/css/custom.css';
+
+import './meu-template/css/animate.css';
+import './meu-template/css/flaticon.css';
+import './meu-template/css/bootstrap-select.min.css';
+import './meu-template/css/prettyPhoto.css';
+import './meu-template/css/owl.carousel.css';
+import './meu-template/css/font-awesome.min.css';
+import './meu-template/css/font-awesome.css';
+import './meu-template/css/owl.carousel.css';
+import './meu-template/fonts/flaticon.css';
 
 import { Link } from 'react-router-dom';
 export default class Site extends Component {
 
-    
+
     render() {
 
         return (
             < >
                 <div className="app_version" data-spy="scroll" data-target="#navbarApp" data-offset="98">
-                    <div className="teladeFundo" style={{ backgroundImage: `url(${teladeFundo})`,backgroundSize: 'cover' }}>
+                    <div className="teladeFundo" style={{ backgroundImage: `url(${teladeFundo})`, backgroundSize: 'cover',minHeight: '700px' ,maxHeight: '850px' }}>
 
                         <header className="header header_style_01" >
 
-                            <nav className="navbar header-nav navbar-expand-lg">
+                            <nav className="navbar header-nav navbar-expand-lg"  >
 
-                                <div className="container">
+                                <div className="container" style={{height: '50px' }}>
 
-                                    <div className="collapse navbar-collapse justify-content-end" id="navbarApp">
-                                        <ul className="navbar-nav">
+                                    <div className="collapse navbar-collapse justify-content-end"style={{marginLeft: '490px' }} id="navbarApp">
+                                        <ul className="navbar-nav" >
                                             <li><a className="nav-link active" href="#home"><b>Inicio</b></a></li>
                                             <li><a className="nav-link" href="#purchase"><b>Sobre nós</b></a></li>
                                             <li><a className="nav-link" href="#features"><b>Serviços</b></a></li>
@@ -44,20 +59,11 @@ export default class Site extends Component {
                             {/*papaparououoparoudsijsdhidhdffjhdsdbdvuddyvdgdwjgfuwfgefegfiegeufguf8*/}
 
                         </header>
-                        
+
                         <a className="navbar-brand " href="index.html"><Link to="/"><img src={logo} style={{ marginTop: '-120px', backgroundSize: 'cover' }} /></Link></a>
-                        <div id="home" className="parallax first-section" >
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-12">
 
-                                    </div>
-
-                                </div>{/* end row */}
-                            </div>{/* end container */}
-                        </div>{/* end section */}
                     </div>{/* Fim da imagem da home e navbar */}
-                    
+
 
                     {/*Inicio do sobre nós*/}
                     <div id="purchase" className="parallax section db" style={{ backgroundImage: `url(${sobre})`, backgroundSize: 'cover' }} >
@@ -84,7 +90,7 @@ export default class Site extends Component {
                             <div id="default" className="row clearfix zenith_slider">
 
                                 {/*The First row*/}
-                                <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 left-row" style={{marginLeft: '-1px'}}>
+                                <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 left-row" style={{ marginLeft: '-1px' }}>
                                     <ul className="features-left">
                                         <li className="highlight lhgh" data-index="0">
                                             <i className="flaticon-wordpress-logo effect-1" ></i>
@@ -359,7 +365,7 @@ export default class Site extends Component {
                                         <div className="widget-title">
                                             <h3>Social</h3>
                                         </div>
-                                        
+
                                     </div>{/* end clearfix */}
                                 </div>{/* end col */}
                             </div>{/* end row */}

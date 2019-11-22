@@ -8,6 +8,7 @@ import Login from './Login/appLogin/AppLogin';
 import Acesso from './Login/home/Home';
 import Cadastro from './Login/user/signup/Signup.js'
 
+import Chat from './Interacao/Chat.js'
 export default class Routes extends Component {
     
     render() {
@@ -21,6 +22,7 @@ export default class Routes extends Component {
             <Route path="/interacao" component={Interacao}/>
             <Route path="/acesso" component={Acesso} />
             <Route path="/cadastro" component={Cadastro} />
+            <Route path="/chat" component={Chat} />
             </Switch>
     
             </BrowserRouter>
