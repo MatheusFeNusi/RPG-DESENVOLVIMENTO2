@@ -25,17 +25,17 @@ export default class DialogMensagem extends Component {
     }
 
     render() {
-        const footer = (
+        const footerHistoria = (
             <div>
-                <Button label="Yes" icon="pi pi-check" onClick={this.onHide} />
-                <Button label="No" icon="pi pi-times" onClick={this.onHide} className="p-button-secondary" />
+                <Button label="Salvar" icon="pi pi-check" onClick={this.onHide, this.setState()} />
+                <Button label="Sair" icon="pi pi-times" onClick={this.onHide} className="p-button-secondary" />
             </div>
         );
 
         return (
             <div>
                 <div className="content-section implementation">
-                    <Dialog header="Você quer uma história?" visible={this.state.visible} footer={footer} style={{width: '50vw'}} onHide={this.onHide} maximizable>
+                    <Dialog header="Você quer uma história?" visible={this.state.visible} footer={footerHistoria} style={{width: '50vw'}} onHide={this.onHide} maximizable>
                     <InputTextarea style={{ width: '600px', height: '-70px' }} placeholder="Digite a hitória do seu personagem"
                 value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })} rows={5} cols={30}></InputTextarea>
                     </Dialog>

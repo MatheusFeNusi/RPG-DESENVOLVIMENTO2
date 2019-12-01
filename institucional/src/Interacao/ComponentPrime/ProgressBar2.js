@@ -22,7 +22,6 @@ export default class ProgressBar2 extends Component {
     }
     displayValueTemplate(value) {
         return <React.Fragment> {value}/100</React.Fragment>
-
     }
 
     render() {

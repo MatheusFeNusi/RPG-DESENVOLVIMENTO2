@@ -15,8 +15,10 @@ io.on('connection', socket => {
 
     socket.on('infoEvent', (information) =>{
       console.log('informação recebida');
+
       //emite para todas os serviços conectados
       io.sockets.emit('infoEvent', information)
+     
     })
 
     socket.on('disconnect', () => {

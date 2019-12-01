@@ -3,9 +3,12 @@ import './Home.css';
 import Navbar from '../common/AppHeader';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Col';
-import ImagemLateral from '../img/homeAcesso.jpg'
+import ImagemLateral from '../img/homeAcesso.jpg';
+import {Link} from 'react-router-dom';
 class Home extends Component {
+
     render() {
+        
         return (
             <div style={{backgroundImage: `url(${ImagemLateral})`, backgroundSize: 'cover', backgroundRepeat:'no-repeat', height: '615px'}}>
                 <Navbar />
@@ -37,15 +40,15 @@ class Home extends Component {
 
                     <Col md={4} style={{left: '410px', top: '220px'}}>
                         <input type="link" id="link" name="link"
-                            className="form-control" placeholder="Inserir Link"
+                            className="form-control" placeholder="Nome do personagem"
                             onChange={this.handleInputChange} required />
                         <br />
                         <br />
                         <div className="form-item">
-                            <button onClick={this.logar} type="button" className="btn btn-block btn-primary">Usar Link</button>
+                            <button onClick={this.logar} type="button" className="btn btn-block btn-primary">Salvar personagem</button>
                         </div>
                         <div className="form-item">
-                            <button onClick={this.logar} type="button" className="btn btn-block btn-primary">Criar sala</button>
+                        <Link to="/interacao"> <button type="button" className="btn btn-block btn-primary">Entrar sala</button></Link>  
                         </div>
                     </Col>
                     <br />

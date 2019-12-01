@@ -2,23 +2,22 @@
     box-sizing: border-box;
   }
   
-  body {
-    margin: 0;
-  }
   
-  .container {
+  
+  .containerer {
+    background-color: mintcream;
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-    /*height: 100vh;*/
-    height: 100px;
+    
+    
     justify-content: space-between;
-    width: 100vw;
+  
   }
   
   .form {
-    background: #434758;
-    padding: 1rem;
+    /*background: #434758;*/
+    /*padding: 1rem;*/
   }
   
   .form__field {
@@ -37,18 +36,24 @@
   }
   
   .list {
+    display: flex;
     margin: 0;
-    padding: 1rem;
+    padding: 0;
     height: 100px;
+    overflow: auto;
+    flex-direction: column;
   }
   
   .list__item {
     list-style: none;
     height: 100px;
+    margin-bottom: 1rem;
   }
   
   .list__item.list__item--mine {
     text-align: right;
+    max-width: 700px;
+    max-height: 100px;
   }
   
   .message {
@@ -56,16 +61,20 @@
     border-radius: 5px;
     display: inline-block;
     list-style: none;
-    margin-bottom: 1rem;
-    padding: .5rem 1rem;
-    max-height: 100px;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    height: auto;
+    width: auto;
   }
   
   .message.message--mine {
     background: #c3e88d;
     border-color: #82be27;
     text-align: right;
-    max-height: 100px;
+    min-height: 50px !important;
+    height: auto;
+    width: auto;
+    margin: 0;
   }
   
   .message.message--other {

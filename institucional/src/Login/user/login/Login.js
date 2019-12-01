@@ -5,6 +5,8 @@ import { login } from '../../util/APIUtils';
 import { Link, Redirect } from 'react-router-dom'
 import Alert from 'react-s-alert';
 import { urlPadrao } from "../../services/api";
+import { BrowserRouter } from 'react-router-dom';
+import Acesso from '../../home/Home.js';
 
 // class Login extends Component {
 //     componentDidMount() {
@@ -80,13 +82,16 @@ export default class LoginForm extends Component {
         urlPadrao.post(
             "login", { email, senha }).then(res => {
                 if (res.status == 200) {
-                    alert("sucesso")
+                    alert("sucesso");
                 }
 
             }
             ).catch(err => console.error(err))
     }
-
+    rotas = () => {
+       // <Link to="/interacao"> </Link>
+    }
+    
 
 
     handleInputChange = (event) => {
@@ -126,7 +131,7 @@ export default class LoginForm extends Component {
                         onChange={this.handleInputChange} required />
                 </div>
                 <div className="form-item">
-                    <button onClick={this.logar} type="button" className="btn btn-block btn-primary">Login</button>
+                    <button onClick={this.logar? <Link to="/interacao"></Link> : alert('Erro')} type="button" className="btn btn-block btn-primary">Login</button>
                 </div>
             </form>
         );
