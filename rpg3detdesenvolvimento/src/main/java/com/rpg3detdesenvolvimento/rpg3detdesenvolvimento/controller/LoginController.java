@@ -2,6 +2,9 @@ package com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,40 +21,51 @@ import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.Entidades.Usuario;
 
 @RestController
 public class LoginController {
+	
+	ArrayList<Usuario> Partida = new ArrayList<Usuario>(6);
+	ArrayBlockingQueue<Integer> salaDeEspera = new ArrayBlockingQueue<Integer>(4);
 
 	private TodosUsuarios todosUsuarios;
-	
 	
 	@Autowired
 	public LoginController(TodosUsuarios todosUsuarios) {
 		this.todosUsuarios = todosUsuarios;
 	}
 	
+//	@CrossOrigin
+//	@PostMapping("/login")
+//	public ResponseEntity<String> validarLogin(
+//			@RequestBody @Valid Usuario usuario) {
+//		if(usuario.getEmail().equals(usuario.getSenha())) {		
+//			partida.add()
+//			return ResponseEntity
+//					.status(HttpStatus.OK)
+//					.body("Sucesso");
+//		}	
+//		else {
+//			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+//					.body("Login não autorizado");
+//		}
+//	}
+	
 	@CrossOrigin
 	@PostMapping("/login")
 	public ResponseEntity<String> validarLogin(
-			@RequestBody  Usuario usuario) {
-		if(usuario.getEmail().equals(usuario.getSenha())) {
-			return ResponseEntity
-					.status(HttpStatus.OK)
-					.body("Sucesso");
+			@RequestBody @Valid Usuario usuario) {
+		usuario = todosUsuarios.existe(usuario.getEmail(), usuario.getSenha());
+		if(usuario!=null) {
+			return new ResponseEntity<String>(HttpStatus.ACCEPTED);			
+		}else {
+			return new ResponseEntity<String>(HttpStatus.UNAUTHORIZED);
 		}
-		else {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-					.body("Login não autorizado");
-		}
+		
+		
 	}
 	
 	
-	
-	
-	
-	
+			
 	   List<Usuario> logado = new ArrayList<>();
 	    
-
-	   
-
 	    private void logout(Usuario usuario){
 	        if(todosUsuarios.existe(usuario.getEmail(), usuario.getSenha()) != null) {
 	            logado.remove(usuario);
@@ -63,11 +77,5 @@ public class LoginController {
 	        logout(usuario);
 	        return ResponseEntity.ok("Sucesso");
 	    }
-	
-
-
 
 }
-	
-	
-	
