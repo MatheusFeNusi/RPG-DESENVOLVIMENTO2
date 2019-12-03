@@ -32,11 +32,20 @@ public class Usuario {
 	private Integer idade;
 	
 	
-	public Usuario(String nome, Integer idade) {
+
+	public Usuario() {
+		
+		
+	}
+	
+	public Usuario(Long id, String email, String senha, String nome, Integer idade) {
+		this.id = id;
+		this.email = email;
+		this.senha = senha;
 		this.nome = nome;
 		this.idade = idade;
 	}
-	
+
 	public  String getNome() {
 		return nome;
 	}
@@ -53,4 +62,26 @@ public class Usuario {
 	public String getSenha() {
 		return senha;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setIdade(Integer idade) {
+		this.idade = idade;
+	}
+	
+	
 }

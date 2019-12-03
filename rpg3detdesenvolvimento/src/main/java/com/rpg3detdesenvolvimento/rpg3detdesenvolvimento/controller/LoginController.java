@@ -21,53 +21,72 @@ public class LoginController {
 
 	private TodosUsuarios todosUsuarios;
 	
-	
+
 	@Autowired
 	public LoginController(TodosUsuarios todosUsuarios) {
 		this.todosUsuarios = todosUsuarios;
+	    
 	}
+	
 	
 	@CrossOrigin
 	@PostMapping("/login")
-	public ResponseEntity<String> validarLogin(
-			@RequestBody  Usuario usuario) {
-		if(usuario.getEmail().equals(usuario.getSenha())) {
-			return ResponseEntity
-					.status(HttpStatus.OK)
-					.body("Sucesso");
+	public ResponseEntity<String> validarLogin(@RequestBody Usuario usuario){
+		
+		Usuario usuarios = this.todosUsuarios.existe(usuario.getEmail(), usuario.getSenha());{
+			
+			if(usuarios != null) {
+				ResponseEntity.ok("Sucesso");
+			}
+			return  null;	
+		
+			
 		}
-		else {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-					.body("Login não autorizado");
-		}
-	}
+				
+		
+	
+	
+	
+//	public ResponseEntity<String> validarLogin(@RequestBody  Usuario usuario) {
+//		
+//		if(todosUsuarios.existe(usuario.getEmail(), usuario.getSenha()) != null) {
+//			return ResponseEntity
+//					.status(HttpStatus.OK)
+//					.body("Sucesso");
+//		}
+//		else {
+//			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+//					.body("Login não autorizado");
+//		}
+//	}
 	
 	
 	
 	
 	
 	
-	   List<Usuario> logado = new ArrayList<>();
-	    
+//	
+//	   List<Usuario> logado = new ArrayList<>();
+//	    
+//
+//	   
+//
+//	    private void logout(Usuario usuario){
+//	        if(todosUsuarios.existe(usuario.getEmail(), usuario.getSenha()) != null) {
+//	            logado.remove(usuario);
+//	        }
+//	    }
 
-	   
-
-	    private void logout(Usuario usuario){
-	        if(todosUsuarios.existe(usuario.getEmail(), usuario.getSenha()) != null) {
-	            logado.remove(usuario);
-	        }
-	    }
-
-	    @DeleteMapping("/logout")
-	    public ResponseEntity<String> logoutUsuario(@RequestBody Usuario usuario){
-	        logout(usuario);
-	        return ResponseEntity.ok("Sucesso");
-	    }
-	
+//	    @DeleteMapping("/logout")
+//	    public ResponseEntity<String> logoutUsuario(@RequestBody Usuario usuario){
+//	        logout(usuario);
+//	        return ResponseEntity.ok("Sucesso");
+//	    }
+//	
 
 
 
 }
-	
+	}
 	
 	
