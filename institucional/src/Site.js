@@ -1,9 +1,7 @@
 import React, {Component}from 'react';
 import logo from './meu-template/images/logos/logo.svg';
 import teladeFundo from './meu-template/images/telaHome.svg';
-import sobre from './meu-template/uploads/pr_bg.jpg';
 import time1 from './meu-template/uploads/matheus.jpg';
-import time2 from './meu-template/uploads/augusto.jpg';
 import time3 from './meu-template/uploads/mayara.jpg';
 import time4 from './meu-template/uploads/douglas.jpg';
 import time5 from './meu-template/uploads/luis.jpg';
@@ -31,9 +29,9 @@ render() {
                                     <li><a className="nav-link active" href="#home"><b>Inicio</b></a></li>
                                     <li><a className="nav-link" href="#purchase"><b>Sobre nós</b></a></li>
                                     <li><a className="nav-link" href="#features"><b>Serviços</b></a></li>
-                                    <li><a className="nav-link" href="#screenshots"><b>Screenshots</b></a></li>
+                                   {/* <li><a className="nav-link" href="#screenshots"><b>Screenshots</b></a></li>*/} 
                                     <li><a className="nav-link" href="#team"><b>Time</b></a></li>
-                                    <li><a className="nav-link" href="#testimonials"><b>Cliente</b></a></li>
+                                   {/* <li><a className="nav-link" href="#testimonials"><b>Cliente</b></a></li>*/} 
                                     <Link to="/login">
                                     <li><a className="nav-link" href="#"><b>Login</b></a></li>
                                     </Link>
@@ -60,12 +58,12 @@ render() {
 
 
             {/*Inicio do sobre nós*/}
-            <div id="purchase" className="parallax section db" style={{backgroundImage: `url(${sobre})`}} >
+            <div id="purchase" className="parallax section db" style={{backgroundColor: 'rgba(252, 0, 0, 0.70)'}} >
                 <div className="container">
                     <div className="section-title text-center">
 
                         <h3>Sobre nós</h3>
-                        <p className="lead">Somos uma empresa formada por amantes de tecnologia e jogos, foi então que surgiu
+                        <p className="lead" style={{color: 'rgba(255, 255, 255, 1)'}}>Somos uma empresa formada por amantes de tecnologia e jogos, foi então que surgiu
                             uma ideia para criar uma solução voltada para  RPG de mesa.
             </p>
                     </div>{/* end title */}
@@ -89,23 +87,23 @@ render() {
                                 <li className="highlight lhgh" data-index="0">
                                     <i className="flaticon-wordpress-logo effect-1" ></i>
                                     <div className="fl-inner">
-                                        <h4>Site responsivel</h4>
+                                        <h3>Site responsivel</h3>
                                     </div>
                                 </li>{/* .highlight .left-row */}
 
                                 <li className="highlight lhgh" data-index="1">
                                     <i className="flaticon-windows effect-1"></i>
                                     <div className="fl-inner">
-                                        <h4>Browser</h4>
-                                        <p>Acessivel na maioria do navegadores</p>
+                                        
+                                        <h3>Acessivel na maioria do navegadores</h3>
                                     </div>
                                 </li>{/* .highlight .left-row */}
 
                                 <li className="highlight lhgh" data-index="1">
                                     <i className="flaticon-windows effect-1"></i>
                                     <div className="fl-inner">
-                                        <h4>Browser</h4>
-                                        <p>Acessivel na maioria do navegadores</p>
+                                        
+                                        <h3>Um ambiente de interação</h3>
                                     </div>
                                 </li>{/* .highlight .left-row */}
                                
@@ -113,8 +111,8 @@ render() {
                                 <li className="highlight lhgh" data-index="3">
                                     <i className="flaticon-new-file effect-1"></i>
                                     <div className="fl-inner">
-                                        <h4>Facil interação</h4>
-                                        <p></p>
+                                        <h3>Facil interação</h3>
+                                
                                     </div>
                                 </li>{/* .highlight .left-row */}
                             </ul>
@@ -137,29 +135,25 @@ render() {
                                 <li className="highlight rhgh" data-index="4">
                                     <i className="flaticon-pantone effect-1"></i>
                                     <div className="fr-inner">
-                                        <h4>Limitless Colors</h4>
-                                        <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet.</p>
+                                        <h3>RPG Virtual</h3>
                                     </div>
                                 </li>{/* .highlight .left-row */}
                                 <li className="highlight rhgh" data-index="5">
                                     <i className="flaticon-cloud-computing effect-1"></i>
                                     <div className="fr-inner">
-                                        <h4>Lifetime Update</h4>
-                                        <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet.</p>
+                                        <h3>Jogue com amigos</h3>
                                     </div>
                                 </li>{/* .highlight .left-row */}
                                 <li className="highlight rhgh" data-index="6">
                                     <i className="flaticon-line-graph effect-1"></i>
                                     <div className="fr-inner">
-                                        <h4>SEO Friendly</h4>
-                                        <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. </p>
+                                        <h3>Interação socket.io</h3>
                                     </div>
                                 </li>{/* .highlight .left-row */}
                                 <li className="highlight rhgh" data-index="7">
                                     <i className="flaticon-coding effect-1"></i>
                                     <div className="fr-inner">
-                                        <h4>Simple Clean Code</h4>
-                                        <p>Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. </p>
+                                        <h3>Código simples</h3>
                                     </div>
                                 </li>{/* .highlight .left-row */}
                             </ul>
@@ -176,39 +170,7 @@ render() {
 
             </div>{/* end how-its-work */}
 
-            <div id="screenshots" className="section wb">
-                <div className="container">
-                    <div className="section-title text-center">
-                        <h3>Screenshots da nossa aplicação</h3>
-                        {/* <p className="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum<br />auctor nisi elit consequat ipsum, nec sagittis sem!</p>*/}
-                    </div>{/* end title */}
-
-                    <div className="owl-screenshots owl-carousel owl-theme">
-                        <div className="owl-screen">
-                            <div className="service-widget">
-                                <div className="post-media entry wow fadeIn">
-                                    <a href="uploads/sasas.png" data-rel="prettyPhoto[gal]" className="hoverbutton global-radius"><i className="flaticon-unlink"></i></a>
-                                    <img src="uploads/sasas.png" alt="" className="img-fluid img-rounded" />
-                                    <div className="magnifier"></div>
-                                </div>
-                            </div>{/* end service */}
-                        </div>{/* end col */}
-
-                        <div className="owl-screen">
-                            <div className="service-widget">
-                                <div className="post-media entry wow fadeIn">
-                                    <a href="uploads/PrototicoFuncional.png" data-rel="prettyPhoto[gal]" className="hoverbutton global-radius"><i className="flaticon-unlink"></i></a>
-                                    <img src="uploads/PrototicoFuncional.png" alt="" className="img-fluid img-rounded" />
-                                        <div className="magnifier"></div>
-                        </div>
-                                </div>{/* end service */}
-                            </div>{/* end col */}
-                      
-                        </div>{/* end row */}
-                    </div>{/* end container */}
-                </div>{/* end section */}
-
-
+    
 
                 <div id="team" className="section wb">
                     <div className="container">
@@ -217,15 +179,15 @@ render() {
                         </div>{/* end title */}
 
                         <div className="row dev-list text-center">
-                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
+                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s" style={{borderStyle: 'outset', display: 'flex' }}>
                                 <div className="widget clearfix">
                                     <img src={time1} alt="" className="img-fluid rounded-circle" />
                                     <div className="widget-title">
-                                        <h3>Matheus Nunes</h3>
-                                        <small>Scrum Master/ Full Stack</small>
+                                    <hr/>
+                                        <h3><strong>Matheus Nunes</strong></h3>
+                                        <h5>Scrum Master/ Full Stack</h5>
                                     </div>
                                     {/* end title */}
-                                    <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
 
                                     <div className="footer-social">
                                         <a href="https://www.facebook.com/profile.php?id=100031458586485" target="_blank" rel="noopener noreferrer" className="btn global-radius"><i className="fa fa-facebook"></i></a>
@@ -234,15 +196,15 @@ render() {
                                 </div>{/*widget */}
                             </div>{/* end col */}
 
-                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s">
+                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.4s" style={{borderStyle: 'outset' }}>
                                 <div className="widget clearfix">
                                     <img src={time4} alt="" className="img-fluid rounded-circle" />
+                                    <hr/>
                                     <div className="widget-title">
-                                        <h3>Douglas Holanda</h3>
-                                        <small>Creative Technologist Microsoft</small>
+                                        <h3><strong>Douglas Holanda</strong></h3>
+                                        <h4>Gestão e front-end</h4>
                                     </div>
                                     {/* end title */}
-                                    <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
 
                                     <div className="footer-social">
                                         <a href="https://www.facebook.com/profile.php?id=100011323815007" target="_blank" rel="noopener noreferrer" className="btn global-radius"><i className="fa fa-facebook"></i></a>
@@ -251,15 +213,15 @@ render() {
                                 </div>{/*widget */}
                             </div>{/* end col */}
 
-                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s" style={{borderStyle: 'outset' }}>
                                 <div className="widget clearfix">
                                     <img src={time5} alt="" className="img-fluid rounded-circle" />
                                     <div className="widget-title">
-                                        <h3>Luis Augusto</h3>
-                                        <small>Front End Developer</small>
+                                    <hr/>
+                                        <h3><strong>Luis Augusto</strong></h3>
+                                        <h5>Front End Developer</h5>
                                     </div>
                                     {/* end title */}
-                                    <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
 
                                     <div className="footer-social">
                                         <a href="https://www.facebook.com/luis.augusto.52831" target="_blank" rel="noopener noreferrer" className="btn global-radius"><i className="fa fa-facebook"></i></a>
@@ -268,15 +230,15 @@ render() {
                                 </div>{/*widget */}
                             </div>{/* end col */}
 
-                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s">
+                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s" style={{borderStyle: 'outset' }} >
                                 <div className="widget clearfix">
                                     <img src={time3} alt="" className="img-fluid rounded-circle" />
                                     <div className="widget-title">
-                                        <h3>Mayara Mascarenhas</h3>
-                                        <small>Front End Developer</small>
+                                    <hr/>
+                                        <h3><strong>Mayara Mascarenhas</strong></h3>
+                                        <small>Gestão e Back end</small>
                                     </div>
                                     {/* end title */}
-                                    <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
 
                                     <div className="footer-social">
                                         <a href="https://www.facebook.com/mayara.s.borges.75" target="_blank" rel="noopener noreferrer" className="btn global-radius"><i className="fa fa-facebook"></i></a>
@@ -285,22 +247,6 @@ render() {
                                 </div>{/*widget */}
                             </div>{/* end col */}
 
-                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.6s" style={{borderColor: 'rgb(87, 87, 87)'}}>
-                                <div className="widget clearfix">
-                                    <img src={time2} alt="" className="img-fluid rounded-circle" />
-                                    <div className="widget-title">
-                                        <h3>Augusto Ferreira</h3>
-                                        <small>Back End Developer</small>
-                                    </div>
-                                    {/* end title */}
-                                    <p>Hello guys, I am Soren from Sirbistana. I am senior art director and founder of Violetta.</p>
-
-                                    <div className="footer-social">
-                                        <a href="https://www.facebook.com/augusto.vieira.908" target="_blank" rel="noopener noreferrer" className="btn global-radius"><i className="fa fa-facebook"></i></a>
-                                        <a href="https://github.com/Kuronami" target="_blank" rel="noopener noreferrer" className="btn global-radius"><i className="fa fa-github"></i></a>
-                                    </div>
-                                </div>{/*widget */}
-                            </div>{/* end col */}
                         </div>{/* end row */}
                     </div>{/* end container */}
                 </div>{/* end section */}
@@ -308,7 +254,7 @@ render() {
                 
 
                 <section className="section nopad cac text-center">
-                    <a href="#"><h3>Interesting our awesome web design services? Just drop an email to us and get quote for free!</h3></a>
+                    <a href="#"><h3>Ficou interessado na nossa solução? Se sim então faça login ou se cadastre-se  </h3></a>
                 </section>
 
                 <footer className="footer">
@@ -318,23 +264,24 @@ render() {
                                 <div className="widget clearfix">
                                     <div className="widget-title">
                                         <img src="images/logos/logo-app.png" alt="" />
-                                        <small>App Landing Template</small>                        </div>
-                                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
-                                    <p>Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
+                                        <h3>Frases do dia</h3>                        </div>
+                                    <p> Bons roteiristas não escrevem uma história. Vivem ela.</p>
+                                    <p>Das piores histórias saem as grandes ideias.</p>
+                                    <p>O Lag pode te parar, Mas o bug te mata!</p>
                                 </div>{/* end clearfix */}
                             </div>{/* end col */}
 
                             <div className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                 <div className="widget clearfix">
                                     <div className="widget-title">
-                                        <h3>Contact Details</h3>
+                                        <h3>Contate para detalhes</h3>
                                     </div>
 
                                     <ul className="footer-links">
                                         <li><a href="mailto:#">info@yoursite.com</a></li>
-                                        <li><a href="#">www.yoursite.com</a></li>
-                                        <li>91 Leeton Ridge Lane Bettendorf, IA 52722</li>
-                                        <li>+61 3 8376 6000</li>
+                                        <li><a href="#">www.rpgDev.com</a></li>
+                                        <li> Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-002</li>
+                                        <li>+55 (11) 8376 6000</li>
                                     </ul>{/* end links */}
                                 </div>{/* end clearfix */}
                             </div>{/* end col */}
@@ -342,14 +289,15 @@ render() {
                             <div className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
                                 <div className="footer-distributed widget clearfix">
                                     <div className="widget-title">
-                                        <h3>Newsletter</h3>
-                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
+                                        <h3>Reflita</h3>
+                                        <br/>
+                                        <p>O que sabemos, saber que o sabemos. Aquilo que não sabemos, saber que não o sabemos: eis o verdadeiro saber.</p>
                                     </div>
                                     <div className="footer-right">
-                                        <form method="get" action="#">
+                                       {/* <form method="get" action="#">
                                             <input placeholder="Subscribe our newsletter.." name="search" />
                                                 <i className="fa fa-envelope-o"></i>
-							</form>
+							</form> */}
 						</div>
                                     </div>{/* end clearfix */}
                                 </div>{/* end col */}

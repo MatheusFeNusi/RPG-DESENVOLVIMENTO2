@@ -14,6 +14,7 @@ io.on('connect', socket =>{
     socket.on('chat.message', data => {
         console.log('[SOCKET] => Chat.message => ', data);
         io.emit('chat.message', data);
+        
     })
     socket.on('disconnect', () => {
         console.log('[SOCKET] Chat.message => A connect was disconnect')

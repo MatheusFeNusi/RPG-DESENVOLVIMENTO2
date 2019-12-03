@@ -10,23 +10,29 @@ const server = http.createServer(app)
 // receber evento e vai enviar a todas aplicações conectadas
 const io = socketIO(server);
 
+
 io.on('connection', socket => {
-    console.log('Novo usuario esta conectado');
+  
+  
 
-    socket.on('infoEvent', (information) =>{
-      console.log('informação recebida');
+  console.log('Novo usuario esta conectado');
 
-      //emite para todas os serviços conectados
-      io.sockets.emit('infoEvent', information)
-     
-    })
+  socket.on('infoEvent', (information) => {
+    console.log('informação recebida');
+    
+    //emite para todas os serviços conectados
+    io.sockets.emit('infoEvent', information);
 
-    socket.on('disconnect', () => {
-        console.log('Usuário desconectado');
-    })
+  })
+  
+  
+  socket.on('disconnect', () => {
+    console.log('Usuário desconectado');
+  })
+
 })
 
-server.listen(PORT, () => console.log(`Listando server na port: ${PORT}`) )
+server.listen(PORT, () => console.log(`Listando server na port: ${PORT}`))
 
 
 

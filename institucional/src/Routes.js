@@ -3,7 +3,7 @@ import {BrowserRouter, Switch, Route}  from 'react-router-dom';
 
 import Site from './Site';
 import Interacao from './Interacao/Interacao.js';
-import IndexLogin from './Login/indexLogin.js';
+//import IndexLogin from './Login/indexLogin.js';
 import Login from './Login/appLogin/AppLogin';
 import Acesso from './Login/home/Home';
 import Cadastro from './Login/user/signup/Signup.js'

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './Login.css';
-import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, ACCESS_TOKEN } from '../../constants';
-import { login } from '../../util/APIUtils';
-import { Link, Redirect } from 'react-router-dom'
-import Alert from 'react-s-alert';
+//import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, ACCESS_TOKEN } from '../../constants';
+//import { login } from '../../util/APIUtils';
+import { Link } from 'react-router-dom'//, Redirect
+//import Alert from 'react-s-alert';
 import { urlPadrao } from "../../services/api";
-import { BrowserRouter } from 'react-router-dom';
-import Acesso from '../../home/Home.js';
+//import { BrowserRouter } from 'react-router-dom';
+//import Acesso from '../../home/Home.js';
 
 // class Login extends Component {
 //     componentDidMount() {
@@ -125,11 +125,13 @@ export default class LoginForm extends Component {
                         className="form-control" placeholder="Email" data-toggle="tooltip"  title="Digite seu email"
                         onChange={this.handleInputChange} required />
                 </div>
+                <br/>
                 <div className="form-item">
                     <input type="password" id="senha" name="senha" style={{height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
                         className="form-control" placeholder="Senha" data-toggle="tooltip"  title="Digite sua senha"
                         onChange={this.handleInputChange} required />
                 </div>
+                <br/>
                 <div className="form-item">
                     <button onClick={this.logar? <Link to="/interacao"></Link> : alert('Erro')} type="button" className="btn btn-block btn-primary">Login</button>
                 </div>

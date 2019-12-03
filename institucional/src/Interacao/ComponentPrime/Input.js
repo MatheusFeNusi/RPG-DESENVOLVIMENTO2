@@ -20,7 +20,7 @@ export default class InputClass extends Component {
                 <div className="content-section implementation">
                     <div className="content-section implementation">
                         
-                        <InputText  value={this.state.value1} onChange={(e) => this.setState({value1: e.target.value})} type="number" style={{maxLength:"2", width:'50px'}} />
+                        <InputText  value={this.state.value1} onChange={(e) => this.setState({value1: e.target.value})} type="number" style={{ width:'50px'}} />
                     
 
                        </div>

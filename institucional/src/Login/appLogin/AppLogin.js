@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import AppHeader from '../common/AppHeader';
-import Home from '../home/Home';
+//import Ho from '../home/Home';
 import Login from '../user/login/Login';
 import Signup from '../user/signup/Signup';
 import Profile from '../user/profile/Profile';
@@ -15,7 +15,7 @@ import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 import './AppLogin.css';
-import Container from 'react-bootstrap/Container';
+//import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Logo from '../../meu-template/images/logos/logo.svg'
 import ImagemLogin from '../../meu-template/images/ImagemLogin.svg'
@@ -80,7 +80,7 @@ class App extends Component {
             <br />
             <Col md={4} style={{ left: '400px', marginTop: '-10px', backgroundColor: 'rgba(0, 0, 0, 0.48)', borderColor: 'black', borderStyle: 'solid' }}>
               <div className="app-body">
-              <div> <img src={Logo}  /><strong style={{color: 'rgba(250, 255, 0, 1)', fontFamily: 'Rubik', fontSize: '22px'}}>3D&T Termination</strong></div>
+              <div><img src={Logo}  /><strong style={{color: 'rgba(250, 255, 0, 1)', fontFamily: 'Rubik', fontSize: '22px'}}>3D&T Termination</strong></div>
 
                 <Switch>
 

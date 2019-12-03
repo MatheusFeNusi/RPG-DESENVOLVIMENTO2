@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import './Signup.css';
-import { Link, Redirect } from 'react-router-dom'
-import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from '../../constants';
-import { signup } from '../../util/APIUtils';
-import fbLogo from '../../img/fb-logo.png';
-import googleLogo from '../../img/google-logo.png';
-import githubLogo from '../../img/github-logo.png';
-import Alert from 'react-s-alert';
+import { Redirect } from 'react-router-dom'
+//import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from '../../constants';
+//import { signup } from '../../util/APIUtils';
+
+//import Alert from 'react-s-alert';
 import { urlPadrao } from "../../services/api";
 import AppHeader from '../../common/AppHeader'
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Col';
+//import Row from 'react-bootstrap/Col';
+//import Container from 'react-bootstrap/Col';
 import Logo from '../../../meu-template/images/logos/logo.svg'
 
 
@@ -41,7 +39,7 @@ export default class Signup extends Component {
         urlPadrao.post(
             "usuarios", { email, senha, nome, idade }).then(res => {
                 console.log(res.data)
-                if (res.status == 200) {
+                if (res.status === 200) {
                     Redirect("/login")
                 }
 
@@ -98,22 +96,25 @@ export default class Signup extends Component {
                         className="form-control" placeholder="email" data-toggle="tooltip"  title="Digite seu email"
                         onChange={this.handleInputChange} required />
                 </div>
+                <br/>
                 <div className="form-item">
                     <input type="password" id="senha" name="senha" data-toggle="tooltip"  title="Digite sua senha"
                         className="form-control" placeholder="senha" style={{height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
                         onChange={this.handleInputChange} required />
                 </div>
+                <br/>
                 <div className="form-item">
                     <input type="text" id="nome" name="nome" style={{height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
                         className="form-control" placeholder="nome" data-toggle="tooltip"  title="Digite seu nome"
                         onChange={this.handleInputChange} required />
                 </div>
+                <br/>
                 <div className="form-item">
                     <input type="text" id="idade" name="idade" style={{height: '40px',  backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
                         className="form-control" placeholder="idade" data-toggle="tooltip"  title="Digite sua data nascimento"
                         onChange={this.handleInputChange} required />
                 </div>
-
+                <br/>
                 <div className="form-item">
                     <button onClick={this.cadastrar} type="button" className="btn btn-block btn-primary">Cadastrar-se</button>
                 </div>
