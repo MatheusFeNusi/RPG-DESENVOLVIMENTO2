@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import './Login.css';
 //import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, ACCESS_TOKEN } from '../../constants';
-//import { login } from '../../util/APIUtils';
-import { Link } from 'react-router-dom'//, Redirect
+//import { login } from '../../util/APIUtils';//, Redirect
 //import Alert from 'react-s-alert';
 import { urlPadrao } from "../../services/api";
-//import { BrowserRouter } from 'react-router-dom';
+import { withRouter, Route, Redirect } from 'react-router-dom';
 //import Acesso from '../../home/Home.js';
 
 // class Login extends Component {
@@ -71,27 +70,33 @@ export default class LoginForm extends Component {
         super(props);
         this.state = {
             email: '',
-            senha: ''
+            senha: '',
+            redirect: false
         };
     }
-    logar = () => {
-        let email = this.state.email
-        let senha = this.state.senha
+
+    logar = async () => {
+        const email = this.state.email;
+        const senha = this.state.senha;
 
 
-        urlPadrao.post(
-            "login", { email, senha }).then(res => {
-                if (res.status == 200) {
-                    alert("sucesso");
-                }
+
+        try {
+            const response = await urlPadrao.post("/login", { email: email, senha: senha })
+            console.log(response)
+
+            if (response.status === 200) {
+                alert("sucesso");
+                this.props.history.push("/acesso");
+                //this.props.history.push('/acesso');
 
             }
-            ).catch(err => console.error(err))
+        } catch (response) {
+            alert("Usuario ou senha invalido")
+        }
+
     }
-    rotas = () => {
-       // <Link to="/interacao"> </Link>
-    }
-    
+
 
 
     handleInputChange = (event) => {
@@ -118,22 +123,25 @@ export default class LoginForm extends Component {
     // }
 
     render() {
+
         return (
+
             <form >
+
                 <div className="form-item">
-                    <input type="email" id="email" name="email" style={{height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
-                        className="form-control" placeholder="Email" data-toggle="tooltip"  title="Digite seu email"
+                    <input type="email" id="email" name="email" style={{ height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white' }}
+                        className="form-control" placeholder="Email" data-toggle="tooltip" title="Digite seu email"
                         onChange={this.handleInputChange} required />
                 </div>
-                <br/>
+                <br />
                 <div className="form-item">
-                    <input type="password" id="senha" name="senha" style={{height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
-                        className="form-control" placeholder="Senha" data-toggle="tooltip"  title="Digite sua senha"
+                    <input type="password" id="senha" name="senha" style={{ height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white' }}
+                        className="form-control" placeholder="Senha" data-toggle="tooltip" title="Digite sua senha"
                         onChange={this.handleInputChange} required />
                 </div>
-                <br/>
+                <br />
                 <div className="form-item">
-                    <button onClick={this.logar? <Link to="/interacao"></Link> : alert('Erro')} type="button" className="btn btn-block btn-primary">Login</button>
+                    <button onClick={this.logar} type="button" className="btn btn-block btn-primary">Login</button>
                 </div>
             </form>
         );

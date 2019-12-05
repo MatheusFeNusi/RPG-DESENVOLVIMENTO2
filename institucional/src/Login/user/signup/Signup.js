@@ -11,7 +11,7 @@ import Col from 'react-bootstrap/Col';
 //import Row from 'react-bootstrap/Col';
 //import Container from 'react-bootstrap/Col';
 import Logo from '../../../meu-template/images/logos/logo.svg'
-
+import { Link } from 'react-router-dom';
 
 import ImagemCadastro from '../../img/imagemCadastro.jpg'
 export default class Signup extends Component {
@@ -23,21 +23,25 @@ export default class Signup extends Component {
             idade: '',
             email: '',
             senha: ''
+
         }
     };
 
-    cadastrar = () => {
-        // let email = this.state.email
-        // let senha = this.state.senha
-        let nome = this.state.nome
-        let idade = this.state.idade
+    cadastrar = async () => {
         let email = this.state.email
         let senha = this.state.senha
+        let nome = this.state.nome
+        let idade = this.state.idade
 
-        // let senha = this.state.credenciais.senha
+        const credenciais = {
+            email: email,
+            senha: senha
+        };
 
-        urlPadrao.post(
-            "usuarios", { email, senha, nome, idade }).then(res => {
+        this.setState({ credenciais: { email: email, senha: senha } });
+
+        const response = await urlPadrao.post(
+            "/usuarios", { credenciais, nome, idade }).then(res => {
                 console.log(res.data)
                 if (res.status === 200) {
                     Redirect("/login")
@@ -49,82 +53,82 @@ export default class Signup extends Component {
 
 
 
-    handleInputChange = (event) => {
-        const state = Object.assign({}, this.state);
-        let field = event.target.id;
-        state[field] = event.target.value;
-        this.setState(state);
+handleInputChange = (event) => {
+    const state = Object.assign({}, this.state);
+    let field = event.target.id;
+    state[field] = event.target.value;
+    console.log(state)
+    this.setState(state);
 
-    }
+}
 
 
 
 
-    // handleSubmit(event) {
-    //     event.preventDefault();
+// handleSubmit(event) {
+//     event.preventDefault();
 
-    //     const loginRequest = Object.assign({}, this.state);
+//     const loginRequest = Object.assign({}, this.state);
 
-    //     login(loginRequest)
-    //         .then(response => {
-    //             localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-    //             Alert.success("You're successfully logged in!");
-    //             this.props.history.push("/");
-    //         }).catch(error => {
-    //             Alert.error((error && error.message) || 'Oops! Something went wrong. Please try again!');
-    //         });
-    // }
+//     login(loginRequest)
+//         .then(response => {
+//             localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+//             Alert.success("You're successfully logged in!");
+//             this.props.history.push("/");
+//         }).catch(error => {
+//             Alert.error((error && error.message) || 'Oops! Something went wrong. Please try again!');
+//         });
+// }
 
-    render() {
-        console.log(this.state);
-        
-        return (
-          
-            < div className="post-content" style={{backgroundImage: `url(${ImagemCadastro})`,backgroundSize: 'cover', backgroundRepeat:'no-repeat'}}>
+render() {
+
+    return (
+
+        < div className="post-content" style={{ backgroundImage: `url(${ImagemCadastro})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
             <div className="app">
-        <div className="app-top-box">
-          <AppHeader  />
-        </div>
-        </div>
-        
+                <div className="app-top-box">
+                    <AppHeader />
+                </div>
+            </div>
 
-        <Col md={4} style={{ top: '25px', backgroundColor: 'rgba(0, 0, 0, 0.48)', borderColor: 'black', borderStyle: 'solid', left: '450px'}}>
-        <div><img  src={Logo} style={{backgroundSize: 'cover'}}/> <strong style={{color: 'rgba(250, 255, 0, 1)', fontFamily: 'Rubik', fontSize: '15px'}}>CADASTRE E DIVIRTA-SE</strong></div>
-        <div className="app-body"></div>
+
+            <Col md={4} style={{ top: '25px', backgroundColor: 'rgba(0, 0, 0, 0.48)', borderColor: 'black', borderStyle: 'solid', left: '450px' }}>
+                <div><img src={Logo} style={{ backgroundSize: 'cover' }} /> <strong style={{ color: 'rgba(250, 255, 0, 1)', fontFamily: 'Rubik', fontSize: '15px' }}>CADASTRE E DIVIRTA-SE</strong></div>
+                <div className="app-body"></div>
                 <div className="form-item">
-                    <input type="email" id="email" name="email" style={{height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
-                        className="form-control" placeholder="email" data-toggle="tooltip"  title="Digite seu email"
+                    <input type="email" id="email" name="email" style={{ height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white' }}
+                        className="form-control" placeholder="email" data-toggle="tooltip" title="Digite seu email"
                         onChange={this.handleInputChange} required />
-                </div>
-                <br/>
-                <div className="form-item">
-                    <input type="password" id="senha" name="senha" data-toggle="tooltip"  title="Digite sua senha"
-                        className="form-control" placeholder="senha" style={{height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
-                        onChange={this.handleInputChange} required />
-                </div>
-                <br/>
-                <div className="form-item">
-                    <input type="text" id="nome" name="nome" style={{height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
-                        className="form-control" placeholder="nome" data-toggle="tooltip"  title="Digite seu nome"
-                        onChange={this.handleInputChange} required />
-                </div>
-                <br/>
-                <div className="form-item">
-                    <input type="text" id="idade" name="idade" style={{height: '40px',  backgroundColor: 'transparent', borderColor: 'yellow', color: 'white'}}
-                        className="form-control" placeholder="idade" data-toggle="tooltip"  title="Digite sua data nascimento"
-                        onChange={this.handleInputChange} required />
-                </div>
-                <br/>
-                <div className="form-item">
-                    <button onClick={this.cadastrar} type="button" className="btn btn-block btn-primary">Cadastrar-se</button>
                 </div>
                 <br />
-                    </Col>
+                <div className="form-item">
+                    <input type="password" id="senha" name="senha" data-toggle="tooltip" title="Digite sua senha"
+                        className="form-control" placeholder="senha" style={{ height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white' }}
+                        onChange={this.handleInputChange} required />
+                </div>
                 <br />
+                <div className="form-item">
+                    <input type="text" id="nome" name="nome" style={{ height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white' }}
+                        className="form-control" placeholder="nome" data-toggle="tooltip" title="Digite seu nome"
+                        onChange={this.handleInputChange} required />
+                </div>
                 <br />
-            </ div >
-        );
-    }
+                <div className="form-item">
+                    <input type="text" id="idade" name="idade" style={{ height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white' }}
+                        className="form-control" placeholder="idade" data-toggle="tooltip" title="Digite sua data nascimento"
+                        onChange={this.handleInputChange} required />
+                </div>
+                <br />
+                <div className="form-item">
+                    <Link to="/login">    <button onClick={this.cadastrar} type="button" className="btn btn-block btn-primary">Cadastrar-se</button></Link>
+                </div>
+                <br />
+            </Col>
+            <br />
+            <br />
+        </ div >
+    );
+}
 }
 
 // class Signup extends Component {

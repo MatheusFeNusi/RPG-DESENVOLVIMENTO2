@@ -36,7 +36,7 @@ export default class Interacao extends React.Component {
     constructor() {
         super();
         this.state = {
-            id: [],
+            id: 0,
             idPessoal: uuid(),
             value: 'Descrições de Vantagens: http://www.geocities.ws/jogue3dt/12.html#bar |||||||||||||||||||||  Desvantagens: http://www.geocities.ws/jogue3dt/14.html',
             value2: 'Chat',
@@ -75,8 +75,7 @@ export default class Interacao extends React.Component {
             anaoResistencia: 0,
             anaoArmadura: 0,
             anaoPdf: 0,
-            visibleSair: false,
-            visible: false,
+            
             magoHistoria: '',
             arqueHistoria: '',
             vampiHistoria: '',
@@ -91,8 +90,12 @@ export default class Interacao extends React.Component {
             anaoVantagem: null,
             anaoDesvantagem: null,
 
-            visibleFullScreen: false
-
+            
+            
+                visibleFullScreen: false,
+                visibleSair: false,
+                visible: false
+            
 
         }
 
@@ -101,7 +104,7 @@ export default class Interacao extends React.Component {
         this.onHide = this.onHide.bind(this);
 
         var armazenar = [];
-
+        //this.setState({id: [this.state.idPessoal]});
 
         const socket = socketIOClient(this.state.serverURL);
         socket.on('infoEvent', info => {
@@ -109,27 +112,28 @@ export default class Interacao extends React.Component {
             armazenar.push(info.idPessoal);
             this.setState(info);
             console.log(info.idPessoal)
-            this.setState(info => {
-                const id = info.id.concat(info.idPessoal);
-                console.log(id)
-                return {
-                    id,
-                    idPessoal: '',
-                };
-            });
+            // this.setState(info => {
+            //     const id = info.id.concat(info.idPessoal);
+            //     console.log(id)
+            //     return {
+            //         id,
+            //         idPessoal: '',
+            //     };
+            // });
+            console.log("State id "+this.state.id)
 
-            if (armazenar.length > 5) {
-                var ultimo = armazenar[armazenar.length - 1];
-                if (ultimo === info.idPessoal) {
-                    this.setState({ visibleFullScreen: true });
-                    console.log("Antes do pop " + armazenar)
-                    armazenar.pop();
-                    window.close();
-                    console.log("Depois do POP " + armazenar)
+            // if (armazenar.length > 5) {
+            //     var ultimo = armazenar[armazenar.length - 1];
+            //     if (ultimo === info.idPessoal) {
+            //         this.setState({ visibleFullScreen: true });
+            //         console.log("Antes do pop " + armazenar)
+            //         armazenar.pop();
+            //         window.close();
+            //         console.log("Depois do POP " + armazenar)
 
-                    alert("Tese" + info.idPessoal);
-                }
-            }
+            //         alert("Tese" + info.idPessoal);
+            //     }
+            // }
         });
 
 
@@ -155,7 +159,7 @@ export default class Interacao extends React.Component {
     }
     onClickSair() {
 
-        this.setState({ visibleSair: true });
+        this.setState({visibleSair: true});
     }
     onHide() {
         this.setState({ visible: false });
@@ -517,8 +521,8 @@ export default class Interacao extends React.Component {
         }
         const footerSairSala = (
             <div>
-                <Link to="/"> <Button label="Sim" icon="pi pi-check" onClick={this.onClickSair} /></Link>
-                <Button label="Não" icon="pi pi-times" onClick={this.onHideSair} className="p-button-secondary" />
+                <Link to="/"> <Button label="Sim" icon="pi pi-check"  /></Link>
+                <Button label="Não" icon="pi pi-times" onClick={(e) => this.setState({ visibleSair: false })} className="p-button-secondary" />
             </div>
         );
         const footerHistoria = (
@@ -543,7 +547,7 @@ export default class Interacao extends React.Component {
                             <p>Voce tem certeza que deseja sair da sala de Interação?</p>
                         </Dialog>
 
-                        <Button icon="pi pi-fw pi-power-off" tooltip="Sair da sala" style={{ height: '142px', left: '1201px', backgroundColor: 'black' }} onClick={this.onClickSair} />
+                        <Button icon="pi pi-fw pi-power-off" tooltip="Sair da sala" style={{ height: '142px', left: '1201px', backgroundColor: 'black' }}  onClick={(e) => this.setState({ visibleSair: true })} />
                     </div>
                     <div style={{ marginLeft: '-32px', width: '700px', height: '100px' }}>
                         <Chat />

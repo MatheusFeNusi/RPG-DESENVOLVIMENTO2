@@ -1,92 +1,35 @@
 package com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.TodosUsuarios;
+import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.Entidades.Credenciais;
 import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.Entidades.Usuario;
-
+import com.rpg3detdesenvolvimento.rpg3detdesenvolvimento.domain.TodosUsuarios;
 
 @RestController
 public class LoginController {
 
 	private TodosUsuarios todosUsuarios;
-	
 
 	@Autowired
 	public LoginController(TodosUsuarios todosUsuarios) {
 		this.todosUsuarios = todosUsuarios;
-	    
+
 	}
-	
-	
+
 	@CrossOrigin
 	@PostMapping("/login")
-	public ResponseEntity<String> validarLogin(@RequestBody Usuario usuario){
-		
-		Usuario usuarios = this.todosUsuarios.existe(usuario.getEmail(), usuario.getSenha());{
-			
-			if(usuarios != null) {
-				ResponseEntity.ok("Sucesso");
-			}
-			return  null;	
-		
-			
-		}
-				
-		
-	
-	
-	
-//	public ResponseEntity<String> validarLogin(@RequestBody  Usuario usuario) {
-//		
-//		if(todosUsuarios.existe(usuario.getEmail(), usuario.getSenha()) != null) {
-//			return ResponseEntity
-//					.status(HttpStatus.OK)
-//					.body("Sucesso");
-//		}
-//		else {
-//			return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-//					.body("Login não autorizado");
-//		}
-//	}
-	
-	
-	
-	
-	
-	
-//	
-//	   List<Usuario> logado = new ArrayList<>();
-//	    
-//
-//	   
-//
-//	    private void logout(Usuario usuario){
-//	        if(todosUsuarios.existe(usuario.getEmail(), usuario.getSenha()) != null) {
-//	            logado.remove(usuario);
-//	        }
-//	    }
+	public ResponseEntity<Usuario> validarLogin(@RequestBody Credenciais credenciais) {
+		Usuario user = todosUsuarios.buscarUsando(credenciais);
+		return user == null ? ResponseEntity.status(HttpStatus.UNAUTHORIZED).build()
+				: ResponseEntity.ok(user);
 
-//	    @DeleteMapping("/logout")
-//	    public ResponseEntity<String> logoutUsuario(@RequestBody Usuario usuario){
-//	        logout(usuario);
-//	        return ResponseEntity.ok("Sucesso");
-//	    }
-//	
-
-
+	}
 
 }
-	}
-	
-	
