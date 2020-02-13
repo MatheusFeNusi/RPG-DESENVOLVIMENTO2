@@ -38,7 +38,7 @@ export default class Interacao extends React.Component {
         this.state = {
             id: 0,
             idPessoal: uuid(),
-            value: 'Descrições de Vantagens: http://www.geocities.ws/jogue3dt/12.html#bar |||||||||||||||||||||  Desvantagens: http://www.geocities.ws/jogue3dt/14.html',
+            value: 'Observações: ',
             value2: 'Chat',
             informationRecieved: 'Você clicou no botão',
             serverURL: 'http://localhost:4000',
@@ -91,7 +91,7 @@ export default class Interacao extends React.Component {
             anaoDesvantagem: null,
 
             
-            
+                visibleInfo: false,
                 visibleFullScreen: false,
                 visibleSair: false,
                 visible: false
@@ -102,7 +102,8 @@ export default class Interacao extends React.Component {
         this.showSticky = this.showSticky.bind(this);
         this.onClick = this.onClick.bind(this);
         this.onHide = this.onHide.bind(this);
-
+        this.onClickInfo = this.onClickInfo.bind(this);
+        this.onHideInfo = this.onHideInfo.bind(this);
         var armazenar = [];
         //this.setState({id: [this.state.idPessoal]});
 
@@ -157,16 +158,26 @@ export default class Interacao extends React.Component {
     onClick() {
         this.setState({ visible: true });
     }
+    onClickInfo() {
+        this.setState({ visibleInfo: true });
+    }
     onClickSair() {
 
         this.setState({visibleSair: true});
     }
+    // onClickInfo() {
+
+    //     this.setState({visibleInfo: true});
+    // }
     onHide() {
         this.setState({ visible: false });
     }
     onHideSair() {
         window.close();
         this.setState({ visibleSair: false });
+    }
+    onHideInfo() {
+        this.setState({ visibleInfo: false });
     }
 
     handleInputChange = (event) => {
@@ -187,6 +198,9 @@ export default class Interacao extends React.Component {
         const socket = socketIOClient(this.state.serverURL)
         socket.emit('infoEvent', state);
 
+    }
+    handleChangeHistori(e) {
+        this.setState({ magoHistoria: e.target.value });
     }
 
     render() {
@@ -521,14 +535,20 @@ export default class Interacao extends React.Component {
         }
         const footerSairSala = (
             <div>
-                <Link to="/"> <Button label="Sim" icon="pi pi-check"  /></Link>
+                <Link to="/acesso"> <Button label="Sim" icon="pi pi-check"  /></Link>
                 <Button label="Não" icon="pi pi-times" onClick={(e) => this.setState({ visibleSair: false })} className="p-button-secondary" />
             </div>
         );
         const footerHistoria = (
             <div>
-                <Button label="Salvar" icon="pi pi-check" onClick={this.onHide} />
-                <Button label="Sair" icon="pi pi-times" onClick={this.onHide} className="p-button-secondary" />
+                
+                <Button label="Voltar" icon="pi pi-times" onClick={this.onHide} className="p-button-secondary" />
+            </div>
+        );
+        const footerInfo = (
+            <div>
+               
+                <Button label="No" icon="pi pi-times" onClick={this.onHideInfo} className="p-button-secondary" />
             </div>
         );
 
@@ -536,6 +556,7 @@ export default class Interacao extends React.Component {
 
 
             <Container className="container" style={{ backgroundImage: `url(${TeladeFundo})`, marginLeft: '10px' }}>
+                
                 <Sidebar visible={this.state.visibleFullScreen} closeOnEscape={false} fullScreen={true} baseZIndex={1000000} onHide={(e) => this.setState({ visibleFullScreen: false })}>
                     <h1>Olá infelizmente, o numero de usuario foi excedido, aguarde um usuario desconectar ou saia da sala </h1>
                     <Link to="/acesso"> <Button type="button" label="Sair da sala" className="p-button-secondary" /></Link>
@@ -561,6 +582,16 @@ export default class Interacao extends React.Component {
                         <Button label="Defesa" tooltip="Rode o dado de defesa" onClick={geraNumeroAleatorio} className="p-button-raised p-button-secondary" style={{ marginLeft: '50px', height: '30px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                         {dado}
                     </div>
+                    <div id="vouTestar" style={{marginLeft: '-9px', marginTop: '110px'}}>
+                    <Dialog header="Descrição de vantagens e desvantagens" visible={this.state.visibleInfo} footer={footerInfo} style={{width: '50vw'}}  onHide={this.onHideInfo} maximizable>
+
+                        <a href="http://www.geocities.ws/jogue3dt/12.html#bar" target="_blank">Descrição vantagens</a>
+                        <hr />
+                        <a href="http://www.geocities.ws/jogue3dt/14.html" target="_blank">Descrição desvantagens</a>
+
+                    </Dialog>
+                        <Button icon="pi pi-info" tooltip="Descrição vantagens e desvantagens" onClick={this.onClickInfo}/>
+                        </div>
                     <div className="content-section implementation" >
                         <Card header={mestreImagem} style={{ width: '115px', marginLeft: '1090px', marginTop: '-138px' }}>
                         </Card>
@@ -585,43 +616,43 @@ export default class Interacao extends React.Component {
                             <ProgressBar value={this.state.magoPM > 100 || this.state.magoPM < 0 ? 0 : this.state.magoPM} displayValueTemplate={this.props.displayValueTemplate}></ProgressBar>
                         </div>
                     </div>
-
+                       
                     <div style={{ marginLeft: '150px' }}>
-                        <InputText tooltip="Força" placeholder="F" onChange={(event) => this.handleInputChange(event)}
-                            id="magoForca" value={this.state.magoForca} maxlength={2} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
+                        <InputText tooltip="Força" type="number" placeholder="F" onChange={(event) => this.handleInputChange(event)}
+                            id="magoForca" value={this.state.magoForca} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Habilidade" placeholder="H" onChange={(event) => this.handleInputChange(event)}
-                            value={this.state.magoHabilidade} id="magoHabilidade" maxlength={2} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
+                        <InputText tooltip="Habilidade" type="number" placeholder="H" onChange={(event) => this.handleInputChange(event)}
+                            value={this.state.magoHabilidade} id="magoHabilidade"  style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Resistência" placeholder="R" onChange={(event) => this.handleInputChange(event)}
-                            id="magoResistencia" value={this.state.magoResistencia} maxlength={2} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
+                        <InputText tooltip="Resistência" type="number" placeholder="R" onChange={(event) => this.handleInputChange(event)}
+                            id="magoResistencia" value={this.state.magoResistencia}  style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Armadura" placeholder="A" onChange={(event) => this.handleInputChange(event)}
-                            id="magoArmadura" value={this.state.magoArmadura} maxlength="2" style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
+                        <InputText tooltip="Armadura" type="number" placeholder="A" onChange={(event) => this.handleInputChange(event)}
+                            id="magoArmadura" value={this.state.magoArmadura}  style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Poder de fogo" placeholder="PF" onChange={(event) => this.handleInputChange(event)}
-                            id="magoPdf" value={this.state.magoPdf} maxlength="2" style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
+                        <InputText tooltip="Poder de fogo" type="number" placeholder="PF" onChange={(event) => this.handleInputChange(event)}
+                            id="magoPdf" value={this.state.magoPdf}  style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div id="historiaMago" style={{ marginLeft: '70px' }}>
 
                         <Dialog header="Você quer uma história?" visible={this.state.visible} footer={footerHistoria}
                             style={{ width: '50vw' }} onHide={this.onHide} maximizable>
-                            <InputText style={{ width: '600px', height: '-70px' }} onChange={(e) => this.setState({ magoHistoria: e.target.value })}
+                            <InputText style={{ width: '600px', height: '-70px' }} onChange={(event) => this.handleInputChange(event)}
                                 placeholder="Digite a hitória do seu personagem"
-                                value={this.state.magoHistoria} id="magoHistoria" rows={5} cols={30} />
+                                value={this.state.magoHistoria, console.log("Mago " + this.state.magoHistoria)} id="magoHistoria" rows={5} cols={30} />
 
                         </Dialog>
 
-                        <Button label="Mostrar sua história" id="mago" icon="pi pi-external-link" onClick={this.onClick} style={{ backgroundColor: 'rgba(196, 196, 196, 1)', color: 'black' }} />
+                        <Button label="Mostrar sua história"  id="mago" icon="pi pi-external-link" onClick={this.onClick} style={{ backgroundColor: 'rgba(196, 196, 196, 1)', color: 'black' }} />
                         <div id="dropdown1">
                             <Dropdown value={this.state.magoVantagem} id="magoVantagem" options={vantagens} onChange={(event) => this.handleInputChange(event)} placeholder="Vantagens" optionLabel="name" filter={true} />
                             <br />
@@ -653,36 +684,36 @@ export default class Interacao extends React.Component {
                     </div>
 
                     <div style={{ marginLeft: '150px' }}>
-                        <InputText tooltip="Força" placeholder="F" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Força" type="number" placeholder="F" onChange={(event) => this.handleInputChange(event)}
                             id="arqueForca" value={this.state.arqueForca} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Habilidade" placeholder="H" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Habilidade" type="number" placeholder="H" onChange={(event) => this.handleInputChange(event)}
                             value={this.state.arqueHabilidade} id="arqueHabilidade" style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Resistência" placeholder="R" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Resistência" type="number" placeholder="R" onChange={(event) => this.handleInputChange(event)}
                             id="arqueResistencia" value={this.state.arqueResistencia} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Armadura" placeholder="A" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Armadura" type="number" placeholder="A" onChange={(event) => this.handleInputChange(event)}
                             id="arqueArmadura" value={this.state.arqueArmadura} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Poder de fogo" placeholder="PF" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Poder de fogo" type="number" placeholder="PF" onChange={(event) => this.handleInputChange(event)}
                             id="arquePdf" value={this.state.arquePdf} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div id="historiaArque" style={{ marginLeft: '70px' }}>
-                        <Dialog header="Você quer uma história?" id="arqueHistoria" visible={this.state.visible} footer={footerHistoria}
+                        <Dialog header="Você quer uma história?"  visible={this.state.visible} footer={footerHistoria}
                             style={{ width: '50vw' }} onHide={this.onHide} maximizable>
-                            <InputText style={{ width: '600px', height: '-70px' }} onChange={(e) => this.setState({ arqueHistoria: e.target.value })}
+                            <InputText style={{ width: '600px', height: '-70px' }} id="arqueHistoria" onChange={(event) => this.handleInputChange(event)}
                                 placeholder="Digite a hitória do seu personagem"
-                                value={this.state.arqueHistoria} id="arqueHistoria" rows={5} cols={30} />
+                                value={this.state.arqueHistoria,console.log("Arque " + this.state.arqueHistoria)} rows={5} cols={30} />
 
                         </Dialog>
                         <Button label="Mostrar sua história" id="arque" icon="pi pi-external-link" onClick={this.onClick} style={{ backgroundColor: 'rgba(196, 196, 196, 1)', color: 'black' }} />
@@ -715,27 +746,27 @@ export default class Interacao extends React.Component {
                     </div>
 
                     <div style={{ marginLeft: '150px' }}>
-                        <InputText tooltip="Força" placeholder="F" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Força" type="number" placeholder="F" onChange={(event) => this.handleInputChange(event)}
                             id="vampiForca" value={this.state.vampiForca} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Habilidade" placeholder="H" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Habilidade" type="number" placeholder="H" onChange={(event) => this.handleInputChange(event)}
                             value={this.state.vampiHabilidade} id="vampiHabilidade" style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Resistência" placeholder="R" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Resistência" type="number" placeholder="R" onChange={(event) => this.handleInputChange(event)}
                             id="vampiResistencia" value={this.state.vampiResistencia} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Armadura" placeholder="A" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Armadura" type="number" placeholder="A" onChange={(event) => this.handleInputChange(event)}
                             id="vampiArmadura" value={this.state.vampiArmadura} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Poder de fogo" placeholder="PF" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Poder de fogo" type="number" placeholder="PF" onChange={(event) => this.handleInputChange(event)}
                             id="vampiPdf" value={this.state.vampiPdf} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
@@ -780,27 +811,27 @@ export default class Interacao extends React.Component {
                     </div>
 
                     <div style={{ marginLeft: '150px' }}>
-                        <InputText tooltip="Força" placeholder="F" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Força" type="number" placeholder="F" onChange={(event) => this.handleInputChange(event)}
                             id="anaoForca" value={this.state.anaoForca} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Habilidade" placeholder="H" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Habilidade" type="number" placeholder="H" onChange={(event) => this.handleInputChange(event)}
                             value={this.state.anaoHabilidade} id="anaoHabilidade" style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Resistência" placeholder="R" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Resistência" type="number" placeholder="R" onChange={(event) => this.handleInputChange(event)}
                             id="anaoResistencia" value={this.state.anaoResistencia} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Armadura" placeholder="A" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Armadura" type="number" placeholder="A" onChange={(event) => this.handleInputChange(event)}
                             id="anaoArmadura" value={this.state.anaoArmadura} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
 
                     <div style={{ marginLeft: '10px' }}>
-                        <InputText tooltip="Poder de fogo" placeholder="PF" onChange={(event) => this.handleInputChange(event)}
+                        <InputText tooltip="Poder de fogo" type="number" placeholder="PF" onChange={(event) => this.handleInputChange(event)}
                             id="anaoPdf" value={this.state.anaoPdf} style={{ width: '50px', backgroundColor: 'rgba(196, 196, 196, 1)' }} />
                     </div>
                     <div id="hitoriaAnao" style={{ marginLeft: '70px' }}>

@@ -39,6 +39,10 @@ class Home extends Component {
 
 
     }
+    onClickSair = () => {
+        window.close();
+        console.log("Saiu ^^")
+    }
 
 
 
@@ -96,6 +100,8 @@ class Home extends Component {
 
 
                         <Link to="/interacao"> <button type="button" className="btn btn-block btn-primary">Entrar sala</button></Link>
+                        <br/>
+                        <Link to="/"> <button type="button"  className="btn btn-block btn-primary">Voltar para o site</button></Link>
                     </div>
 
                 </Col>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import PrivateRoutes from 'react-private-route';
 import Site from './Site';
 import Interacao from './Interacao/Interacao.js';
 //import IndexLogin from './Login/indexLogin.js';
@@ -10,17 +10,9 @@ import Cadastro from './Login/user/signup/Signup.js'
 import Login2 from './Login/user/login/Login'
 //import Chat from './Interacao/Chat.js'
 
-// <Route path="/chat" component={Chat} />
-// const PrivateRoute = ({ component: Component, ...rest }) => {
-//     <Route
-//         {...rest}
-//         render={props =>
-//             isAuthenticated() ? (
-//                 <Component {...props} />
-//             ) : <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+//
+//<Route path="/chat" component={Chat} />
 
-//         } />
-// }
 
 
 export default class Routes extends Component {
@@ -33,6 +25,7 @@ render(){
             <Route path="/login" component={Login} />
             <Route path="/interacao" component={Interacao} />
             <Route path="/acesso" component={Acesso} />
+           {/* <PrivateRoutes caminho='/acesso'/> */}
             <Route path="/cadastro" component={Cadastro} />
 
         </Switch>

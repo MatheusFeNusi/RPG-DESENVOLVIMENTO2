@@ -6,6 +6,8 @@ import './Login.css';
 import { urlPadrao } from "../../services/api";
 import { withRouter, Route, Redirect } from 'react-router-dom';
 //import Acesso from '../../home/Home.js';
+import {Growl} from 'primereact/growl';
+
 
 // class Login extends Component {
 //     componentDidMount() {
@@ -64,15 +66,15 @@ import { withRouter, Route, Redirect } from 'react-router-dom';
 //     }
 // }
 
-
+var erro = false
 export default class LoginForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
-            senha: '',
-            redirect: false
+            senha: ''
         };
+        
     }
 
     logar = async () => {
@@ -86,13 +88,12 @@ export default class LoginForm extends Component {
             console.log(response)
 
             if (response.status === 200) {
-                alert("sucesso");
                 this.props.history.push("/acesso");
                 //this.props.history.push('/acesso');
 
             }
         } catch (response) {
-            alert("Usuario ou senha invalido")
+            this.growl.show({severity: 'error', summary: 'Erro', detail: 'Usuário ou senha inválido'});
         }
 
     }
@@ -106,6 +107,7 @@ export default class LoginForm extends Component {
         this.setState(state);
 
     }
+    
 
     // handleSubmit(event) {
     //     event.preventDefault();
@@ -125,9 +127,9 @@ export default class LoginForm extends Component {
     render() {
 
         return (
-
+            
             <form >
-
+                <Growl ref={(el) => this.growl = el} />
                 <div className="form-item">
                     <input type="email" id="email" name="email" style={{ height: '40px', backgroundColor: 'transparent', borderColor: 'yellow', color: 'white' }}
                         className="form-control" placeholder="Email" data-toggle="tooltip" title="Digite seu email"
