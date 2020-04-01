@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/android_cadastro">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="3DT Online"
+        android:textColor="#F7FF00"
+        android:background="@drawable/titulo_top"
+        android:id="@+id/top3dt"
+        android:textSize="20dp"
+        android:gravity="center"/>
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="98dp"
+        android:src="@mipmap/android_logo"/>
+
+
+    <EditText
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Nome"
+        android:id="@+id/nomeCadastro"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:background="#52FFFFFF"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="parent"/>
+
+    <EditText
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Email"
+        android:id="@+id/emailCadastro"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        android:background="#52FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/nomeCadastro"
+        />
+    <EditText
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Senha"
+        android:layout_marginTop="20dp"
+        android:id="@+id/SenhaCadastro"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:background="#52FFFFFF"
+
+        app:layout_constraintTop_toBottomOf="@id/emailCadastro"/>
+    <EditText
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Confirmar senha"
+        android:id="@+id/SenhaConfirmaCadastro"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:background="#52FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/SenhaCadastro"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:background="@drawable/botao_customizado"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="80dp"
+        android:layout_height="wrap_content"
+        android:text="Criar conta"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/SenhaConfirmaCadastro"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/botaoEntrar"
+        android:layout_marginTop="30dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

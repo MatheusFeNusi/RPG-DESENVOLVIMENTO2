@@ -1,0 +1,2 @@
+rootProject.name='3Dtermination'
+include ':app'
