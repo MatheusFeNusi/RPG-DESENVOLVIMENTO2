@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroPerson"
+    android:background="@drawable/cadastroimagem">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="3DT Online"
+        android:textColor="#F7FF00"
+        android:background="@drawable/titulotop"
+        android:id="@+id/top3dt"
+        android:textSize="20dp"
+        android:gravity="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="98dp"
+        android:src="@drawable/logo"
+        android:id="@+id/logo"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Criar personagens"
+        android:textColor="#F7FF00"
+        android:background="@drawable/subtitulotop"
+        android:layout_marginVertical="50dp"
+        android:id="@+id/criaPerson"
+        android:textSize="20sp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivImage"
+        android:src="@drawable/upload"
+        android:onClick="pegarImagemGaleria"
+        app:layout_constraintTop_toBottomOf="@id/criaPerson"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Nome personagem"
+        app:layout_constraintTop_toBottomOf="@id/ivImage"
+        app:layout_constraintRight_toRightOf="@id/ivImage"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
