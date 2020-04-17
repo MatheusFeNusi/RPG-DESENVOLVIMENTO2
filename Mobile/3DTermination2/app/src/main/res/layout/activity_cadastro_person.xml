@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,14 +10,23 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="3DT Online"
+        android:text="@string/app_3dt_online"
         android:textColor="#F7FF00"
         android:background="@drawable/titulotop"
         android:id="@+id/top3dt"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:gravity="center"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:text="@string/app_bem_vindo"
+        android:layout_marginTop="2dp"
+        android:textSize="35sp"
+        android:layout_below="@id/top3dt"
+        android:layout_centerHorizontal="true"/>
     <ImageView
         android:layout_width="140dp"
         android:layout_height="98dp"
@@ -26,30 +35,367 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="Criar personagens"
+        android:text="@string/app_criar_personagem"
         android:textColor="#F7FF00"
         android:background="@drawable/subtitulotop"
-        android:layout_marginVertical="50dp"
+        android:layout_marginVertical="1dp"
         android:id="@+id/criaPerson"
         android:textSize="20sp"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/logo"
+        android:layout_below="@id/logo"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
-
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginVertical="1dp"
         android:id="@+id/ivImage"
         android:src="@drawable/upload"
         android:onClick="pegarImagemGaleria"
-        app:layout_constraintTop_toBottomOf="@id/criaPerson"/>
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/criaPerson"/>
+    <TextView
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorWhite"
+        android:id="@+id/nomeCriar"
+        android:layout_toEndOf="@id/ivImage"
+        android:layout_below="@id/criaPerson"
+        />
     <EditText
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:hint="Ex: Zabuba Momochi"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorBackground"
+        android:layout_marginEnd="0dp"
+        android:id="@+id/nomePersonagem"
+        android:layout_marginStart="110dp"
+        android:layout_below="@id/nomeCriar"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/pontosCriar"
+        android:text="Ponto"
+        android:layout_marginStart="350dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/criaPerson"
+        android:layout_alignParentLeft="true"/>
+    <EditText
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:hint="Ex:7"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="350dp"
+        android:background="@color/colorBackground"
+        android:layout_alignParentLeft="true"
+        android:inputType="number"
+        android:layout_below="@id/pontosCriar"
+        android:id="@+id/pontosPersonagem"/>
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Nome personagem"
-        app:layout_constraintTop_toBottomOf="@id/ivImage"
-        app:layout_constraintRight_toRightOf="@id/ivImage"
-        />
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
+        android:id="@+id/forcaCriar"
+        android:text="Força:"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/ivImage"/>
+    <EditText
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
+        android:background="@color/colorBackground"
+        android:id="@+id/forcaPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="74dp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/ivImage"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
+        android:id="@+id/habilidadeCriar"
+        android:text="Habilidade:"
+        android:textSize="12sp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/forcaCriar"/>
+    <EditText
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
+        android:background="@color/colorBackground"
+        android:id="@+id/habilidadePersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="74dp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/forcaPersonagem"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
+        android:id="@+id/resistenciaCriar"
+        android:text="Resistência:"
+        android:textSize="12sp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/habilidadeCriar"/>
+    <EditText
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
+        android:background="@color/colorBackground"
+        android:id="@+id/resistenciaPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="74dp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/habilidadePersonagem"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
+        android:id="@+id/armaduraCriar"
+        android:text="Armadura:"
+        android:textSize="12sp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/resistenciaCriar"/>
+    <EditText
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
+        android:background="@color/colorBackground"
+        android:id="@+id/armaduraPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="74dp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/resistenciaPersonagem"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
+        android:id="@+id/PoderFogoCriar"
+        android:text="Poder Fogo:"
+        android:textSize="12sp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/armaduraCriar"/>
+    <EditText
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
+        android:background="@color/colorBackground"
+        android:id="@+id/poderFogoPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="74dp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/armaduraPersonagem"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
+        android:id="@+id/pontosVidaCriar"
+        android:text="Ponto Vida:"
+        android:textSize="12sp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/PoderFogoCriar"/>
+    <EditText
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
+        android:background="@color/colorBackground"
+        android:id="@+id/pontosVidaPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="74dp"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/poderFogoPersonagem"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
+        android:id="@+id/pontosMagiaCriar"
+        android:text="Ponto Magia:"
+        android:textSize="12sp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/pontosVidaCriar"/>
+    <EditText
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
+        android:background="@color/colorBackground"
+        android:inputType="number"
+        android:id="@+id/pontosMagiaPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/pontosVidaPersonagem"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
+        android:id="@+id/pontosExperienciaCriar"
+        android:text="Ponto Experiencia:"
+        android:textSize="11sp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/pontosMagiaCriar"/>
+    <EditText
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
+        android:background="@color/colorBackground"
+        android:inputType="number"
+        android:id="@+id/pontosExperienciaPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/pontosMagiaCriar"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vantagens"
+        android:layout_marginTop="30dp"
+        android:id="@+id/vantagensCriar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="130dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/nomePersonagem"/>
+    <EditText
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="130dp"
+        android:id="@+id/vantagensPersonagem"
+        android:textSize="11sp"
+        android:hint="Ex: Inteligência"
+        android:layout_below="@id/vantagensCriar"
+        android:background="@color/colorBackground"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desvantagens"
+        android:layout_marginTop="30dp"
+        android:id="@+id/desvatagemCriar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="270dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/nomePersonagem"/>
+    <EditText
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="270dp"
+        android:textSize="11sp"
+        android:hint="Ex: Lentidão"
+        android:id="@+id/desvantagemPersonagem"
+        android:layout_below="@id/desvatagemCriar"
+        android:background="@color/colorBackground"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo Dano:"
+        android:layout_marginTop="45dp"
+        android:id="@+id/tipoDanoCriar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="130dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/vantagensPersonagem"/>
+    <EditText
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="130dp"
+        android:textSize="11sp"
+        android:hint="Ex: fogo"
+        android:id="@+id/tipoDanoPersonagem"
+        android:layout_below="@id/tipoDanoCriar"
+        android:background="@color/colorBackground"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Magia Conhecida:"
+        android:layout_marginTop="45dp"
+        android:id="@+id/magiaConhecidaCriar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="270dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/vantagensPersonagem"/>
+    <EditText
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="270dp"
+        android:textSize="11sp"
+        android:hint="Ex: Alakazan"
+        android:layout_below="@id/magiaConhecidaCriar"
+        android:background="@color/colorBackground"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dinheiro e itens:"
+        android:layout_marginTop="45dp"
+        android:id="@+id/dinheiroItensCriar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="130dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/tipoDanoPersonagem"/>
+    <EditText
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="130dp"
+        android:textSize="11sp"
+        android:id="@+id/dinheiroItensPersonagem"
+        android:hint="Ex: katana"
+        android:layout_below="@id/dinheiroItensCriar"
+        android:background="@color/colorBackground"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="História:"
+        android:layout_marginTop="45dp"
+        android:id="@+id/historiaCriar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="270dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@id/tipoDanoPersonagem"/>
+    <EditText
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="270dp"
+        android:textSize="11sp"
+        android:hint="Ex: papapapap"
+        android:layout_below="@id/dinheiroItensCriar"
+        android:background="@color/colorBackground"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="30dp"
+        android:text="Criar"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/botao_customizado"
+        android:layout_below="@id/dinheiroItensPersonagem"/>
+</RelativeLayout>

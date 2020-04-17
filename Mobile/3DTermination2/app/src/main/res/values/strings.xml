@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">3D&amp;Termination</string>
+
+    <string name="app_3dt_online">3DT Online</string>
+    <string name="app_email">Email</string>
+    <string name="app_senha">Senha</string>
+    <string name="app_nome">Nome</string>
+    <string name="app_confirmar_senha">Confirmar senha</string>
+    <string name="app_cadastre">Cadastre-se</string>
+    <string name="app_criar_conta">Criar conta</string>
+    <string name="app_bem_vindo">Bem vindo!</string>
+    <string name="app_criar_personagem">Criar personagens</string>
+
+
 </resources>
