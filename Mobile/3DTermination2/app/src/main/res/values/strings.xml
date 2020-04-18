@@ -9,7 +9,28 @@
     <string name="app_cadastre">Cadastre-se</string>
     <string name="app_criar_conta">Criar conta</string>
     <string name="app_bem_vindo">Bem vindo!</string>
+    <string name="app_voltar">Voltar</string>
     <string name="app_criar_personagem">Criar personagens</string>
-
-
+    <string name="app_esqueci_senha">Esqueci minha senha</string>
+    <string name="app_trocar_senha">Trocar senha</string>
+    <string name="app_nova_senha">Nova senha</string>
+    <string name="app_repetir_senha">Repetir senha</string>
+    <string name="app_historia">História</string>
+    <string name="app_dinheiro_itens">Dinheiro e itens</string>
+    <string name="app_magia_conhecida">Magia Conhecida</string>
+    <string name="app_tipo_dano">Tipo Dano</string>
+    <string name="app_descantagens">Desvantagens</string>
+    <string name="app_vantagens">Vantagens</string>
+    <string name="app_ponto_experiencia">Ponto Experiencia</string>
+    <string name="app_ponto_magia">Ponto Magia</string>
+    <string name="app_ponto_vida">Ponto Vida</string>
+    <string name="app_poder_fogo">Poder Fogo</string>
+    <string name="app_armadura">Armadura</string>
+    <string name="app_resistencia">Resistência</string>
+    <string name="app_habilidade">Habilidade</string>
+    <string name="app_forca">Força</string>
+    <string name="app_ponto">Ponto</string>
+    <string name="app_esqueceu_senha">Esqueceu sua senha?</string>
+    <string name="app_frase_esqueci">Insira o seu e-mail e a nova senha no campo abaixo para restaurarmos sua senha</string>
+    <string name="app_meus_personagens">Meus personagens</string>
 </resources>

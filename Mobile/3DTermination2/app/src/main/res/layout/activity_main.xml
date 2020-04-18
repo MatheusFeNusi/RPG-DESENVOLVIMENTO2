@@ -29,6 +29,7 @@
         android:id="@+id/email"
         android:hint="@string/app_email"
         android:textSize="30sp"
+        android:drawableLeft="@mipmap/ic_email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -44,6 +45,7 @@
         android:textColor="#FFFFFF"
         android:layout_marginTop="20dp"
         android:textSize="30sp"
+        android:drawableLeft="@mipmap/ic_senha"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email"
@@ -52,11 +54,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Esqueceu sua senha?"
+        android:text="@string/app_esqueceu_senha"
         android:textColor="#FFFFFF"
         android:id="@+id/esqueceuSenha"
-        android:paddingTop="20dp"
-        android:textSize="10sp"
+        android:paddingTop="15sp"
+        android:onClick="trocarTelaEsqueciSenha"
+        android:textSize="12sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/senha" />
 

@@ -19,4 +19,8 @@ class MainActivity : AppCompatActivity() {
         val telaCadastroPerson = Intent(this,CadastroPerson::class.java)
         startActivity(telaCadastroPerson)
     }
+    fun trocarTelaEsqueciSenha(v: View){
+        val telaEsquePassword = Intent(this,EsqueceuSenha::class.java)
+        startActivity(telaEsquePassword)
+    }
 }

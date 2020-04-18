@@ -35,9 +35,15 @@ class CadastroPerson : AppCompatActivity() {
                         selectedImage.toString(),
                         Toast.LENGTH_SHORT
                     ).show()
-                    ivImage.setImageURI(selectedImage)
+                    /*ivImage.setImageURI(selectedImage)*/
                 }
             }
         }
     }
+
+    fun trocarTelaMeusPerson(v: View){
+        val telaEsquePassword = Intent(this,MeusPersonagens::class.java)
+        startActivity(telaEsquePassword)
+    }
+
 }
