@@ -15,4 +15,14 @@ class CadastroUser : AppCompatActivity() {
         val telaLogin = Intent(this,MainActivity::class.java)
         startActivity(telaLogin)
     }
+
+    fun pesquisarEndereco(v:View){
+        //val cepPesquisa = etCep.text.toString()
+
+        // criei uma GetCepTask e fiz a chamada assicrona que usa o Feigh p/ consumir o Endpoint
+       // val resultado = GetCepTask().execute(cepPesquisa).get()
+        //val msg = "Logradouro: ${resultado.logradouro} - ${resultado.bairro} - ${resultado.localidade}"
+        //tvEndereco.text = msg
+    }
+
 }

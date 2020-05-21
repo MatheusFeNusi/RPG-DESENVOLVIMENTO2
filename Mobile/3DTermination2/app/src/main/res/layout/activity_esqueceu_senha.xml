@@ -64,6 +64,7 @@
         android:id="@+id/esqueciSenha"
         android:drawableLeft="@mipmap/ic_senha"
         android:hint="@string/app_nova_senha"
+        android:inputType="textPassword"
         android:background="@color/colorBackground"
         android:layout_centerInParent="true"
         android:layout_below="@id/esqueciEmail"/>
@@ -74,6 +75,7 @@
         android:drawableLeft="@mipmap/ic_senha"
         android:layout_marginTop="20dp"
         android:id="@+id/esqueciRepeteSenha"
+        android:inputType="textPassword"
         android:hint="@string/app_repetir_senha"
         android:background="@color/colorBackground"
         android:layout_centerInParent="true"
@@ -88,15 +90,5 @@
     android:textColor="@color/colorWhite"
     android:background="@drawable/botao_customizado"
     android:onClick="trocarTelaLogin2"/>
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/app_trocar_senha"
-        android:layout_below="@id/esqueciRepeteSenha"
-        android:layout_centerInParent="true"
-        android:textColor="@color/colorWhite"
-        android:background="@drawable/botao_customizado"
-        android:onClick="trocarTelaLogin2"/>
 
 </RelativeLayout>

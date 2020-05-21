@@ -33,4 +33,7 @@
     <string name="app_esqueceu_senha">Esqueceu sua senha?</string>
     <string name="app_frase_esqueci">Insira o seu e-mail e a nova senha no campo abaixo para restaurarmos sua senha</string>
     <string name="app_meus_personagens">Meus personagens</string>
+    <string name="app_editar">Editar</string>
+    <string name="app_detalhes">Detalhes</string>
+    <string name="app_entra_chat">Entrar no chat</string>
 </resources>
