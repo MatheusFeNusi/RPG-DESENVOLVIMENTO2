@@ -3,7 +3,7 @@ import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import io from 'socket.io-client';
 import uuid from 'uuid/v4';
-import './chat.css'
+import './Chat.css'
 
 
 const myId = uuid();

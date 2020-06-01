@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import PrivateRoutes from 'react-private-route';
+
 import Site from './Site';
 import Interacao from './Interacao/Interacao.js';
 //import IndexLogin from './Login/indexLogin.js';
@@ -25,7 +25,6 @@ render(){
             <Route path="/login" component={Login} />
             <Route path="/interacao" component={Interacao} />
             <Route path="/acesso" component={Acesso} />
-           {/* <PrivateRoutes caminho='/acesso'/> */}
             <Route path="/cadastro" component={Cadastro} />
 
         </Switch>
