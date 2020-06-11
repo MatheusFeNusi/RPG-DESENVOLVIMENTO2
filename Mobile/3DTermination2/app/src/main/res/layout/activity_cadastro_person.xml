@@ -6,17 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".CadastroPerson"
     android:background="@drawable/cadastroimagem">
-    <TextView
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="@string/app_3dt_online"
-        android:textColor="#F7FF00"
-        android:background="@drawable/titulotop"
-        android:id="@+id/top3dt"
-        android:textSize="20sp"
-        android:gravity="center"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_height="wrap_content"
+        android:id="@+id/topbar">
+    </FrameLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,13 +19,9 @@
         android:text="@string/app_bem_vindo"
         android:layout_marginTop="2dp"
         android:textSize="35sp"
-        android:layout_below="@id/top3dt"
+        android:layout_below="@id/topbar"
         android:layout_centerHorizontal="true"/>
-    <ImageView
-        android:layout_width="140dp"
-        android:layout_height="98dp"
-        android:src="@drawable/logo"
-        android:id="@+id/logo"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -41,7 +32,7 @@
         android:id="@+id/criaPerson"
         android:textSize="20sp"
         android:gravity="center"
-        android:layout_below="@id/logo"
+        android:layout_below="@id/topbar"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
     <ImageView
@@ -49,8 +40,7 @@
         android:layout_height="100dp"
         android:layout_marginVertical="1dp"
         android:id="@+id/ivImage"
-        android:src="@drawable/upload"
-        android:onClick="pegarImagemGaleria"
+        android:src="@drawable/iconusuario"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/criaPerson"/>
     <TextView
@@ -152,7 +142,6 @@
     <EditText
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
         android:background="@color/colorBackground"
         android:id="@+id/resistenciaPersonagem"
         android:layout_alignParentLeft="true"
@@ -174,7 +163,6 @@
     <EditText
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
         android:background="@color/colorBackground"
         android:id="@+id/armaduraPersonagem"
         android:layout_alignParentLeft="true"
@@ -196,7 +184,6 @@
     <EditText
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
         android:background="@color/colorBackground"
         android:id="@+id/poderFogoPersonagem"
         android:layout_alignParentLeft="true"
@@ -240,7 +227,6 @@
     <EditText
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
         android:background="@color/colorBackground"
         android:inputType="number"
         android:id="@+id/pontosMagiaPersonagem"
@@ -264,7 +250,6 @@
     <EditText
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
         android:background="@color/colorBackground"
         android:inputType="number"
         android:id="@+id/pontosExperienciaPersonagem"
@@ -371,20 +356,22 @@
         android:layout_marginStart="270dp"
         android:textColor="@color/colorWhite"
         android:layout_below="@id/tipoDanoPersonagem"/>
+
     <EditText
         android:layout_width="120dp"
         android:layout_height="70dp"
-        android:layout_marginStart="270dp"
-        android:textSize="11sp"
         android:layout_below="@id/dinheiroItensCriar"
-        android:background="@color/colorBackground"/>
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="-1dp"
+        android:background="@color/colorBackground"
+        android:textSize="11sp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="200dp"
         android:layout_marginTop="30dp"
-        android:text="Criar personagem"
+        android:text="@string/app_criar_personagem"
         android:onClick="trocarTelaMeusPerson"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorWhite"

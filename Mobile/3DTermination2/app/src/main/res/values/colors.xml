@@ -6,4 +6,5 @@
     <color name="colorWhite">#ECFFFFFF</color>
     <color name="colorBackground">#DADADA</color>
     <color name="color3dtOnline">#F7FF00</color>
+    <color name="colorBlack">#000000</color>
 </resources>

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">3D&amp;Termination</string>
-
     <string name="app_3dt_online">3DT Online</string>
     <string name="app_email">Email</string>
     <string name="app_senha">Senha</string>
@@ -10,6 +9,8 @@
     <string name="app_criar_conta">Criar conta</string>
     <string name="app_bem_vindo">Bem vindo!</string>
     <string name="app_voltar">Voltar</string>
+    <string name="app_entrar">Entrar</string>
+    <string name="app_movo_aqui">Novo aqui? crie uma conta</string>
     <string name="app_criar_personagem">Criar personagens</string>
     <string name="app_esqueci_senha">Esqueci minha senha</string>
     <string name="app_trocar_senha">Trocar senha</string>
@@ -36,4 +37,7 @@
     <string name="app_editar">Editar</string>
     <string name="app_detalhes">Detalhes</string>
     <string name="app_entra_chat">Entrar no chat</string>
+    <string name="app_salvar">Salvar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
