@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,5 +41,13 @@ class MainActivity : AppCompatActivity() {
     }
     fun mostrarFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.topbar, FragmentTopbar()).commit()
+    }
+    fun trocarInteracao(v: View) {
+//        val telaInteracao = Intent(this,EntranceActivity::class.java)
+//        startActivity(telaInteracao)
+        val teste = "Luis"
+        startActivity<EntranceActivity>(
+            "id" to teste
+        )
     }
 }

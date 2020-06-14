@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_meus_personagens.*
+import org.jetbrains.anko.startActivity
 
 class MeusPersonagens : AppCompatActivity() {
 
