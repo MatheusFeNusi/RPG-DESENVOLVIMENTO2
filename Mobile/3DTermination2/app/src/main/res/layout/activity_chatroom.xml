@@ -76,13 +76,11 @@
                 android:id="@+id/partnerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="start"
+                android:layout_marginStart="6dp"
                 android:fontFamily="@font/mont_medium"
-                android:gravity="center"
-                android:textColor="@color/colorWhite"
-                android:text="@string/app_nome"
+                android:textSize="20sp"
+                android:textColor="#F7FF00"
+                android:text="@string/app_3dt_online"
                 android:visibility="visible" />
         </LinearLayout>
     </LinearLayout>
