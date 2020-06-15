@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
@@ -18,7 +19,8 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
 
 
     val TAG = ChatRoomActivity::class.java.simpleName
-
+    var numero_def = 0
+    var numero_atk = 0
 
     lateinit var mSocket: Socket;
     lateinit var userName: String;
@@ -34,15 +36,19 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chatroom)
-
-
         send.setOnClickListener(this)
         leave.setOnClickListener(this)
-
+        dado_mostrar.setOnClickListener(this)
+        dado_esconder.setOnClickListener(this)
+        dado_ataque.setOnClickListener(this)
+        dado_defesa.setOnClickListener(this)
         //Get the nickname and roomname from entrance activity.
         try {
             userName = intent.getStringExtra("userName")!!
             roomName = intent.getStringExtra("roomName")!!
+            dado_ataque.setVisibility(View.INVISIBLE)
+            dado_defesa.setVisibility(View.INVISIBLE)
+            dado_esconder.setVisibility(View.INVISIBLE)
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -102,12 +108,19 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun sendMessage() {
         val content = editText.text.toString()
+        editText.isEnabled = true
+        dado_ataque.setVisibility(View.INVISIBLE)
+        dado_defesa.setVisibility(View.INVISIBLE)
+        dado_esconder.setVisibility(View.INVISIBLE)
+        dado_mostrar.setVisibility(View.VISIBLE)
         val sendData = SendMessage(userName, content, roomName)
         val jsonData = gson.toJson(sendData)
         mSocket.emit("newMessage", jsonData)
 
         val message = Message(userName, content, roomName, MessageType.CHAT_MINE.index)
         addItemToRecyclerView(message)
+        numero_def = 0
+        numero_atk = 0
     }
 
     private fun addItemToRecyclerView(message: Message) {
@@ -127,19 +140,57 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
         when (p0!!.id) {
             R.id.send -> sendMessage()
             R.id.leave -> onDestroy()
+            R.id.dado_mostrar -> mostrarAtkDef()
+            R.id.dado_esconder -> esconderAtkDef()
+            R.id.dado_ataque -> numeroRandonAtk()
+            R.id.dado_defesa -> numeroRandonDef()
         }
     }
 
     override fun onDestroy() {
+//        val data = initialData(userName, roomName)
+//        val jsonData = gson.toJson(data)
+//        mSocket.emit("unsubscribe", jsonData)
         super.onDestroy()
-        val data = initialData(userName, roomName)
-        val jsonData = gson.toJson(data)
-        mSocket.emit("unsubscribe", jsonData)
         mSocket.disconnect()
-        val teste = "Luis"
-        startActivity<EntranceActivity>(
-            "id" to teste
-        )
+        startActivity<EntranceActivity>()
     }
+    fun mostrarAtkDef() {
+        dado_mostrar.setVisibility(View.INVISIBLE)
+        dado_ataque.setVisibility(View.VISIBLE)
+        dado_defesa.setVisibility(View.VISIBLE)
+        dado_esconder.setVisibility(View.VISIBLE)
+    }
+    fun esconderAtkDef() {
+        dado_mostrar.setVisibility(View.VISIBLE)
+        dado_ataque.setVisibility(View.INVISIBLE)
+        dado_defesa.setVisibility(View.INVISIBLE)
+        dado_esconder.setVisibility(View.INVISIBLE)
+    }
+    fun numeroRandonDef() {
+        val numero_dado = (1..6).random().toString()
+        if(numero_def == 0) {
+            numero_def++
+            val frase = "Defesa: $numero_dado"
+            editText.setText(frase)
+            editText.isEnabled = false
+            Toast.makeText(this, "Número: ${numero_dado}. Clique em enviar", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Somente pode gerar um número por vez", Toast.LENGTH_SHORT).show()
 
+        }
+    }
+    fun numeroRandonAtk() {
+        val numero_dado = (1..6).random().toString()
+        if(numero_atk == 0) {
+            numero_atk++
+            val frase = "Ataque: $numero_dado"
+            editText.setText(frase)
+            editText.isEnabled = false
+            Toast.makeText(this, "Número: ${numero_dado}. Clique em enviar", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Somente pode gerar um número por vez", Toast.LENGTH_SHORT).show()
+
+        }
+    }
 }

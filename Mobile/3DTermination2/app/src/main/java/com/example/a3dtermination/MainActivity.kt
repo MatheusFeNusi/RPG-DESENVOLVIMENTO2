@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun validacaoLongin(V:View) {
         val loginMocado = "admin"
-        val senhaMocado = "admin123"
+        val senhaMocado = "admin"
         val email = email.text.toString()
         val senha = senha.text.toString()
         if(loginMocado == email && senhaMocado == senha){
@@ -42,12 +42,12 @@ class MainActivity : AppCompatActivity() {
     fun mostrarFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.topbar, FragmentTopbar()).commit()
     }
-    fun trocarInteracao(v: View) {
+//    fun trocarInteracao(v: View) {
 //        val telaInteracao = Intent(this,EntranceActivity::class.java)
 //        startActivity(telaInteracao)
-        val teste = "Luis"
-        startActivity<EntranceActivity>(
-            "id" to teste
-        )
-    }
+//        val teste = "Luis"
+//        startActivity<EntranceActivity>(
+//            "id" to teste
+//        )
+//    }
 }

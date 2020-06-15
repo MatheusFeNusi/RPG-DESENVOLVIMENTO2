@@ -288,6 +288,7 @@
         android:layout_marginStart="220dp"
         android:layout_marginTop="20dp"
         android:text="@string/app_entra_chat"
+        android:onClick="entrarChat"
         android:textColor="@color/colorWhite"
         android:background="@drawable/botao_customizado"
         android:layout_below="@id/scrollDetalhes"/>

@@ -69,11 +69,13 @@ class MeusPersonagens : AppCompatActivity() {
         val dinheiroItens = dinheiroItensEditar?.text.toString()
         val historia = historiaEditar?.text.toString()
 
-        // a será mandada o requisição para o banco
-
+        // aqui será mandada o requisição para o banco
     }
     fun trocarTelaCadastroPerson(v: View){
         val telaCadastroPerson = Intent(this,CadastroPerson::class.java)
         startActivity(telaCadastroPerson)
+    }
+    fun entrarChat(v:View) {
+        startActivity<EntranceActivity>()
     }
 }
