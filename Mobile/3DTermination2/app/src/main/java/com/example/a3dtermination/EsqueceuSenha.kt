@@ -18,21 +18,27 @@ class EsqueceuSenha : AppCompatActivity() {
     fun mostrarFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.topbar, FragmentTopbar()).commit()
     }
-    fun validacaoSenhaLogin(v:View){
+    fun checkNull(v: View){
         val novaSenha = esqueciSenha.text.toString()
         val confirmaSenha = esqueciRepeteSenha.text.toString()
         val email = esqueciEmail.text.toString()
-        if(novaSenha == confirmaSenha) {
-            val objeto = {
-                email;
-                novaSenha
-            }
-            Toast.makeText(this, "Sucesso!", Toast.LENGTH_SHORT).show()
-
-            val telaLogin = Intent(this,MainActivity::class.java)
-            startActivity(telaLogin)
+        if(novaSenha.isEmpty() && confirmaSenha.isEmpty() && email.isEmpty()) {
+            Toast.makeText(this, "Todos campos estão vazios", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, "Senhas não estão iguais", Toast.LENGTH_SHORT).show()
+            validacaoSenhaLogin()
+        }
+    }
+    fun validacaoSenhaLogin(){
+        val novaSenha = esqueciSenha.text.toString()
+        val confirmaSenha = esqueciRepeteSenha.text.toString()
+        val email = esqueciEmail.text.toString()
+        if(novaSenha == confirmaSenha && novaSenha.isNotEmpty() && confirmaSenha.isNotEmpty() && email.isNotEmpty()) {
+                Toast.makeText(this, "Sucesso!", Toast.LENGTH_SHORT).show()
+              val telaLogin = Intent(this,MainActivity::class.java)
+                  startActivity(telaLogin)
+
+        } else {
+            Toast.makeText(this, "Senha ou email incorretos", Toast.LENGTH_SHORT).show()
             esqueciSenha.text = null
             esqueciRepeteSenha.text = null
         }

@@ -25,16 +25,26 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="@string/app_criar_personagem"
-        android:textColor="#F7FF00"
         android:background="@drawable/subtitulotop"
         android:layout_marginVertical="1dp"
-        android:id="@+id/criaPerson"
         android:textSize="20sp"
+        android:id="@+id/criaPerson"
         android:gravity="center"
         android:layout_below="@id/topbar"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textColor="#F7FF00"
+        android:switchPadding="20dp"
+        android:textSize="20sp"
+        android:thumbTint="@color/red"
+        android:layout_centerInParent="true"
+        android:text="@string/app_criar_personagem"
+        android:layout_below="@id/topbar"
+        android:id="@+id/swichBolear"
+        android:onClick="switcTest"/>
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -326,6 +336,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="270dp"
         android:textSize="11sp"
+        android:id="@+id/magiaConhecida"
         android:layout_below="@id/magiaConhecidaCriar"
         android:background="@color/colorBackground"/>
     <TextView
@@ -363,6 +374,7 @@
         android:layout_below="@id/dinheiroItensCriar"
         android:layout_marginStart="270dp"
         android:layout_marginTop="-1dp"
+        android:id="@+id/historiaPerson"
         android:background="@color/colorBackground"
         android:textSize="11sp" />
 
@@ -372,7 +384,7 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="30dp"
         android:text="@string/app_criar_personagem"
-        android:onClick="trocarTelaMeusPerson"
+        android:onClick="checkNull"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorWhite"
         android:background="@drawable/botao_customizado"

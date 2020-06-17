@@ -30,18 +30,31 @@ class CadastroUser : AppCompatActivity() {
         //val msg = "Logradouro: ${resultado.logradouro} - ${resultado.bairro} - ${resultado.localidade}"
         //tvEndereco.text = msg
     }
-    fun cadastrarUser(v:View) {
+    fun checkNull(v: View) {
+        val email = emailCadastro?.text.toString()
+        val senha = SenhaCadastro?.text.toString()
+        val nome = nomeCadastro?.text.toString()
+        val confirmarSenha = SenhaConfirmaCadastro?.text.toString()
+        if(email.isEmpty() && senha.isEmpty() && nome.isEmpty() && confirmarSenha.isEmpty()) {
+            Toast.makeText(this, "Todos campos estão vazios", Toast.LENGTH_SHORT).show()
+        } else {
+            cadastrarUser()
+        }
+    }
+    fun cadastrarUser() {
         val email = emailCadastro?.text.toString()
         val senha = SenhaCadastro?.text.toString()
         val nome = nomeCadastro?.text.toString()
         val confirmarSenha = SenhaConfirmaCadastro?.text.toString()
 
-        if(senha == confirmarSenha){
+        if(senha == confirmarSenha && senha.isNotEmpty() && confirmarSenha.isNotEmpty() && email.isNotEmpty()) {
             Toast.makeText(this, "Sucesso", Toast.LENGTH_SHORT).show()
-            val telaLogin = Intent(this,MainActivity::class.java)
+            val telaLogin = Intent(this, MainActivity::class.java)
             startActivity(telaLogin)
-        } else {
-            Toast.makeText(this, "Senhas incorretas", Toast.LENGTH_SHORT).show()
+        }else {
+            Toast.makeText(this, "Senha, nome ou email incorreto", Toast.LENGTH_SHORT).show()
+            SenhaCadastro.text = null
+            SenhaConfirmaCadastro.text = null
         }
     }
 }

@@ -20,11 +20,15 @@ class MainActivity : AppCompatActivity() {
         val senhaMocado = "admin"
         val email = email.text.toString()
         val senha = senha.text.toString()
-        if(loginMocado == email && senhaMocado == senha){
-            val telaCadastroPerson = Intent(this,CadastroPerson::class.java)
-            startActivity(telaCadastroPerson)
+        if(email.isEmpty() && senha.isEmpty()){
+            Toast.makeText(this, "Todos campos estão vazios", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show()
+            if (loginMocado == email && senhaMocado == senha) {
+                val telaCadastroPerson = Intent(this, CadastroPerson::class.java)
+                startActivity(telaCadastroPerson)
+            } else {
+                Toast.makeText(this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show()
+            }
         }
     }
     fun trocarTelaCadastro(v: View){

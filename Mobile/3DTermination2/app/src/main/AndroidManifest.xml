@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EntranceActivity"/>
+        <activity android:name=".CadastroMestre"></activity>
+        <activity android:name=".EntranceActivity" />
         <activity android:name=".ChatRoomActivity" />
         <activity android:name=".MeusPersonagens" />
         <activity android:name=".EsqueceuSenha" />

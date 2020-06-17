@@ -78,6 +78,6 @@
     android:layout_centerInParent="true"
     android:textColor="@color/colorWhite"
     android:background="@drawable/botao_customizado"
-    android:onClick="validacaoSenhaLogin"/>
+    android:onClick="checkNull"/>
 
 </RelativeLayout>
