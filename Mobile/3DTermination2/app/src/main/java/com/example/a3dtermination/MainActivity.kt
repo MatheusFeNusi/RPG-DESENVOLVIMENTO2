@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.a3dtermination.REST.Taks.ApiTaks
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,32 +18,45 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mostrarFragment()
-        val preferencias = getPreferences(Context.MODE_PRIVATE)
-        email.setText(preferencias.getString("emailOffline",""))
-        senha.setText(preferencias.getString("senhaOffline",""))
+        preferencias = getPreferences(Context.MODE_PRIVATE)
+        email.setText(preferencias?.getString("emailOffline",""))
+        senha.setText(preferencias?.getString("senhaOffline",""))
     }
+
     fun validacaoLongin(V:View) {
-        val loginMocado = "admin"
-        val senhaMocado = "admin"
+        var email_bd = ""
+        var senha_bd = ""
+        var id = 0
         val emailLogin = email.text.toString()
         val senhaLogin = senha.text.toString()
         val editor = preferencias?.edit()
-        val editor2 = preferencias?.edit()
+        //val editor2 = preferencias?.edit()
         val telaCadastroPerson = Intent(this, CadastroPerson::class.java)
-        if(emailLogin.isEmpty() && senhaLogin.isEmpty()){
-            Toast.makeText(this, "Todos campos estão vazios", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(this, "Sucesso", Toast.LENGTH_SHORT).show()
-            if (loginMocado == emailLogin && senhaMocado == senhaLogin) {
-                editor?.putString("emailOffline", emailLogin)
-                editor2?.putString("senha", senhaLogin)
-                editor?.apply()
-                editor2?.apply()
-                startActivity(telaCadastroPerson)
+
+        val resultado = ApiTaks().execute().get()
+        resultado.forEach { elemento ->
+        email_bd =   elemento.credencial.email
+        senha_bd = elemento.credencial.senha
+        id = elemento.id
+            if(emailLogin.isEmpty() && senhaLogin.isEmpty()){
+                Toast.makeText(this, "Todos campos estão vazios", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show()
+                if (email_bd == emailLogin && senha_bd == senhaLogin) {
+                    Toast.makeText(this, "Sucesso", Toast.LENGTH_SHORT).show()
+                    editor?.putString("emailOffline", emailLogin)
+                    editor?.putString("senhaOffline", senhaLogin)
+                    editor?.commit()
+                    telaCadastroPerson.putExtra("usuario_id",id)
+                    startActivity(telaCadastroPerson)
+                } else {
+                    Toast.makeText(this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show()
+                }
             }
         }
+        if(resultado.size == 0) {
+            Toast.makeText(this, "Usuário não cadastrado.", Toast.LENGTH_SHORT).show()
+        }
+
     }
     fun trocarTelaCadastro(v: View){
         val telaCadastro = Intent(this,CadastroUser::class.java)

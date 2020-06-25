@@ -379,13 +379,22 @@
         android:textSize="11sp" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:text="@string/app_criar_personagem"
         android:onClick="checkNull"
-        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/botao_customizado"
+        android:layout_below="@id/dinheiroItensPersonagem"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/app_meus_personagens"
+        android:onClick="trocarTelaMeusPerson"
+        android:layout_marginStart="250dp"
         android:textColor="@color/colorWhite"
         android:background="@drawable/botao_customizado"
         android:layout_below="@id/dinheiroItensPersonagem"/>

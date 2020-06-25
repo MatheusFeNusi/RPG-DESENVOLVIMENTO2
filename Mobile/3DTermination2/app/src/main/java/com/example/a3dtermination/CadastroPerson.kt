@@ -2,31 +2,43 @@ package com.example.a3dtermination
 
 import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.a3dtermination.REST.Credenciais
+import com.example.a3dtermination.REST.Personagem
+import com.example.a3dtermination.REST.Taks.ApiTaks
+import com.example.a3dtermination.REST.Taks.PostPersonTaks
+import com.example.a3dtermination.REST.Taks.PostUserTaks
+import com.example.a3dtermination.REST.Usuario
 import kotlinx.android.synthetic.main.activity_cadastro_person.*
 import kotlinx.android.synthetic.main.fragment_mestre.*
 
 
 class CadastroPerson : AppCompatActivity() {
 
+    private var usuario_id: Int? = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_person)
         mostrarFragment()
-        //val isChecked = true
-//        swichBolear.setOnCheckedChangeListener { _, isChecked ->
-//            Toast.makeText(this, "Teste $isChecked", Toast.LENGTH_SHORT).show()
-//        }
+        val usuario = intent.extras?.getInt("usuario_id")
+        usuario_id = usuario
+
+        //Toast.makeText(this, "$usuario_id", Toast.LENGTH_LONG).show()
+
     }
+
     fun mostrarFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.topbar, FragmentTopbar()).commit()
     }
-    fun checkNull(v:View) {
+
+    fun checkNull(v: View) {
         val pontos_total = pontosPersonagem?.text.toString()
         val forca = forcaPersonagem?.text.toString()
         val habilidade = habilidadePersonagem?.text.toString()
@@ -45,18 +57,20 @@ class CadastroPerson : AppCompatActivity() {
         val dinheiroItens = dinheiroItensPersonagem?.text.toString()
         val historia = historiaPerson?.text.toString()
 
-        if(pontos_total.isEmpty() && forca.isEmpty() && habilidade.isEmpty() && resistencia.isEmpty() &&
+        if (pontos_total.isEmpty() && forca.isEmpty() && habilidade.isEmpty() && resistencia.isEmpty() &&
             armadura.isEmpty() && poderFogo.isEmpty() && pontoVida.isEmpty() && pontoMagia.isEmpty() &&
             pontoExp.isEmpty() && nomePersonagem.isEmpty() && vantagens.isEmpty() && desvantagnes.isEmpty() &&
-            tipoDano.isEmpty() && magiaConhecida.isEmpty() && dinheiroItens.isEmpty() && historia.isEmpty()) {
+            tipoDano.isEmpty() && magiaConhecida.isEmpty() && dinheiroItens.isEmpty() && historia.isEmpty()
+        ) {
             Toast.makeText(this, "Todos campos estão vazios", Toast.LENGTH_SHORT).show()
         } else {
-            if(pontos_total.isNotEmpty() && forca.isNotEmpty() && habilidade.isNotEmpty() &&
+            if (pontos_total.isNotEmpty() && forca.isNotEmpty() && habilidade.isNotEmpty() &&
                 resistencia.isNotEmpty() && armadura.isNotEmpty() && poderFogo.isNotEmpty() &&
                 pontoVida.isNotEmpty() && pontoMagia.isNotEmpty() && pontoExp.isNotEmpty() &&
                 nomePersonagem.isNotEmpty() && vantagens.isNotEmpty() && desvantagnes.isNotEmpty() &&
                 tipoDano.isNotEmpty() && magiaConhecida.isNotEmpty() && dinheiroItens.isNotEmpty() &&
-                historia.isNotEmpty()) {
+                historia.isNotEmpty()
+            ) {
 
                 enviarDados()
 
@@ -67,6 +81,7 @@ class CadastroPerson : AppCompatActivity() {
 
         }
     }
+
     fun enviarDados() {
         val pontos_total = pontosPersonagem?.text.toString().toInt()
         val forca = forcaPersonagem?.text.toString().toInt()
@@ -84,54 +99,68 @@ class CadastroPerson : AppCompatActivity() {
         val magiaConhecida = magiaConhecida?.text.toString()
         val dinheiroItens = dinheiroItensPersonagem?.text.toString()
         val historia = historiaPerson?.text.toString()
-
+        val telaEsquePassword = Intent(this, MeusPersonagens::class.java)
         val soma = forca + habilidade + resistencia + armadura
-    if(soma > pontos_total || soma < pontos_total) {
+        if (soma > pontos_total || soma < pontos_total) {
 
-        Toast.makeText(this, "A soma das caracteristicas não de ser maior ou menor que ${pontos_total}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "A soma das caracteristicas não pode ser maior ou menor que ${pontos_total}",
+                Toast.LENGTH_SHORT
+            ).show()
 
-    } else {
+        } else {
+            val resultado = ApiTaks().execute().get()
+            resultado.forEach { elemento ->
+                if (elemento.id == usuario_id) {
+                    val nome = elemento.nome
+                    val email = elemento.credencial.email
+                    val senha = elemento.credencial.senha
+                    //Log.i("Aqui","nome: $nome")
 
-        Toast.makeText(this, "Sucesso!", Toast.LENGTH_SHORT).show()
-//        val jsonString = """
-//    {
-//       "type":"criar",
-//       "data":[
-//          {
-//             "nome":${nomePersonagem},
-//             "pontos_total":${pontos_total},
-//             "habilidade":${habilidade},
-//             "resistencia":${resistencia},
-//             "armadura":${armadura},
-//             "poder_fogo":${poderFogo},
-//             "pontos_vida':${pontoVida},
-//             "pontos_magia":${pontoMagia},
-//             "pontos_xp":${pontoExp},
-//             "vantagens":${vantagens},
-//             "desvantagens":${desvantagnes},
-//             "tipo_dano":${tipoDano},
-//             "magia_conhecida":${magiaConhecida},
-//             "dinheiro_itens":${dinheiroItens},
-//             "historia"::${historia},
-//          }
-//       ]
-//    }
-//"""
-        val telaEsquePassword = Intent(this,MeusPersonagens::class.java)
-        startActivity(telaEsquePassword)
+                    val res = PostPersonTaks().execute(
+                        Personagem(
+                            97,
+                            nomePersonagem,
+                            pontos_total,
+                            forca,
+                            habilidade,
+                            resistencia,
+                            armadura,
+                            poderFogo,
+                            pontoVida,
+                            pontoMagia,
+                            pontoExp,
+                            historia,
+                            vantagens,
+                            desvantagnes,
+                            tipoDano,
+                            magiaConhecida,
+                            dinheiroItens,
+                            Usuario(usuario_id!!, nome, Credenciais(email, senha))
+                        )
+                    ).get()
+                    Toast.makeText(this, "Sucesso", Toast.LENGTH_SHORT).show()
+                    startActivity(telaEsquePassword)
+                }
+            }
+
+        }
+
     }
 
-}
 
-
-    fun trocarTelaMeusPerson(v: View){
-        val telaEsquePassword = Intent(this,MeusPersonagens::class.java)
-        startActivity(telaEsquePassword)
+    fun trocarTelaMeusPerson(v: View) {
+        val telaMeusPerson = Intent(this, MeusPersonagens::class.java)
+        telaMeusPerson.putExtra("usuario_id", usuario_id)
+        startActivity(telaMeusPerson)
     }
+
     fun switcTest(v: View) {
         val switch_boolean = swichBolear.isChecked
-        if(switch_boolean == true) {
-            val telaCadastroMestre = Intent(this,CadastroMestre::class.java)
+        if (switch_boolean == true) {
+            val telaCadastroMestre = Intent(this, CadastroMestre::class.java)
+            telaCadastroMestre.putExtra("usuario_id", usuario_id)
             startActivity(telaCadastroMestre)
         }
     }
