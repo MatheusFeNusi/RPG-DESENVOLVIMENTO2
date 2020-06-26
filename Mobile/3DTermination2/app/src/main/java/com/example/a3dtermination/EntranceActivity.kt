@@ -16,27 +16,28 @@ class EntranceActivity : AppCompatActivity(), View.OnClickListener {
         button.setOnClickListener(this)
         mostrarFragment()
     }
+
     fun mostrarFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.topbar, FragmentTopbar()).commit()
     }
 
     override fun onClick(p0: View?) {
-        when(p0?.id){
+        when (p0?.id) {
             R.id.button -> enterChatroom()
         }
     }
 
-    private fun enterChatroom(){
+    private fun enterChatroom() {
         val userName = userName.text.toString()
         val roomName = roomname.text.toString()
 
-        if(!roomName.isNullOrBlank()&&!userName.isNullOrBlank()) {
+        if (!roomName.isNullOrBlank() && !userName.isNullOrBlank()) {
             startActivity<ChatRoomActivity>(
                 "userName" to userName,
                 "roomName" to roomName
             )
-        }else{
-            Toast.makeText(this,"Nickname and Roomname should be filled!",Toast.LENGTH_SHORT)
+        } else {
+            Toast.makeText(this, "Nickname and Roomname should be filled!", Toast.LENGTH_SHORT)
         }
     }
 }

@@ -6,7 +6,7 @@ import com.example.a3dtermination.REST.ClientApi
 import com.example.a3dtermination.REST.Personagem
 import feign.FeignException
 
-class GetPersonTaks: AsyncTask<Void, Void, ArrayList<Personagem>>() {
+class GetPersonTaks : AsyncTask<Void, Void, ArrayList<Personagem>>() {
 
     override fun doInBackground(vararg params: Void): ArrayList<Personagem>? {
         try {

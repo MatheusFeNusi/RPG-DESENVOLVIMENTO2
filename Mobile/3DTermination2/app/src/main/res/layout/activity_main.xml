@@ -4,97 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/login">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/topbar">
-</FrameLayout>
+    android:background="@drawable/login"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
 
     <EditText
-        android:layout_marginHorizontal="30dp"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:id="@+id/email"
+        android:layout_marginHorizontal="30dp"
+        android:background="@color/colorBackground"
+        android:drawableLeft="@mipmap/ic_email"
         android:hint="@string/app_email"
         android:inputType="textEmailAddress"
         android:textSize="30sp"
-        android:drawableLeft="@mipmap/ic_email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorBackground" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/senha"
-        android:layout_marginHorizontal="30dp"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="@string/app_senha"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="20dp"
-        android:textSize="30sp"
-        android:inputType="textPassword"
+        android:background="@color/colorBackground"
         android:drawableLeft="@mipmap/ic_senha"
+        android:hint="@string/app_senha"
+        android:inputType="textPassword"
+        android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email"
-        android:background="@color/colorBackground"/>
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <TextView
+        android:id="@+id/esqueceuSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="trocarTelaEsqueciSenha"
+        android:paddingTop="15sp"
         android:text="@string/app_esqueceu_senha"
         android:textColor="#FFFFFF"
-        android:id="@+id/esqueceuSenha"
-        android:paddingTop="15sp"
-        android:onClick="trocarTelaEsqueciSenha"
         android:textSize="12sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/senha" />
 
     <Button
-        android:background="@drawable/botao_customizado"
+        android:id="@+id/botaoEntrar"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/botao_customizado"
+        android:onClick="validacaoLongin"
         android:text="@string/app_entrar"
         android:textColor="@color/colorWhite"
-        android:layout_marginTop="20dp"
-        android:onClick="validacaoLongin"
-        app:layout_constraintTop_toBottomOf="@id/esqueceuSenha"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/botaoEntrar"/>
+        app:layout_constraintTop_toBottomOf="@id/esqueceuSenha" />
 
     <TextView
+        android:id="@+id/textNovo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="@string/app_movo_aqui"
         android:textColor="#FFFFFF"
-        android:id="@+id/textNovo"
         android:textSize="15sp"
-        android:layout_marginTop="30dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/botaoEntrar" />
+
     <View
         android:id="@+id/divisor"
         android:layout_width="wrap_content"
         android:layout_height="1dip"
-        app:layout_constraintTop_toBottomOf="@id/textNovo"
-        android:background="#FFFFFF" />
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/textNovo" />
 
     <Button
-        android:background="#A6000000"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:textColor="#B2FFFFFF"
         android:layout_marginTop="30dp"
-        android:text="@string/app_criar_conta"
+        android:background="#A6000000"
         android:onClick="trocarTelaCadastro"
+        android:text="@string/app_criar_conta"
+        android:textColor="#B2FFFFFF"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divisor"/>
+        app:layout_constraintTop_toBottomOf="@id/divisor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

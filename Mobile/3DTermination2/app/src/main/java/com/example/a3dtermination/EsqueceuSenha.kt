@@ -23,37 +23,42 @@ class EsqueceuSenha : AppCompatActivity() {
         setContentView(R.layout.activity_esqueceu_senha)
         mostrarFragment()
     }
+
     fun mostrarFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.topbar, FragmentTopbar()).commit()
     }
-    fun checkNull(v: View){
+
+    fun checkNull(v: View) {
         val novaSenha = esqueciSenha.text.toString()
         val confirmaSenha = esqueciRepeteSenha.text.toString()
         val email = esqueciEmail.text.toString()
-        if(novaSenha.isEmpty() && confirmaSenha.isEmpty() && email.isEmpty()) {
+        if (novaSenha.isEmpty() && confirmaSenha.isEmpty() && email.isEmpty()) {
             Toast.makeText(this, "Todos campos estão vazios", Toast.LENGTH_SHORT).show()
         } else {
             validacaoSenhaLogin()
         }
     }
-    fun validacaoSenhaLogin(){
+
+    fun validacaoSenhaLogin() {
         val novaSenha = esqueciSenha.text.toString()
         val confirmaSenha = esqueciRepeteSenha.text.toString()
         val email = esqueciEmail.text.toString()
-        val telaLogin = Intent(this,MainActivity::class.java)
-        if(novaSenha == confirmaSenha && novaSenha.isNotEmpty() && confirmaSenha.isNotEmpty() && email.isNotEmpty()) {
+        val telaLogin = Intent(this, MainActivity::class.java)
+        if (novaSenha == confirmaSenha && novaSenha.isNotEmpty() && confirmaSenha.isNotEmpty() && email.isNotEmpty()) {
 
 
             val resultado = ApiTaks().execute().get()
             resultado.forEach { elemento ->
-                val email_bd =   elemento.credencial.email
+                val email_bd = elemento.credencial.email
                 val nome_bd = elemento.nome
                 val id = elemento.id
                 Log.i("id: ", id.toString())
                 Log.i("email_bd: ", email_bd)
                 Log.i("email: ", email)
                 if (email == email_bd) {
-                 val res =   PutUserTaks().execute(Usuario(id,nome_bd,Credenciais(email,novaSenha))).get()
+                    val res =
+                        PutUserTaks().execute(Usuario(id, nome_bd, Credenciais(email, novaSenha)))
+                            .get()
                     Toast.makeText(this, res, Toast.LENGTH_SHORT).show()
                     startActivity(telaLogin)
                 }
@@ -65,8 +70,9 @@ class EsqueceuSenha : AppCompatActivity() {
             esqueciRepeteSenha.text = null
         }
     }
-    fun trocarTelaLogin2(v: View){
-        val telaLogin = Intent(this,MainActivity::class.java)
+
+    fun trocarTelaLogin2(v: View) {
+        val telaLogin = Intent(this, MainActivity::class.java)
         startActivity(telaLogin)
     }
 }

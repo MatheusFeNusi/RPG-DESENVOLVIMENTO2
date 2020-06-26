@@ -155,39 +155,45 @@ class ChatRoomActivity : AppCompatActivity(), View.OnClickListener {
         mSocket.disconnect()
         startActivity<EntranceActivity>()
     }
+
     fun mostrarAtkDef() {
         dado_mostrar.setVisibility(View.INVISIBLE)
         dado_ataque.setVisibility(View.VISIBLE)
         dado_defesa.setVisibility(View.VISIBLE)
         dado_esconder.setVisibility(View.VISIBLE)
     }
+
     fun esconderAtkDef() {
         dado_mostrar.setVisibility(View.VISIBLE)
         dado_ataque.setVisibility(View.INVISIBLE)
         dado_defesa.setVisibility(View.INVISIBLE)
         dado_esconder.setVisibility(View.INVISIBLE)
     }
+
     fun numeroRandonDef() {
         val numero_dado = (1..6).random().toString()
-        if(numero_def == 0) {
+        if (numero_def == 0) {
             numero_def++
             val frase = "Defesa: $numero_dado"
             editText.setText(frase)
             editText.isEnabled = false
-            Toast.makeText(this, "Número: ${numero_dado}. Clique em enviar", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Número: ${numero_dado}. Clique em enviar", Toast.LENGTH_SHORT)
+                .show()
         } else {
             Toast.makeText(this, "Somente pode gerar um número por vez", Toast.LENGTH_SHORT).show()
 
         }
     }
+
     fun numeroRandonAtk() {
         val numero_dado = (1..6).random().toString()
-        if(numero_atk == 0) {
+        if (numero_atk == 0) {
             numero_atk++
             val frase = "Ataque: $numero_dado"
             editText.setText(frase)
             editText.isEnabled = false
-            Toast.makeText(this, "Número: ${numero_dado}. Clique em enviar", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Número: ${numero_dado}. Clique em enviar", Toast.LENGTH_SHORT)
+                .show()
         } else {
             Toast.makeText(this, "Somente pode gerar um número por vez", Toast.LENGTH_SHORT).show()
 

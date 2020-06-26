@@ -5,4 +5,4 @@ import java.io.Serializable
 data class Credenciais(
     val email: String,
     val senha: String
-): Serializable
+) : Serializable

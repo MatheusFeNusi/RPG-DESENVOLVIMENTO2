@@ -26,7 +26,7 @@ class FragmentMestre : Fragment() {
 
     }
 
-    fun trocarTelaMeusPerson(){
+    fun trocarTelaMeusPerson() {
         startActivity<MeusPersonagens>()
         val trtr = historiaCriarMestre1
 

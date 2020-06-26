@@ -8,7 +8,7 @@ import com.example.a3dtermination.REST.Usuario
 import feign.Body
 import feign.FeignException
 
-class PostUserTaks: AsyncTask<Usuario, Void, String>() {
+class PostUserTaks : AsyncTask<Usuario, Void, String>() {
     override fun doInBackground(vararg params: Usuario?): String? {
         try {
             return ClientApi.criar().postUsuario(params[0]!!)

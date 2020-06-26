@@ -19,11 +19,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mostrarFragment()
         preferencias = getPreferences(Context.MODE_PRIVATE)
-        email.setText(preferencias?.getString("emailOffline",""))
-        senha.setText(preferencias?.getString("senhaOffline",""))
+        email.setText(preferencias?.getString("emailOffline", ""))
+        senha.setText(preferencias?.getString("senhaOffline", ""))
     }
 
-    fun validacaoLongin(V:View) {
+    fun validacaoLongin(V: View) {
         var email_bd = ""
         var senha_bd = ""
         var id = 0
@@ -35,10 +35,10 @@ class MainActivity : AppCompatActivity() {
 
         val resultado = ApiTaks().execute().get()
         resultado.forEach { elemento ->
-        email_bd =   elemento.credencial.email
-        senha_bd = elemento.credencial.senha
-        id = elemento.id
-            if(emailLogin.isEmpty() && senhaLogin.isEmpty()){
+            email_bd = elemento.credencial.email
+            senha_bd = elemento.credencial.senha
+            id = elemento.id
+            if (emailLogin.isEmpty() && senhaLogin.isEmpty()) {
                 Toast.makeText(this, "Todos campos estão vazios", Toast.LENGTH_SHORT).show()
             } else {
                 if (email_bd == emailLogin && senha_bd == senhaLogin) {
@@ -46,30 +46,34 @@ class MainActivity : AppCompatActivity() {
                     editor?.putString("emailOffline", emailLogin)
                     editor?.putString("senhaOffline", senhaLogin)
                     editor?.commit()
-                    telaCadastroPerson.putExtra("usuario_id",id)
+                    telaCadastroPerson.putExtra("usuario_id", id)
                     startActivity(telaCadastroPerson)
                 } else {
                     Toast.makeText(this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show()
                 }
             }
         }
-        if(resultado.size == 0) {
+        if (resultado.size == 0) {
             Toast.makeText(this, "Usuário não cadastrado.", Toast.LENGTH_SHORT).show()
         }
 
     }
-    fun trocarTelaCadastro(v: View){
-        val telaCadastro = Intent(this,CadastroUser::class.java)
-         startActivity(telaCadastro)
+
+    fun trocarTelaCadastro(v: View) {
+        val telaCadastro = Intent(this, CadastroUser::class.java)
+        startActivity(telaCadastro)
     }
-    fun trocarTelaCadastroPerson(v: View){
-        val telaCadastroPerson = Intent(this,CadastroPerson::class.java)
+
+    fun trocarTelaCadastroPerson(v: View) {
+        val telaCadastroPerson = Intent(this, CadastroPerson::class.java)
         startActivity(telaCadastroPerson)
     }
-    fun trocarTelaEsqueciSenha(v: View){
-        val telaEsquePassword = Intent(this,EsqueceuSenha::class.java)
+
+    fun trocarTelaEsqueciSenha(v: View) {
+        val telaEsquePassword = Intent(this, EsqueceuSenha::class.java)
         startActivity(telaEsquePassword)
     }
+
     fun mostrarFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.topbar, FragmentTopbar()).commit()
     }

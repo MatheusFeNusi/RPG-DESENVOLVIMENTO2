@@ -3,105 +3,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentMestre"
-    android:background="@drawable/cadastroimagem">
+    android:background="@drawable/cadastroimagem"
+    tools:context=".FragmentMestre">
+
     <RelativeLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
         <ImageView
+            android:id="@+id/ivImageMestre"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginVertical="1dp"
-            android:id="@+id/ivImageMestre"
             android:src="@drawable/iconusuario" />
+
         <TextView
+            android:id="@+id/nomeCriarMestre"
             android:layout_width="210dp"
             android:layout_height="wrap_content"
-            android:text="@string/app_nome"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="120sp"
-            android:textColor="@color/white"
-            android:id="@+id/nomeCriarMestre"
-            />
+            android:layout_marginTop="20dp"
+            android:text="@string/app_nome"
+            android:textColor="@color/white" />
+
         <EditText
+            android:id="@+id/nomePersonagemMestre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:layout_marginStart="120dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/colorBackground" />
+
+        <TextView
+            android:id="@+id/historiaMestre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="125dp"
+            android:text="@string/app_historia"
+            android:textColor="@color/colorWhite" />
+
+        <EditText
+            android:id="@+id/historiaCriarMestre1"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_below="@id/historiaMestre"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@color/colorBackground"
-            android:id="@+id/nomePersonagemMestre"/>
+            android:textSize="12sp" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_historia"
-            android:layout_marginTop="125dp"
-            android:id="@+id/historiaMestre"
-            android:layout_marginStart="30dp"
-            android:textColor="@color/colorWhite"
-            />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="20dp"
-            android:textSize="12sp"
-            android:id="@+id/historiaCriarMestre1"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/historiaMestre"
-            android:background="@color/colorBackground"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_historia"
-            android:layout_marginTop="20sp"
             android:id="@+id/historiaMestre2"
-            android:layout_marginStart="30dp"
-            android:layout_below="@id/historiaCriarMestre1"
-            android:textColor="@color/colorWhite"
-            />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="20dp"
-            android:textSize="12sp"
-            android:id="@+id/historiaCriarMestre2"
-            android:layout_marginTop="10dp"
-            android:layout_below="@id/historiaMestre2"
-            android:background="@color/colorBackground"/>
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_historia"
-            android:layout_marginTop="20sp"
-            android:id="@+id/historiaMestre3"
+            android:layout_below="@id/historiaCriarMestre1"
             android:layout_marginStart="30dp"
-            android:layout_below="@id/historiaCriarMestre2"
-            android:textColor="@color/colorWhite"
-            />
+            android:layout_marginTop="20sp"
+            android:text="@string/app_historia"
+            android:textColor="@color/colorWhite" />
+
         <EditText
+            android:id="@+id/historiaCriarMestre2"
             android:layout_width="match_parent"
             android:layout_height="90dp"
+            android:layout_below="@id/historiaMestre2"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="20dp"
-            android:textSize="12sp"
-            android:id="@+id/historiaCriarMestre3"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/colorBackground"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/historiaMestre3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/historiaCriarMestre2"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20sp"
+            android:text="@string/app_historia"
+            android:textColor="@color/colorWhite" />
+
+        <EditText
+            android:id="@+id/historiaCriarMestre3"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
             android:layout_below="@id/historiaMestre3"
-            android:background="@color/colorBackground"/>
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/colorBackground"
+            android:textSize="12sp" />
+
         <Button
+            android:id="@+id/bt_criar_mestre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:id="@+id/bt_criar_mestre"
-            android:layout_marginTop="30dp"
-            android:text="@string/app_criar_personagem"
+            android:layout_below="@id/historiaCriarMestre3"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/colorWhite"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/botao_customizado"
-            android:layout_below="@id/historiaCriarMestre3"/>
+            android:text="@string/app_criar_personagem"
+            android:textColor="@color/colorWhite" />
 
     </RelativeLayout>
 

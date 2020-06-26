@@ -4,297 +4,330 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MeusPersonagens"
-    android:background="@drawable/cadastroimagem">
+    android:background="@drawable/cadastroimagem"
+    tools:context=".MeusPersonagens">
+
     <FrameLayout
+        android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/topbar">
+        android:layout_height="wrap_content">
     </FrameLayout>
+
     <TextView
+        android:id="@+id/meusPerson"
         android:layout_width="match_parent"
         android:layout_height="35dp"
+        android:layout_below="@id/topbar"
+        android:layout_marginVertical="1dp"
+        android:background="@drawable/subtitulotop"
+        android:gravity="center"
         android:text="@string/app_meus_personagens"
         android:textColor="#F7FF00"
-        android:background="@drawable/subtitulotop"
-        android:layout_marginVertical="1dp"
-        android:id="@+id/meusPerson"
         android:textSize="20sp"
-        android:gravity="center"
-        android:layout_below="@id/topbar"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <HorizontalScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/scroll"
         android:layout_below="@id/meusPerson">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginHorizontal="20dp"
                 android:id="@+id/card1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
                 android:onClick="mostrarCard1">
+
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:id="@+id/card1_image"
-                    android:src="@mipmap/ic_arqueiro_round"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_arqueiro_round" />
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="8dp"
                 android:id="@+id/card2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
                 android:onClick="mostrarCard2">
+
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:id="@+id/card2_image"
-                    android:src="@mipmap/ic_demon_round"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_demon_round" />
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="8dp"
                 android:id="@+id/card3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
                 android:onClick="mostrarCard3">
+
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:id="@+id/card3_image"
-                    android:src="@mipmap/ic_mago_round"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_mago_round" />
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="8dp"
                 android:id="@+id/card4"
-                android:layout_marginHorizontal="20dp"
-                android:onClick="mostrarCard4">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/card4_image"
-                    android:src="@mipmap/ic_invoquer_round"/>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="8dp"
-                android:id="@+id/card5"
                 android:layout_marginHorizontal="20dp"
-                android:onClick="mostrarCard5">
+                android:layout_marginTop="8dp"
+                android:onClick="mostrarCard4">
+
                 <ImageView
+                    android:id="@+id/card4_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:src="@mipmap/ic_invoquer_round" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="8dp"
+                android:onClick="mostrarCard5">
+
+                <ImageView
                     android:id="@+id/card_image"
-                    android:src="@mipmap/ic_tank_round"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_tank_round" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </HorizontalScrollView>
+
     <TextView
+        android:id="@+id/meusDetalhes"
         android:layout_width="match_parent"
         android:layout_height="35dp"
+        android:layout_below="@id/scroll"
+        android:layout_marginVertical="1dp"
+        android:layout_marginTop="25sp"
+        android:background="@drawable/subtitulotop"
+        android:gravity="center"
         android:text="@string/app_detalhes"
         android:textColor="#F7FF00"
-        android:background="@drawable/subtitulotop"
-        android:layout_marginVertical="1dp"
-        android:id="@+id/meusDetalhes"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:layout_below="@id/scroll"
-        android:layout_marginTop="25sp"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="30dp"
-            android:id="@+id/btSalvar"
-            android:onClick="salvarEditarDetalhes"
-            android:text="@string/app_salvar"
-            android:background="@drawable/botao_customizado"
-            android:textColor="@color/colorWhite"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/meusDetalhes"/>
+        android:textSize="20sp" />
+
     <Button
+        android:id="@+id/btSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_below="@id/meusDetalhes"
+        android:layout_alignParentLeft="true"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/botao_customizado"
+        android:onClick="salvarEditarDetalhes"
+        android:text="@string/app_salvar"
+        android:textColor="@color/colorWhite" />
+
+    <Button
         android:id="@+id/btEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/meusDetalhes"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/botao_customizado"
         android:onClick="editarDetalhes"
         android:text="@string/app_editar"
-        android:background="@drawable/botao_customizado"
-        android:textColor="@color/colorWhite"
-        android:layout_below="@id/meusDetalhes"/>
+        android:textColor="@color/colorWhite" />
+
     <TextView
+        android:id="@+id/nomeEditar"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:text="@string/app_nome"
+        android:layout_below="@id/meusDetalhes"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:textColor="@color/colorWhite"
-        android:id="@+id/nomeEditar"
         android:layout_toEndOf="@id/btEditar"
-        android:layout_below="@id/meusDetalhes"
-        />
+        android:text="@string/app_nome"
+        android:textColor="@color/colorWhite" />
+
     <EditText
+        android:id="@+id/nomePersonagem"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@color/colorBackground"
-        android:layout_marginEnd="0dp"
-        android:inputType="text"
-        android:id="@+id/nomePersonagem"
-        android:layout_marginStart="133dp"
         android:layout_below="@id/nomeEditar"
-        android:textColor="@color/colorBlack"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="133dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/colorBackground"
+        android:inputType="text"
+        android:textColor="@color/colorBlack" />
+
     <ScrollView
+        android:id="@+id/scrollDetalhes"
         android:layout_width="match_parent"
         android:layout_height="290dp"
-        android:id="@+id/scrollDetalhes"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/nomePersonagem">
+        android:layout_below="@id/nomePersonagem"
+        android:layout_marginTop="30dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/vantagensEditar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_vantagens"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:id="@+id/vantagensEditar"
+                android:text="@string/app_vantagens"
                 android:textColor="@color/colorWhite" />
+
             <EditText
+                android:id="@+id/vantagensPersonEditar"
                 android:layout_width="150dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="30dp"
-                android:id="@+id/vantagensPersonEditar"
-                android:textSize="12sp"
-                android:textColor="@color/colorBlack"
                 android:layout_below="@id/vantagensEditar"
-                android:background="@color/colorBackground"/>
+                android:layout_marginStart="30dp"
+                android:background="@color/colorBackground"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
             <TextView
+                android:id="@+id/desvatagemCriar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_descantagens"
-                android:layout_marginTop="10dp"
-                android:id="@+id/desvatagemCriar"
                 android:layout_alignParentLeft="true"
                 android:layout_marginStart="220dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/app_descantagens"
                 android:textColor="@color/colorWhite" />
+
             <EditText
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="220dp"
-                android:textSize="12sp"
-                android:textColor="@color/colorBlack"
                 android:id="@+id/desvantagemPersonEditar"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
                 android:layout_below="@id/desvatagemCriar"
-                android:background="@color/colorBackground"/>
+                android:layout_marginStart="220dp"
+                android:background="@color/colorBackground"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_tipo_dano"
-                android:layout_marginTop="10dp"
                 android:id="@+id/tipoDanoCriar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/vantagensPersonEditar"
                 android:layout_marginStart="30dp"
-                android:textColor="@color/colorWhite"
-                android:layout_below="@id/vantagensPersonEditar"/>
+                android:layout_marginTop="10dp"
+                android:text="@string/app_tipo_dano"
+                android:textColor="@color/colorWhite" />
+
             <EditText
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="30dp"
-                android:textSize="12sp"
-                android:textColor="@color/colorBlack"
                 android:id="@+id/tipoDanoPersonEditar"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
                 android:layout_below="@id/tipoDanoCriar"
-                android:background="@color/colorBackground"/>
+                android:layout_marginStart="30dp"
+                android:background="@color/colorBackground"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_magia_conhecida"
-                android:layout_marginTop="10dp"
                 android:id="@+id/magiaConhecidaCriar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/vantagensPersonEditar"
                 android:layout_marginStart="220dp"
-                android:textColor="@color/colorWhite"
-                android:layout_below="@id/vantagensPersonEditar"/>
+                android:layout_marginTop="10dp"
+                android:text="@string/app_magia_conhecida"
+                android:textColor="@color/colorWhite" />
+
             <EditText
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="220dp"
-                android:textSize="12sp"
-                android:textColor="@color/colorBlack"
                 android:id="@+id/magiaConhecidaEditar"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
                 android:layout_below="@id/magiaConhecidaCriar"
-                android:background="@color/colorBackground"/>
+                android:layout_marginStart="220dp"
+                android:background="@color/colorBackground"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_dinheiro_itens"
-                android:layout_marginTop="10dp"
                 android:id="@+id/dinheiroItensCriar"
-                android:layout_marginStart="30dp"
-                android:textColor="@color/colorWhite"
-                android:layout_below="@id/tipoDanoPersonEditar"/>
-            <EditText
-                android:layout_width="150dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="30dp"
-                android:textSize="12sp"
-                android:textColor="@color/colorBlack"
-                android:id="@+id/dinheiroItensEditar"
-                android:layout_below="@id/dinheiroItensCriar"
-                android:background="@color/colorBackground"/>
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_historia"
+                android:layout_below="@id/tipoDanoPersonEditar"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:id="@+id/historiaCriar"
-                android:layout_marginStart="220dp"
-                android:textColor="@color/colorWhite"
-                android:layout_below="@id/tipoDanoPersonEditar"/>
+                android:text="@string/app_dinheiro_itens"
+                android:textColor="@color/colorWhite" />
+
             <EditText
+                android:id="@+id/dinheiroItensEditar"
                 android:layout_width="150dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="220dp"
-                android:id="@+id/historiaEditar"
-                android:textSize="12sp"
-                android:textColor="@color/colorBlack"
                 android:layout_below="@id/dinheiroItensCriar"
-                android:background="@color/colorBackground"/>
+                android:layout_marginStart="30dp"
+                android:background="@color/colorBackground"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/historiaCriar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tipoDanoPersonEditar"
+                android:layout_marginStart="220dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/app_historia"
+                android:textColor="@color/colorWhite" />
+
+            <EditText
+                android:id="@+id/historiaEditar"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:layout_below="@id/dinheiroItensCriar"
+                android:layout_marginStart="220dp"
+                android:background="@color/colorBackground"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
 
         </RelativeLayout>
     </ScrollView>
+
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/scrollDetalhes"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:text="@string/app_criar_personagem"
-        android:textColor="@color/colorWhite"
-        android:onClick="trocarTelaCadastroPerson"
         android:background="@drawable/botao_customizado"
-        android:layout_below="@id/scrollDetalhes"/>
+        android:onClick="trocarTelaCadastroPerson"
+        android:text="@string/app_criar_personagem"
+        android:textColor="@color/colorWhite" />
+
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/scrollDetalhes"
         android:layout_marginStart="220dp"
         android:layout_marginTop="20dp"
-        android:text="@string/app_entra_chat"
-        android:onClick="entrarChat"
-        android:textColor="@color/colorWhite"
         android:background="@drawable/botao_customizado"
-        android:layout_below="@id/scrollDetalhes"/>
+        android:onClick="entrarChat"
+        android:text="@string/app_entra_chat"
+        android:textColor="@color/colorWhite" />
 </RelativeLayout>

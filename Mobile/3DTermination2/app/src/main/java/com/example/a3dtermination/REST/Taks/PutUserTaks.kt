@@ -6,7 +6,7 @@ import com.example.a3dtermination.REST.ClientApi
 import com.example.a3dtermination.REST.Usuario
 import feign.FeignException
 
-class PutUserTaks: AsyncTask<Usuario, Void, String>() {
+class PutUserTaks : AsyncTask<Usuario, Void, String>() {
     override fun doInBackground(vararg params: Usuario?): String? {
         try {
             //Log.i("Put user: ", params[0]!!.toString())
@@ -17,7 +17,6 @@ class PutUserTaks: AsyncTask<Usuario, Void, String>() {
         }
 
     }
-
 
 
 }

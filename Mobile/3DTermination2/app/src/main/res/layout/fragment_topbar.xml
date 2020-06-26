@@ -6,14 +6,15 @@
     tools:context=".FragmentTopbar">
 
     <TextView
+        android:id="@+id/top3dt"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:background="@drawable/titulotop"
+        android:gravity="center"
         android:text="@string/app_3dt_online"
         android:textColor="#F7FF00"
-        android:background="@drawable/titulotop"
-        android:id="@+id/top3dt"
-        android:textSize="20sp"
-        android:gravity="center" />
+        android:textSize="20sp" />
+
     <ImageView
         android:layout_width="140dp"
         android:layout_height="98dp"

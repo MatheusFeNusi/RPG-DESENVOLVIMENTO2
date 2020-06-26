@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/cadastroimagem">
+
     <FrameLayout
+        android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/topbar">
+        android:layout_height="wrap_content">
     </FrameLayout>
+
     <TextView
+        android:id="@+id/tvLooby"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_below="@+id/topbar"
+        android:layout_marginVertical="1dp"
+        android:background="@drawable/subtitulotop"
+        android:gravity="center"
         android:text="@string/app_lobby"
         android:textColor="#F7FF00"
-        android:background="@drawable/subtitulotop"
-        android:layout_marginVertical="1dp"
-        android:id="@+id/tvLooby"
         android:textSize="20sp"
-        android:gravity="center"
-        android:layout_below="@+id/topbar"
-        app:layout_constraintTop_toBottomOf="@id/topbar"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/topbar" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="141dp"
@@ -32,34 +34,34 @@
         android:layout_marginTop="35dp"
         android:adjustViewBounds="true"
         android:src="@drawable/looby"
-        app:layout_constraintTop_toBottomOf="@id/tvLooby"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLooby" />
 
     <EditText
-        android:layout_marginHorizontal="30dp"
         android:id="@+id/userName"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="16dp"
-        android:ems="9"
+        android:background="#E3E3E3"
         android:drawableLeft="@mipmap/ic_nickname"
+        android:ems="9"
         android:inputType="textPersonName"
         android:textSize="15sp"
-        android:background="#E3E3E3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:layout_marginHorizontal="30dp"
         android:id="@+id/roomname"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="16dp"
-        android:ems="10"
-        android:drawableLeft="@mipmap/ic_sala"
         android:background="@color/colorBackground"
+        android:drawableLeft="@mipmap/ic_sala"
+        android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,8 +74,8 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/mont_medium"
         android:text="@string/app_entrace_nick"
-        android:textSize="16sp"
         android:textColor="@color/colorWhite"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -84,9 +86,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:fontFamily="@font/mont_medium"
-        android:textSize="16sp"
         android:text="@string/app_entrace_sala"
         android:textColor="@color/colorWhite"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userName" />

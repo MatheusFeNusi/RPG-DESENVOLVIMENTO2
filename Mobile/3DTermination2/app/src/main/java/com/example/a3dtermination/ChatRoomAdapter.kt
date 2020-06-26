@@ -9,7 +9,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ChatRoomAdapter(val context : Context, val chatList : ArrayList<Message>) : RecyclerView.Adapter<ChatRoomAdapter.ViewHolder>(){
+class ChatRoomAdapter(val context: Context, val chatList: ArrayList<Message>) :
+    RecyclerView.Adapter<ChatRoomAdapter.ViewHolder>() {
 
     val CHAT_MINE = 0
     val CHAT_PARTNER = 1
@@ -18,27 +19,29 @@ class ChatRoomAdapter(val context : Context, val chatList : ArrayList<Message>) 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        Log.d("chatlist size",chatList.size.toString())
-        var view : View? = null
-        when(viewType){
+        Log.d("chatlist size", chatList.size.toString())
+        var view: View? = null
+        when (viewType) {
 
-            0 ->{
-                view = LayoutInflater.from(context).inflate(R.layout.row_chat_user,parent,false)
-                Log.d("user inflating","viewType : ${viewType}")
+            0 -> {
+                view = LayoutInflater.from(context).inflate(R.layout.row_chat_user, parent, false)
+                Log.d("user inflating", "viewType : ${viewType}")
             }
 
-            1 ->
-            {
-                view = LayoutInflater.from(context).inflate(R.layout.row_chat_partner,parent,false)
-                Log.d("partner inflating","viewType : ${viewType}")
+            1 -> {
+                view =
+                    LayoutInflater.from(context).inflate(R.layout.row_chat_partner, parent, false)
+                Log.d("partner inflating", "viewType : ${viewType}")
             }
             2 -> {
-                view = LayoutInflater.from(context).inflate(R.layout.chat_into_notification,parent,false)
-                Log.d("someone in or out","viewType : ${viewType}")
+                view = LayoutInflater.from(context)
+                    .inflate(R.layout.chat_into_notification, parent, false)
+                Log.d("someone in or out", "viewType : ${viewType}")
             }
             3 -> {
-                view = LayoutInflater.from(context).inflate(R.layout.chat_into_notification,parent,false)
-                Log.d("someone in or out","viewType : ${viewType}")
+                view = LayoutInflater.from(context)
+                    .inflate(R.layout.chat_into_notification, parent, false)
+                Log.d("someone in or out", "viewType : ${viewType}")
             }
         }
 
@@ -54,17 +57,17 @@ class ChatRoomAdapter(val context : Context, val chatList : ArrayList<Message>) 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val messageData  = chatList[position]
+        val messageData = chatList[position]
         val userName = messageData.userName;
         val content = messageData.messageContent;
         val viewType = messageData.viewType;
 
-        when(viewType) {
+        when (viewType) {
 
             CHAT_MINE -> {
                 holder.message.setText(content)
             }
-            CHAT_PARTNER ->{
+            CHAT_PARTNER -> {
                 holder.userName.setText(userName)
                 holder.message.setText(content)
             }
@@ -79,7 +82,8 @@ class ChatRoomAdapter(val context : Context, val chatList : ArrayList<Message>) 
         }
 
     }
-    inner class ViewHolder(itemView : View):  RecyclerView.ViewHolder(itemView) {
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val userName = itemView.findViewById<TextView>(R.id.username)
         val message = itemView.findViewById<TextView>(R.id.message)
         val text = itemView.findViewById<TextView>(R.id.text)

@@ -4,398 +4,430 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastroPerson"
-    android:background="@drawable/cadastroimagem">
+    android:background="@drawable/cadastroimagem"
+    tools:context=".CadastroPerson">
 
     <FrameLayout
+        android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/topbar">
+        android:layout_height="wrap_content">
     </FrameLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorWhite"
-        android:text="@string/app_bem_vindo"
-        android:layout_marginTop="2dp"
-        android:textSize="35sp"
-        android:layout_below="@id/topbar"
-        android:layout_centerHorizontal="true"/>
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:text="@string/app_bem_vindo"
+        android:textColor="@color/colorWhite"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/criaPerson"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/subtitulotop"
-        android:layout_marginVertical="1dp"
-        android:textSize="20sp"
-        android:id="@+id/criaPerson"
-        android:gravity="center"
         android:layout_below="@id/topbar"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_marginVertical="1dp"
+        android:background="@drawable/subtitulotop"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <Switch
+        android:id="@+id/swichBolear"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:textColor="#F7FF00"
-        android:switchPadding="20dp"
-        android:textSize="20sp"
-        android:thumbTint="@color/red"
-        android:layout_centerInParent="true"
-        android:text="@string/app_criar_personagem"
         android:layout_below="@id/topbar"
-        android:id="@+id/swichBolear"
-        android:onClick="switcTest"/>
+        android:layout_centerInParent="true"
+        android:onClick="switcTest"
+        android:switchPadding="20dp"
+        android:text="@string/app_criar_personagem"
+        android:textColor="#F7FF00"
+        android:textSize="20sp"
+        android:thumbTint="@color/red" />
+
     <ImageView
+        android:id="@+id/ivImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginVertical="1dp"
-        android:id="@+id/ivImage"
-        android:src="@drawable/iconusuario"
+        android:layout_below="@id/criaPerson"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/criaPerson"/>
+        android:layout_marginVertical="1dp"
+        android:src="@drawable/iconusuario" />
+
     <TextView
+        android:id="@+id/nomeCriar"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:text="@string/app_nome"
+        android:layout_below="@id/criaPerson"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/colorWhite"
-        android:id="@+id/nomeCriar"
         android:layout_toEndOf="@id/ivImage"
-        android:layout_below="@id/criaPerson"
-        />
+        android:text="@string/app_nome"
+        android:textColor="@color/colorWhite" />
+
     <EditText
+        android:id="@+id/nomePersonagem"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@color/colorBackground"
-        android:layout_marginEnd="0dp"
-        android:id="@+id/nomePersonagem"
-        android:layout_marginStart="110dp"
         android:layout_below="@id/nomeCriar"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/colorBackground" />
 
     <TextView
+        android:id="@+id/pontosCriar"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/pontosCriar"
-        android:text="@string/app_ponto"
-        android:layout_marginStart="350dp"
-        android:textColor="@color/colorWhite"
         android:layout_below="@id/criaPerson"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/app_ponto"
+        android:textColor="@color/colorWhite" />
+
     <EditText
+        android:id="@+id/pontosPersonagem"
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginStart="350dp"
-        android:background="@color/colorBackground"
-        android:layout_alignParentLeft="true"
-        android:inputType="number"
         android:layout_below="@id/pontosCriar"
-        android:id="@+id/pontosPersonagem"/>
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorBackground"
+        android:inputType="number" />
+
     <TextView
+        android:id="@+id/forcaCriar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/ivImage"
         android:layout_marginStart="10dp"
-        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
-        android:id="@+id/forcaCriar"
+        android:layout_marginTop="20dp"
         android:text="@string/app_forca"
         android:textColor="@color/colorWhite"
-        android:layout_below="@id/ivImage"/>
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem" />
+
     <EditText
-        android:layout_width="35dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
-        android:background="@color/colorBackground"
         android:id="@+id/forcaPersonagem"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivImage"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="74dp"
-        android:inputType="number"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/ivImage"/>
+        android:background="@color/colorBackground"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
         android:id="@+id/habilidadeCriar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forcaCriar"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="23dp"
         android:text="@string/app_habilidade"
-        android:textSize="12sp"
         android:textColor="@color/colorWhite"
-        android:layout_below="@id/forcaCriar"/>
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem" />
+
     <EditText
-        android:layout_width="35dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
-        android:background="@color/colorBackground"
         android:id="@+id/habilidadePersonagem"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forcaPersonagem"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="74dp"
-        android:inputType="number"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/forcaPersonagem"/>
+        android:background="@color/colorBackground"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
         android:id="@+id/resistenciaCriar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/habilidadeCriar"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
         android:text="@string/app_resistencia"
-        android:textSize="12sp"
         android:textColor="@color/colorWhite"
-        android:layout_below="@id/habilidadeCriar"/>
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem" />
+
     <EditText
-        android:layout_width="35dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
         android:id="@+id/resistenciaPersonagem"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/habilidadePersonagem"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="74dp"
-        android:inputType="number"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/habilidadePersonagem"/>
+        android:background="@color/colorBackground"
+        android:inputType="number" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
         android:id="@+id/armaduraCriar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/resistenciaCriar"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
         android:text="@string/app_armadura"
-        android:textSize="12sp"
         android:textColor="@color/colorWhite"
-        android:layout_below="@id/resistenciaCriar"/>
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem" />
+
     <EditText
-        android:layout_width="35dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
         android:id="@+id/armaduraPersonagem"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/resistenciaPersonagem"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="74dp"
-        android:inputType="number"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/resistenciaPersonagem"/>
+        android:background="@color/colorBackground"
+        android:inputType="number" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
         android:id="@+id/PoderFogoCriar"
-        android:text="@string/app_poder_fogo"
-        android:textSize="12sp"
-        android:textColor="@color/colorWhite"
-        android:layout_below="@id/armaduraCriar"/>
-    <EditText
-        android:layout_width="35dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
-        android:id="@+id/poderFogoPersonagem"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="74dp"
-        android:inputType="number"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/armaduraPersonagem"/>
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_below="@id/armaduraCriar"
         android:layout_marginStart="10dp"
-        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
-        android:id="@+id/pontosVidaCriar"
-        android:text="@string/app_ponto_vida"
-        android:textSize="12sp"
+        android:layout_marginTop="30dp"
+        android:text="@string/app_poder_fogo"
         android:textColor="@color/colorWhite"
-        android:layout_below="@id/PoderFogoCriar"/>
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem" />
+
     <EditText
+        android:id="@+id/poderFogoPersonagem"
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/forcaCriar"
-        android:background="@color/colorBackground"
-        android:id="@+id/pontosVidaPersonagem"
+        android:layout_below="@id/armaduraPersonagem"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="74dp"
-        android:inputType="number"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/poderFogoPersonagem"/>
+        android:background="@color/colorBackground"
+        android:inputType="number" />
+
     <TextView
+        android:id="@+id/pontosVidaCriar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/PoderFogoCriar"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
-        android:layout_marginStart="6dp"
-        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
-        android:id="@+id/pontosMagiaCriar"
-        android:text="@string/app_ponto_magia"
-        android:textSize="12sp"
+        android:text="@string/app_ponto_vida"
         android:textColor="@color/colorWhite"
-        android:layout_below="@id/pontosVidaCriar"/>
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem" />
+
     <EditText
+        android:id="@+id/pontosVidaPersonagem"
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
-        android:inputType="number"
-        android:id="@+id/pontosMagiaPersonagem"
+        android:layout_below="@id/poderFogoPersonagem"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="74dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/pontosVidaPersonagem"/>
+        android:background="@color/colorBackground"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/forcaCriar" />
+
+    <TextView
+        android:id="@+id/pontosMagiaCriar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pontosVidaCriar"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/app_ponto_magia"
+        android:textColor="@color/colorWhite"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem" />
+
+    <EditText
+        android:id="@+id/pontosMagiaPersonagem"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pontosVidaPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorBackground"
+        android:inputType="number" />
 
 
     <TextView
+        android:id="@+id/pontosExperienciaCriar"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/pontosMagiaCriar"
         android:layout_marginStart="6dp"
-        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem"
-        android:id="@+id/pontosExperienciaCriar"
+        android:layout_marginTop="20dp"
         android:text="@string/app_ponto_experiencia"
-        android:textSize="11sp"
         android:textColor="@color/colorWhite"
-        android:layout_below="@id/pontosMagiaCriar"/>
+        android:textSize="11sp"
+        app:layout_constraintTop_toBottomOf="@id/pontosPersonagem" />
+
     <EditText
+        android:id="@+id/pontosExperienciaPersonagem"
         android:layout_width="35dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
-        android:inputType="number"
-        android:id="@+id/pontosExperienciaPersonagem"
+        android:layout_below="@id/pontosMagiaCriar"
         android:layout_alignParentLeft="true"
         android:layout_marginStart="74dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/pontosMagiaCriar"/>
+        android:background="@color/colorBackground"
+        android:inputType="number" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_vantagens"
-        android:layout_marginTop="30dp"
         android:id="@+id/vantagensCriar"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="130dp"
-        android:textColor="@color/colorWhite"
-        android:layout_below="@id/nomePersonagem"/>
-    <EditText
-        android:layout_width="120dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="130dp"
-        android:id="@+id/vantagensPersonagem"
-        android:textSize="11sp"
-        android:layout_below="@id/vantagensCriar"
-        android:background="@color/colorBackground"/>
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_descantagens"
+        android:layout_below="@id/nomePersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="130dp"
         android:layout_marginTop="30dp"
-        android:id="@+id/desvatagemCriar"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="270dp"
-        android:textColor="@color/colorWhite"
-        android:layout_below="@id/nomePersonagem"/>
-    <EditText
-        android:layout_width="120dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="270dp"
-        android:textSize="11sp"
-        android:id="@+id/desvantagemPersonagem"
-        android:layout_below="@id/desvatagemCriar"
-        android:background="@color/colorBackground"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_tipo_dano"
-        android:layout_marginTop="45dp"
-        android:id="@+id/tipoDanoCriar"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="130dp"
-        android:textColor="@color/colorWhite"
-        android:layout_below="@id/vantagensPersonagem"/>
-    <EditText
-        android:layout_width="120dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="130dp"
-        android:textSize="11sp"
-        android:id="@+id/tipoDanoPersonagem"
-        android:layout_below="@id/tipoDanoCriar"
-        android:background="@color/colorBackground"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_magia_conhecida"
-        android:layout_marginTop="45dp"
-        android:id="@+id/magiaConhecidaCriar"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="270dp"
-        android:textColor="@color/colorWhite"
-        android:layout_below="@id/vantagensPersonagem"/>
-    <EditText
-        android:layout_width="120dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="270dp"
-        android:textSize="11sp"
-        android:id="@+id/magiaConhecida"
-        android:layout_below="@id/magiaConhecidaCriar"
-        android:background="@color/colorBackground"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_dinheiro_itens"
-        android:layout_marginTop="45dp"
-        android:id="@+id/dinheiroItensCriar"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="130dp"
-        android:textColor="@color/colorWhite"
-        android:layout_below="@id/tipoDanoPersonagem"/>
-    <EditText
-        android:layout_width="120dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="130dp"
-        android:textSize="11sp"
-        android:id="@+id/dinheiroItensPersonagem"
-        android:layout_below="@id/dinheiroItensCriar"
-        android:background="@color/colorBackground"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_historia"
-        android:layout_marginTop="45dp"
-        android:id="@+id/historiaCriar"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="270dp"
-        android:textColor="@color/colorWhite"
-        android:layout_below="@id/tipoDanoPersonagem"/>
+        android:text="@string/app_vantagens"
+        android:textColor="@color/colorWhite" />
 
     <EditText
+        android:id="@+id/vantagensPersonagem"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/vantagensCriar"
+        android:layout_marginStart="130dp"
+        android:background="@color/colorBackground"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/desvatagemCriar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nomePersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/app_descantagens"
+        android:textColor="@color/colorWhite" />
+
+    <EditText
+        android:id="@+id/desvantagemPersonagem"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/desvatagemCriar"
+        android:layout_marginStart="270dp"
+        android:background="@color/colorBackground"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/tipoDanoCriar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vantagensPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/app_tipo_dano"
+        android:textColor="@color/colorWhite" />
+
+    <EditText
+        android:id="@+id/tipoDanoPersonagem"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/tipoDanoCriar"
+        android:layout_marginStart="130dp"
+        android:background="@color/colorBackground"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/magiaConhecidaCriar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vantagensPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/app_magia_conhecida"
+        android:textColor="@color/colorWhite" />
+
+    <EditText
+        android:id="@+id/magiaConhecida"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/magiaConhecidaCriar"
+        android:layout_marginStart="270dp"
+        android:background="@color/colorBackground"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/dinheiroItensCriar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tipoDanoPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/app_dinheiro_itens"
+        android:textColor="@color/colorWhite" />
+
+    <EditText
+        android:id="@+id/dinheiroItensPersonagem"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/dinheiroItensCriar"
+        android:layout_marginStart="130dp"
+        android:background="@color/colorBackground"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/historiaCriar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tipoDanoPersonagem"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/app_historia"
+        android:textColor="@color/colorWhite" />
+
+    <EditText
+        android:id="@+id/historiaPerson"
         android:layout_width="120dp"
         android:layout_height="70dp"
         android:layout_below="@id/dinheiroItensCriar"
         android:layout_marginStart="270dp"
         android:layout_marginTop="-1dp"
-        android:id="@+id/historiaPerson"
         android:background="@color/colorBackground"
         android:textSize="11sp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/dinheiroItensPersonagem"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:text="@string/app_criar_personagem"
-        android:onClick="checkNull"
-        android:textColor="@color/colorWhite"
         android:background="@drawable/botao_customizado"
-        android:layout_below="@id/dinheiroItensPersonagem"/>
+        android:onClick="checkNull"
+        android:text="@string/app_criar_personagem"
+        android:textColor="@color/colorWhite" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/app_meus_personagens"
-        android:onClick="trocarTelaMeusPerson"
+        android:layout_below="@id/dinheiroItensPersonagem"
         android:layout_marginStart="250dp"
-        android:textColor="@color/colorWhite"
+        android:layout_marginTop="30dp"
         android:background="@drawable/botao_customizado"
-        android:layout_below="@id/dinheiroItensPersonagem"/>
+        android:onClick="trocarTelaMeusPerson"
+        android:text="@string/app_meus_personagens"
+        android:textColor="@color/colorWhite" />
 </RelativeLayout>

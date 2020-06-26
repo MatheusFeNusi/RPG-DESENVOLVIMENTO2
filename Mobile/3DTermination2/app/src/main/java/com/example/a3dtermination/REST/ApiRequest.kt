@@ -12,7 +12,7 @@ interface ApiRequest {
 
     @RequestLine("GET /mestre/{id}")
     @Headers("Content-Type: application/json")
-    fun getMestre(@Param("id") usuario_id:Int): Mestre
+    fun getMestre(@Param("id") usuario_id: Int): Mestre
 
     @RequestLine("GET /ficha")
     @Headers("Content-Type: application/json")
@@ -21,11 +21,11 @@ interface ApiRequest {
 
     @RequestLine("POST /usuarios")
     @Headers("Content-Type: application/json")
-    fun postUsuario(user:Usuario): String
+    fun postUsuario(user: Usuario): String
 
     @RequestLine("POST /mestre/{id}")
     @Headers("Content-Type: application/json")
-    fun postMestre(@Param("id") usuario_id:Int): Mestre
+    fun postMestre(@Param("id") usuario_id: Int): Mestre
 
     @RequestLine("POST /ficha")
     @Headers("Content-Type: application/json")
@@ -33,5 +33,5 @@ interface ApiRequest {
 
     @RequestLine("PUT /usuarios/1")
     @Headers("Content-Type: application/json")
-    fun putUsuario(@Param("id")user: Usuario): String
+    fun putUsuario(@Param("id") user: Usuario): String
 }

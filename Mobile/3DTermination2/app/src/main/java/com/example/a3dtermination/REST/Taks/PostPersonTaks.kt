@@ -11,7 +11,7 @@ class PostPersonTaks : AsyncTask<Personagem, Void, String>() {
         try {
             return ClientApi.criar().postPersonagem(params[0]!!)
         } catch (e: FeignException) {
-            return  e.toString()
+            return e.toString()
         }
     }
 }

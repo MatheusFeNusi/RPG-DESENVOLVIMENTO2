@@ -8,10 +8,10 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/app_notification"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/mont_extralight"/>
+        android:fontFamily="@font/mont_extralight"
+        android:gravity="center_horizontal"
+        android:text="@string/app_notification" />
 
 </LinearLayout>
