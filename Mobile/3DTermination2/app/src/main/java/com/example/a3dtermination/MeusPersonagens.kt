@@ -13,6 +13,7 @@ import org.jetbrains.anko.startActivity
 class MeusPersonagens : AppCompatActivity() {
 
     var usuario_id = 0
+    var contLooby = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meus_personagens)
@@ -83,7 +84,16 @@ class MeusPersonagens : AppCompatActivity() {
     }
 
     fun entrarChat(v: View) {
-        startActivity<EntranceActivity>()
+        val nome = nomePersonagem.text.toString()
+        val telaLooby = Intent(this, EntranceActivity::class.java)
+        if (contLooby == 0) {
+            Toast.makeText(this, "Selecione um personagem para entrar no chat", Toast.LENGTH_SHORT)
+                .show()
+        } else {
+            telaLooby.putExtra("nomePerson", nome)
+            startActivity(telaLooby)
+        }
+        //startActivity<EntranceActivity>()
     }
 
     fun mostrarCard1(v: View) {
@@ -124,7 +134,6 @@ class MeusPersonagens : AppCompatActivity() {
                     if (nome_person === "." && vantagens === "." && desvantagens === "." && tipo_dano === "." &&
                         magia_conhecidas === "." && dinheiro_itens === "." && historia === "."
                     ) {
-                        card1.isEnabled = false
                         Toast.makeText(this, "Não existe personagem neste card", Toast.LENGTH_LONG)
                             .show()
                     } else {
@@ -135,6 +144,7 @@ class MeusPersonagens : AppCompatActivity() {
                         magiaConhecidaEditar.setText(magia_conhecidas)
                         dinheiroItensEditar.setText(dinheiro_itens)
                         historiaEditar.setText(historia)
+                        contLooby++
                     }
                 }
                 cont_card1++
@@ -142,6 +152,7 @@ class MeusPersonagens : AppCompatActivity() {
         }
         if (person1.size == 0) {
             Toast.makeText(this, "Não existe personagem neste card", Toast.LENGTH_LONG).show()
+            contLooby = 0
         }
     }
 
@@ -193,6 +204,7 @@ class MeusPersonagens : AppCompatActivity() {
                         magiaConhecidaEditar.setText(magia_conhecidas)
                         dinheiroItensEditar.setText(dinheiro_itens)
                         historiaEditar.setText(historia)
+                        contLooby++
                     }
                 }
                 cont_card2++
@@ -207,6 +219,7 @@ class MeusPersonagens : AppCompatActivity() {
             magiaConhecidaEditar.text = null
             dinheiroItensEditar.text = null
             historiaEditar.text = null
+            contLooby = 0
         }
     }
 
@@ -258,6 +271,7 @@ class MeusPersonagens : AppCompatActivity() {
                         magiaConhecidaEditar.setText(magia_conhecidas)
                         dinheiroItensEditar.setText(dinheiro_itens)
                         historiaEditar.setText(historia)
+                        contLooby++
                     }
                 }
                 cont_card3++
@@ -272,6 +286,7 @@ class MeusPersonagens : AppCompatActivity() {
             magiaConhecidaEditar.text = null
             dinheiroItensEditar.text = null
             historiaEditar.text = null
+            contLooby = 0
         }
     }
 
@@ -323,6 +338,7 @@ class MeusPersonagens : AppCompatActivity() {
                         magiaConhecidaEditar.setText(magia_conhecidas)
                         dinheiroItensEditar.setText(dinheiro_itens)
                         historiaEditar.setText(historia)
+                        contLooby++
                     }
                 }
                 cont_card4++
@@ -337,6 +353,7 @@ class MeusPersonagens : AppCompatActivity() {
             magiaConhecidaEditar.text = null
             dinheiroItensEditar.text = null
             historiaEditar.text = null
+            contLooby = 0
         }
     }
 
@@ -388,7 +405,7 @@ class MeusPersonagens : AppCompatActivity() {
                         magiaConhecidaEditar.setText(magia_conhecidas)
                         dinheiroItensEditar.setText(dinheiro_itens)
                         historiaEditar.setText(historia)
-                        card5.isEnabled = true
+                        contLooby++
                     }
                 }
                 cont_card5++
@@ -403,6 +420,7 @@ class MeusPersonagens : AppCompatActivity() {
             magiaConhecidaEditar.text = null
             dinheiroItensEditar.text = null
             historiaEditar.text = null
+            contLooby = 0
         }
     }
 }

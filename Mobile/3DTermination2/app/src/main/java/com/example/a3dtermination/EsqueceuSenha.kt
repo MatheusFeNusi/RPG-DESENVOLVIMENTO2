@@ -59,7 +59,7 @@ class EsqueceuSenha : AppCompatActivity() {
                     val res =
                         PutUserTaks().execute(Usuario(id, nome_bd, Credenciais(email, novaSenha)))
                             .get()
-                    Toast.makeText(this, res, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Sucesso", Toast.LENGTH_SHORT).show()
                     startActivity(telaLogin)
                 }
             }

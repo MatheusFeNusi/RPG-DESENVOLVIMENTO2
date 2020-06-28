@@ -12,8 +12,8 @@ class PutUserTaks : AsyncTask<Usuario, Void, String>() {
             //Log.i("Put user: ", params[0]!!.toString())
             return ClientApi.criar().putUsuario(params[0]!!)
         } catch (e: FeignException) {
-            //Log.i("Put user err: ", e.toString())
-            return e.toString()
+            Log.i("Put user err: ", e.toString())
+            return null
         }
 
     }

@@ -15,6 +15,8 @@ class EntranceActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_entrance)
         button.setOnClickListener(this)
         mostrarFragment()
+        val nome = intent.extras?.getString("nomePerson")
+        userName.setText(nome)
     }
 
     fun mostrarFragment() {
